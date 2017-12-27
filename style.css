@@ -256,6 +256,65 @@ th {
 }
 
 /*--------------------------------------------------------------
+# Layout
+--------------------------------------------------------------*/
+.wrapper {
+	width: 100%;
+}
+
+header.site-header {
+	grid-area: header;
+}
+
+article.post {
+	grid-area: content;
+	max-width: 815px;
+	margin: 0 auto;
+}
+
+aside.widget-area {
+	grid-area: sidebar;
+	width: 100%;
+	background: #222;
+	display: flex;
+}
+
+footer.site-footer {
+	grid-area: footer;
+}
+
+.wrapper {
+	display: grid;
+	grid-gap: 20px;
+	grid-template-areas:
+			"header"
+			"content"
+			"sidebar"
+			"footer";
+}
+
+@media (min-width: 500px) {
+	.wrapper {
+		grid-template-columns: 1fr 3fr;
+		grid-template-areas:
+				"header  header"
+				"content content"
+				"sidebar sidebar"
+				"footer  footer";
+	}
+}
+@media (min-width: 700px) {
+	.wrapper {
+		grid-template-columns: 1fr 4fr 1fr;
+		grid-template-areas:
+				"header  header  header"
+				"content content content"
+				"sidebar sidebar sidebar"
+				"footer  footer  footer"
+	}
+}
+
+/*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
 body,
