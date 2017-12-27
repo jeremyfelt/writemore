@@ -117,6 +117,7 @@ add_action( 'widgets_init', 'writemore_widgets_init' );
  * Enqueue scripts and styles.
  */
 function writemore_scripts() {
+	wp_enqueue_style( 'writemore-fonts', 'https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,200i,300,300i,400,400i,600' );
 	wp_enqueue_style( 'writemore-style', get_stylesheet_uri() );
 
 	wp_enqueue_script( 'writemore-navigation', get_template_directory_uri() . '/js/navigation.js', array(), '20151215', true );
