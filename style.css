@@ -266,6 +266,10 @@ header.site-header {
 	grid-area: header;
 }
 
+nav.main-navigation {
+	grid-area: navigation;
+}
+
 article.post {
 	grid-area: content;
 	max-width: 815px;
@@ -288,6 +292,7 @@ footer.site-footer {
 	grid-gap: 20px;
 	grid-template-areas:
 			"header"
+			"navigation"
 			"content"
 			"sidebar"
 			"footer";
@@ -298,6 +303,7 @@ footer.site-footer {
 		grid-template-columns: 1fr 3fr;
 		grid-template-areas:
 				"header  header"
+				"navigation navigation"
 				"content content"
 				"sidebar sidebar"
 				"footer  footer";
@@ -308,7 +314,7 @@ footer.site-footer {
 		grid-template-columns: 1fr 4fr 1fr;
 		grid-template-areas:
 				"header  header  header"
-				"content content content"
+				"navigation content ."
 				"sidebar sidebar sidebar"
 				"footer  footer  footer"
 	}
@@ -407,6 +413,11 @@ html {
 body {
 	background: #fff;
 	/* Fallback for when there is no custom background color defined. */
+}
+
+article.post h1.entry-title {
+	line-height: 1;
+	margin-top: 0;
 }
 
 hr {
@@ -572,18 +583,15 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
-.main-navigation {
-	clear: both;
-	display: block;
-	float: left;
-	width: 100%;
-}
-
 .main-navigation ul {
 	display: none;
 	list-style: none;
 	margin: 0;
 	padding-left: 0;
+}
+
+.main-navigation .nav-menu {
+	margin-left: 4em;
 }
 
 .main-navigation ul ul {
@@ -615,7 +623,7 @@ a:hover, a:active {
 }
 
 .main-navigation li {
-	float: left;
+	font-size: 1.2em;
 	position: relative;
 }
 
