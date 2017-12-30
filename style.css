@@ -266,6 +266,34 @@ header.site-header {
 	grid-area: header;
 }
 
+
+.site-branding {
+	display: flex;
+	font-size: 2em;
+	margin-top: 1em;
+	margin-bottom: 1.75em;
+	line-height: 1;
+}
+
+.site-title {
+	align-self: flex-end;
+	margin: 0 1em 0 1.75em;
+	font-weight: 600;
+}
+
+h1.site-title {
+	font-size: 1.125em;
+	margin-left: 1.75em;
+}
+
+.site-description {
+	align-self: flex-end;
+	margin: 0 0 2px 0;
+	font-size: .575em;
+	font-weight: 300;
+	color: #222;
+}
+
 nav.main-navigation {
 	grid-area: navigation;
 }
@@ -578,6 +606,19 @@ a:focus {
 
 a:hover, a:active {
 	outline: 0;
+}
+
+.site-title a,
+.site-title a:visited {
+	color: #404040;
+	text-decoration: none;
+}
+
+.site-title a:hover,
+.site-title a:focus,
+.site-title a:active {
+	color: blue;
+	text-decoration: underline;
 }
 
 /*--------------------------------------------------------------
