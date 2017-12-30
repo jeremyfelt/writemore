@@ -52,6 +52,7 @@ html {
 
 body {
 	margin: 0;
+	overflow-x: hidden;
 }
 
 article,
@@ -263,9 +264,8 @@ th {
 }
 
 header.site-header {
-	grid-area: header;
+	grid-column: full;
 }
-
 
 .site-branding {
 	display: flex;
@@ -295,57 +295,37 @@ h1.site-title {
 }
 
 nav.main-navigation {
-	grid-area: navigation;
+	grid-column: gutter1;
 }
 
 article.post {
-	grid-area: content;
-	max-width: 815px;
+	grid-column: main;
 	margin: 0 auto;
 }
 
+.wp-block-image.alignfull {
+	margin-left: calc(-50vw + 50%);
+	margin-right: calc( -50vw + 50%);
+}
+
 aside.widget-area {
-	grid-area: sidebar;
+	grid-column: full;
 	width: 100%;
 	background: #222;
 	display: flex;
 }
 
 footer.site-footer {
-	grid-area: footer;
+	grid-column: full;
 }
 
 .wrapper {
 	display: grid;
 	grid-gap: 20px;
-	grid-template-areas:
-			"header"
-			"navigation"
-			"content"
-			"sidebar"
-			"footer";
-}
-
-@media (min-width: 500px) {
-	.wrapper {
-		grid-template-columns: 1fr 3fr;
-		grid-template-areas:
-				"header  header"
-				"navigation navigation"
-				"content content"
-				"sidebar sidebar"
-				"footer  footer";
-	}
-}
-@media (min-width: 700px) {
-	.wrapper {
-		grid-template-columns: 1fr 4fr 1fr;
-		grid-template-areas:
-				"header  header  header"
-				"navigation content ."
-				"sidebar sidebar sidebar"
-				"footer  footer  footer"
-	}
+	grid-template-columns: [full-start gutter1-start] 1fr
+	                       [gutter1-end main-start] 4fr
+	                       [main-end gutter2-start] 1fr
+	                       [gutter2-end full-end];
 }
 
 /*--------------------------------------------------------------
