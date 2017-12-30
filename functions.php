@@ -78,6 +78,13 @@ function writemore_setup() {
 		'flex-width'  => true,
 		'flex-height' => true,
 	) );
+
+	/**
+	 * Add theme support for specific Gutenberg options.
+	 */
+	add_theme_support( 'gutenberg', array(
+		'wide-images' => true,
+	) );
 }
 add_action( 'after_setup_theme', 'writemore_setup' );
 
