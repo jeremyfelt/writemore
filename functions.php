@@ -135,6 +135,18 @@ function writemore_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'writemore_scripts' );
 
+add_filter( 'previous_post_link', 'writemore_post_nav_link_text', 10, 5 );
+add_filter( 'next_post_link', 'writemore_post_nav_link_text', 10, 5 );
+function writemore_post_nav_link_text( $output, $format, $link, $post, $adjacent ) {
+	if ( 'next' === $adjacent ) {
+		$output = str_replace( '<div class="nav-next">', '<div class="nav-next">Next: ', $output );
+	} else if ( 'previous' === $adjacent ) {
+		$output = str_replace( '<div class="nav-previous">', '<div class="nav-previous">Previously: ', $output );
+	}
+
+	return $output;
+}
+
 /**
  * Custom template tags for this theme.
  */

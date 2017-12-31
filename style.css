@@ -311,7 +311,8 @@ h2.entry-title {
 	margin-top: 0;
 }
 
-.entry-footer {
+.entry-footer,
+.post-navigation {
 	background: #fbfbfb;
 	margin-left: calc(-50vw + 50%);
 	margin-right: calc(-50vw + 50%);
@@ -322,9 +323,17 @@ h2.entry-title {
 	padding-right: calc(50vw - 50%);
 }
 
+.post-navigation {
+	padding-top: 2.5em;
+}
+
+.single .entry-footer {
+	border-bottom: none;
+	padding-bottom: 0;
+}
+
 .entry-footer .cat-links {
 	display: block;
-	margin-bottom: .25em;
 }
 
 aside.widget-area {
@@ -448,6 +457,19 @@ big {
 	font-size: 1em;
 	color: #333;
 	font-weight: 300;
+}
+
+.post-navigation {
+	font-weight: 300;
+	color: #333;
+}
+
+.cc-copyright p {
+	font-size: 1em;
+	font-weight: 300;
+	color: #333;
+	max-width: 85ch;
+	margin-bottom: 0;
 }
 
 /*--------------------------------------------------------------
@@ -614,12 +636,9 @@ textarea {
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
-a {
-	color: royalblue;
-}
-
+a,
 a:visited {
-	color: purple;
+	color: #1e90ff;
 }
 
 a:hover, a:focus, a:active {
@@ -722,15 +741,13 @@ a:hover, a:active {
 }
 
 .comment-navigation .nav-previous,
-.posts-navigation .nav-previous,
-.post-navigation .nav-previous {
+.posts-navigation .nav-previous {
 	float: left;
 	width: 50%;
 }
 
 .comment-navigation .nav-next,
-.posts-navigation .nav-next,
-.post-navigation .nav-next {
+.posts-navigation .nav-next {
 	float: right;
 	text-align: right;
 	width: 50%;

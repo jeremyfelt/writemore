@@ -52,6 +52,18 @@
 
 	<footer class="entry-footer">
 		<?php writemore_entry_footer(); ?>
+
+		<?php
+		if ( is_singular( 'post' ) ) {
+			?>
+			<div class="cc-copyright">
+				<p>"<span xmlns:dct="http://purl.org/dc/terms/" href="http://purl.org/dc/dcmitype/Text" property="dct:title" rel="dct:type"><a xmlns:dct="http://purl.org/dc/terms/" href="<?php the_permalink(); ?>" rel="dct:source"><?php the_title(); ?></a></span>"
+				by <a xmlns:cc="http://creativecommons.org/ns#" href="https://jeremyfelt.com" property="cc:attributionName" rel="cc:attributionURL">Jeremy Felt</a>, unless otherwise expressly stated,
+				is licensed under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International License</a>.</p>
+			</div>
+			<?php
+		}
+		?>
 	</footer><!-- .entry-footer -->
 
 	<?php
