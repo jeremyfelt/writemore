@@ -20,7 +20,7 @@
 			<span class="sep"> | </span>
 			<?php
 				/* translators: 1: Theme name, 2: Theme author. */
-				printf( esc_html__( 'Theme: %1$s by %2$s.', 'writemore' ), 'writemore', '<a href="https://jeremyfelt.com">Jeremy Felt</a>' );
+				printf( esc_html__( 'Theme: %1$s by %2$s', 'writemore' ), '<a href="https://github.com/jeremyfelt/writemore">writemore</a>', '<a href="https://jeremyfelt.com">Jeremy Felt</a>' );
 			?>
 		</div><!-- .site-info -->
 	</footer><!-- #colophon -->

@@ -297,6 +297,10 @@ nav.main-navigation {
 	grid-column: gutter1;
 }
 
+main.site-main {
+	grid-column: main;
+}
+
 article.post {
 	grid-column: main;
 	margin: 0 auto 5em auto;
@@ -311,19 +315,35 @@ h2.entry-title {
 	margin-top: 0;
 }
 
-.entry-footer,
-.post-navigation {
-	background: #fbfbfb;
-	margin-left: calc(-50vw + 50%);
-	margin-right: calc(-50vw + 50%);
-	padding-left: calc(50vw - 50%);
-	padding-top: 1em;
-	padding-bottom: 1.25em;
+.entry-footer {
+	margin-left: -3em;
+	margin-right: -3em;
+	padding: 1em 3em 1.25em 3em;
 	border-bottom: 1px solid #ddd;
-	padding-right: calc(50vw - 50%);
 }
 
-.post-navigation {
+.post:last-of-type .entry-footer {
+	border-bottom: none;
+}
+
+.single .entry-footer,
+.single .post-navigation {
+	background: #fbfbfb;
+	margin-left: calc(-50vw - 125px + 50%);
+	margin-right: calc(-50vw - 125px + 50%);
+	padding-left: calc(50vw + 125px - 50%);
+	padding-top: 1em;
+	padding-bottom: 1.25em;
+	padding-right: calc(50vw + 125px - 50%);
+}
+
+.single .post-thumbnail {
+	margin-right: calc( (-1 * ((100vw / 2) - 125px ) ) + 50% );
+	margin-bottom: 2em;
+	max-width: 1200px;
+}
+
+.single .post-navigation {
 	padding-top: 2.5em;
 }
 
@@ -339,7 +359,6 @@ h2.entry-title {
 aside.widget-area {
 	grid-column: full;
 	width: 100%;
-	background: #222;
 	display: flex;
 }
 
@@ -347,12 +366,100 @@ footer.site-footer {
 	grid-column: full;
 }
 
+.site-footer {
+	height: 5em;
+	padding-top: 2em;
+	line-height: 1;
+	justify-self: center;
+	background: #333;
+	width: 100%;
+	color: #fff;
+	font-weight: 300;
+}
+
+.site-footer .site-info {
+	width: 640px;
+	margin: 0 auto;
+	text-align: center;
+}
+
 .wrapper {
 	display: grid;
-	grid-template-columns: [full-start gutter1-start] 1fr
+	grid-template-columns: [full-start gutter1-start] 250px
 	                       [gutter1-end main-start] 4fr
 	                       [main-end gutter2-start] 1fr
 	                       [gutter2-end full-end];
+}
+
+@media screen and (max-width: 640px) {
+	.site-branding {
+		flex-direction: column;
+		margin-bottom: .5em;
+	}
+
+	h1.site-title,
+	.site-title,
+	.site-description {
+		align-self: flex-start;
+		margin-left: 1rem;
+	}
+
+	.site-description {
+		margin-top: .25em;
+	}
+
+	nav.main-navigation {
+		grid-column: full;
+		margin-bottom: 1.5em;
+		margin-left: 1em;
+	}
+
+	nav.main-navigation.toggled .nav-menu {
+		margin-top: .5em;
+		list-style: circle;
+	}
+
+	.menu-toggle {
+		background: #fff;
+		font-size: 1em;
+		color: #1e90ff;
+	}
+
+	.toggled .menu-toggle {
+		background: #1e90ff;
+		color: #fff;
+		font-weight: 300;
+		border-color: skyblue dodgerblue #ccc;
+	}
+
+	main.site-main {
+		grid-column: full;
+	}
+
+	article.post {
+		grid-column: full;
+		margin: 0 auto 5em auto;
+		padding: 0 1em;
+	}
+
+	.archive .page-title {
+		margin-left: 1rem;
+	}
+
+	.site-footer {
+		padding-top: 1em;
+	}
+
+	.site-footer .site-info {
+		width: 100%;
+	}
+
+	.site-footer .site-info .sep {
+		display: block;
+		font-size: 0;
+		height: 1rem;
+		width: 100%;
+	}
 }
 
 /*--------------------------------------------------------------
@@ -402,10 +509,18 @@ h2.entry-title a:focus {
 	text-decoration: underline;
 }
 
+.entry-meta {
+	font-weight: 300;
+}
+
 p {
 	margin-bottom: 1.5em;
 	font-size: 1.125em;
 	font-weight: 400;
+}
+
+p,
+li {
 	max-width: 73ch;
 }
 
@@ -415,6 +530,9 @@ dfn, cite, em, i {
 
 blockquote {
 	margin: 0 1.5em;
+	font-style: italic;
+	border-left: 3px solid #ddd;
+	padding-left: 1em;
 }
 
 address {
@@ -437,6 +555,11 @@ code, kbd, tt, var {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 15px;
 	font-size: 0.9375rem;
+}
+
+code {
+	background: #f6f6f6;
+	padding: .125em;
 }
 
 abbr, acronym {
@@ -472,6 +595,11 @@ big {
 	margin-bottom: 0;
 }
 
+.archive .page-title {
+	margin-top: 0;
+	font-weight: 600;
+}
+
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
@@ -491,9 +619,11 @@ body {
 	/* Fallback for when there is no custom background color defined. */
 }
 
+h2.entry-title,
 article.post h1.entry-title {
 	line-height: 1;
 	margin-top: 0;
+	max-width: 815px;
 }
 
 hr {
@@ -504,7 +634,8 @@ hr {
 }
 
 ul, ol {
-	margin: 0 0 1.5em 3em;
+	margin: 0 0 1.5em 0;
+	padding-left: 2em;
 }
 
 ul {
@@ -515,10 +646,14 @@ ol {
 	list-style: decimal;
 }
 
+li {
+	padding-bottom: .33em;
+}
+
 li > ul,
 li > ol {
 	margin-bottom: 0;
-	margin-left: 1.5em;
+	margin-left: .5em;
 }
 
 dt {
@@ -1009,4 +1144,53 @@ object {
 
 .gallery-caption {
 	display: block;
+}
+
+
+.widget-area {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #eee;
+	justify-content: center;
+}
+.widget-area section {
+	width: calc(100vw/3);
+	padding: 0 1em;
+}
+
+.widget {
+	color: #333;
+}
+
+.widget_search {
+	align-self: center;
+	text-align: center;
+}
+
+.widget_recent_entries {
+	font-size: 1em;
+}
+
+.widget ul {
+	list-style: none;
+	margin-left: 0;
+	padding-left: 0;
+}
+
+.widget_recent_entries li {
+	margin-bottom: .25em;
+}
+.widget_recent_entries .post-date {
+	font-weight: 300;
+	font-size: .9em;
+	padding-left: .5em;
+	color: #000;
+	font-style: italic;
+}
+
+.site-footer .site-info a {
+	font-weight: 400;
+	color: lightskyblue;
+}
+.site-footer .site-info a:hover {
+	color: #fff;
 }

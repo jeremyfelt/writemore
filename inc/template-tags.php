@@ -82,7 +82,6 @@ function writemore_entry_footer() {
 	}
 }
 
-if ( ! function_exists( 'writemore_post_thumbnail' ) ) :
 /**
  * Displays an optional post thumbnail.
  *
@@ -115,4 +114,3 @@ function writemore_post_thumbnail() {
 
 	<?php endif; // End is_singular().
 }
-endif;
