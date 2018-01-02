@@ -460,6 +460,14 @@ footer.site-footer {
 		padding: 0 1em;
 	}
 
+	.single .entry-footer,
+	.single .post-navigation {
+		margin-left: -1em;
+		margin-right: -1em;
+		padding-left: 1em;
+		padding-right: 1em;
+	}
+
 	.archive .page-title {
 		margin-left: 1rem;
 	}
