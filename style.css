@@ -383,6 +383,17 @@ footer.site-footer {
 	text-align: center;
 }
 
+.widget-area {
+	border-top: 1px solid #ddd;
+	border-bottom: 1px solid #eee;
+	justify-content: center;
+}
+
+.widget-area section {
+	width: calc(100vw/3);
+	padding: 0 1em;
+}
+
 .wrapper {
 	display: grid;
 	grid-template-columns: [full-start gutter1-start] 250px
@@ -392,6 +403,11 @@ footer.site-footer {
 }
 
 @media screen and (max-width: 640px) {
+	.wrapper {
+		display: grid;
+		grid-template-columns: [full-start] 100vw [full-end];
+	}
+
 	.site-branding {
 		flex-direction: column;
 		margin-bottom: .5em;
@@ -459,6 +475,16 @@ footer.site-footer {
 		font-size: 0;
 		height: 1rem;
 		width: 100%;
+	}
+
+	aside.widget-area {
+		flex-direction: column;
+	}
+
+	.widget-area section {
+		width: 100%;
+		padding: 0 1em;
+		margin: 1em 0 0 0;
 	}
 }
 
@@ -1144,17 +1170,6 @@ object {
 
 .gallery-caption {
 	display: block;
-}
-
-
-.widget-area {
-	border-top: 1px solid #ddd;
-	border-bottom: 1px solid #eee;
-	justify-content: center;
-}
-.widget-area section {
-	width: calc(100vw/3);
-	padding: 0 1em;
 }
 
 .widget {
