@@ -406,6 +406,7 @@ footer.site-footer {
 	.wrapper {
 		display: grid;
 		grid-template-columns: [full-start] 100vw [full-end];
+		width: 100vw;
 	}
 
 	.site-branding {
@@ -454,6 +455,7 @@ footer.site-footer {
 
 	article.post {
 		grid-column: full;
+		width: 100%;
 		margin: 0 auto 5em auto;
 		padding: 0 1em;
 	}
