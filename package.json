@@ -1,24 +1,26 @@
 {
-  "name": "writemore",
-  "version": "1.0.2",
-  "description": "A WordPress theme.",
-  "dependencies": {},
-  "devDependencies": {
-    "css-loader": "^3.2.0",
-    "postcss-cli": "^6.1.3",
-    "precss": "^4.0.0"
-  },
-  "scripts": {
-    "build-css": "postcss css/*.css -o style.css"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/jeremyfelt/writemore.git"
-  },
-  "author": "jeremyfelt",
-  "license": "GPL-2.0-only",
-  "bugs": {
-    "url": "https://github.com/jeremyfelt/writemore/issues"
-  },
-  "homepage": "https://github.com/jeremyfelt/writemore#readme"
+	"name": "writemore",
+	"version": "1.0.2",
+	"description": "A WordPress theme.",
+	"dependencies": {},
+	"devDependencies": {
+	  "css-loader": "^3.2.0",
+	  "postcss-cli": "^6.1.3",
+	  "precss": "^4.0.0",
+	  "stylelint": "^12.0.0"
+	},
+	"scripts": {
+	  "fix-css": "stylelint --fix css/*.css",
+	  "build-css": "postcss css/*.css -o style.css"
+	},
+	"repository": {
+	  "type": "git",
+	  "url": "git+https://github.com/jeremyfelt/writemore.git"
+	},
+	"author": "jeremyfelt",
+	"license": "GPL-2.0-only",
+	"bugs": {
+	  "url": "https://github.com/jeremyfelt/writemore/issues"
+	},
+	"homepage": "https://github.com/jeremyfelt/writemore#readme"
 }
