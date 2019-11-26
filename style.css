@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Jeremy Felt
 Author URI: https://jeremyfelt.com
 Description: A theme to encourage more writing.
-Version: 1.0.1
+Version: 1.0.2
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: writemore
@@ -1219,4 +1219,60 @@ object {
 }
 .site-footer .site-info a:hover {
 	color: #fff;
+}
+
+/*--------------------------------------------------------------
+## Custom styles entered into Customizer at some point.
+--------------------------------------------------------------*/
+.postid-11687 .post-thumbnail img,
+.post-11687 .post-thumbnail img {
+    max-width: 500px;
+}
+
+.postid-11711 .post-thumbnail img,
+.post-11711 .post-thumbnail img {
+	max-width: 800px;
+}
+
+.wp-block-image {
+    max-width: 73ch;
+}
+
+.wp-block-quote {
+    margin-left: .5em;
+    color: #333;
+}
+
+.wp-block-quote p {
+    font-size: 1em;
+}
+
+.wp-block-quote cite {
+    font-style: normal;
+}
+
+.wp-block-separator.is-style-dots {
+    max-width: 73ch;
+    margin-left: 0;
+}
+
+.entry-content .syntaxhighlighter table {
+    max-width: 73ch !important;
+    table-layout: fixed !important;
+}
+
+pre.wp-block-code {
+    white-space: pre-wrap;
+    white-space: -moz-pre-wrap;
+    white-space: -pre-wrap;
+    white-space: -o-pre-wrap;
+    word-wrap: break-word;
+    width: 800px;
+    max-width: 92vw;
+    padding: .75em;
+}
+
+pre.wp-block-code code {
+	font-family: monospace;
+	font-size: 1em;
 }
