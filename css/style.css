@@ -19,6 +19,7 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
+
 /*--------------------------------------------------------------
 >>> TABLE OF CONTENTS:
 ----------------------------------------------------------------
@@ -41,11 +42,13 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 	## Captions
 	## Galleries
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
 # Normalize
 --------------------------------------------------------------*/
+
 html {
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
 }
@@ -103,7 +106,7 @@ abbr[title] {
 
 b,
 strong {
-	font-weight: bold;
+	font-weight: 700;
 }
 
 dfn {
@@ -112,7 +115,7 @@ dfn {
 
 h1 {
 	font-size: 2em;
-	margin: 0.67em 0;
+	margin: .67em 0;
 }
 
 mark {
@@ -133,11 +136,11 @@ sup {
 }
 
 sup {
-	top: -0.5em;
+	top: -.5em;
 }
 
 sub {
-	bottom: -0.25em;
+	bottom: -.25em;
 }
 
 img {
@@ -230,7 +233,7 @@ input[type="search"]::-webkit-search-decoration {
 fieldset {
 	border: 1px solid #c0c0c0;
 	margin: 0 2px;
-	padding: 0.35em 0.625em 0.75em;
+	padding: .35em .625em .75em;
 }
 
 legend {
@@ -243,7 +246,7 @@ textarea {
 }
 
 optgroup {
-	font-weight: bold;
+	font-weight: 700;
 }
 
 table {
@@ -259,6 +262,7 @@ th {
 /*--------------------------------------------------------------
 # Layout
 --------------------------------------------------------------*/
+
 .wrapper {
 	width: 100%;
 }
@@ -287,7 +291,7 @@ h1.site-title {
 
 .site-description {
 	align-self: flex-end;
-	margin: 0 0 2px 0;
+	margin: 0 0 2px;
 	font-size: .575em;
 	font-weight: 300;
 	color: #222;
@@ -303,12 +307,12 @@ main.site-main {
 
 article.post {
 	grid-column: main;
-	margin: 0 auto 5em auto;
+	margin: 0 auto 5em;
 }
 
 .wp-block-image.alignfull {
 	margin-left: calc(-50vw + 50%);
-	margin-right: calc( -50vw + 50%);
+	margin-right: calc(-50vw + 50%);
 }
 
 h2.entry-title {
@@ -318,7 +322,7 @@ h2.entry-title {
 .entry-footer {
 	margin-left: -3em;
 	margin-right: -3em;
-	padding: 1em 3em 1.25em 3em;
+	padding: 1em 3em 1.25em;
 	border-bottom: 1px solid #ddd;
 }
 
@@ -338,7 +342,7 @@ h2.entry-title {
 }
 
 .single .post-thumbnail {
-	margin-right: calc( (-1 * ((100vw / 2) - 125px ) ) + 50% );
+	margin-right: calc((-1 * ((100vw / 2) - 125px ) ) + 50%);
 	margin-bottom: 2em;
 	max-width: 1200px;
 }
@@ -390,19 +394,21 @@ footer.site-footer {
 }
 
 .widget-area section {
-	width: calc(100vw/3);
+	width: calc(100vw / 3);
 	padding: 0 1em;
 }
 
 .wrapper {
 	display: grid;
-	grid-template-columns: [full-start gutter1-start] 250px
-	                       [gutter1-end main-start] 4fr
-	                       [main-end gutter2-start] 1fr
-	                       [gutter2-end full-end];
+	grid-template-columns:
+		[full-start gutter1-start] 250px
+		[gutter1-end main-start] 4fr
+		[main-end gutter2-start] 1fr
+		[gutter2-end full-end];
 }
 
 @media screen and (max-width: 640px) {
+
 	.wrapper {
 		display: grid;
 		grid-template-columns: [full-start] 100vw [full-end];
@@ -446,7 +452,7 @@ footer.site-footer {
 		background: #1e90ff;
 		color: #fff;
 		font-weight: 300;
-		border-color: skyblue dodgerblue #ccc;
+		border-color: #87ceeb #1e90ff #ccc;
 	}
 
 	main.site-main {
@@ -456,7 +462,7 @@ footer.site-footer {
 	article.post {
 		grid-column: full;
 		width: 100%;
-		margin: 0 auto 5em auto;
+		margin: 0 auto 5em;
 		padding: 0 1em;
 	}
 
@@ -495,13 +501,14 @@ footer.site-footer {
 	.widget-area section {
 		width: 100%;
 		padding: 0 1em;
-		margin: 1em 0 0 0;
+		margin: 1em 0 0;
 	}
 }
 
 /*--------------------------------------------------------------
 # Typography
 --------------------------------------------------------------*/
+
 body,
 button,
 input,
@@ -509,13 +516,18 @@ select,
 optgroup,
 textarea {
 	color: #222;
-	font-family: 'Source Sans Pro', sans-serif;
+	font-family: "Source Sans Pro", sans-serif;
 	font-size: 16px;
 	font-size: 1rem;
 	line-height: 1.5;
 }
 
-h1, h2, h3, h4, h5, h6 {
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
 	clear: both;
 }
 
@@ -542,7 +554,7 @@ h2.entry-title a:visited {
 
 h2.entry-title a:hover,
 h2.entry-title a:focus {
-	color: blue;
+	color: #00f;
 	text-decoration: underline;
 }
 
@@ -561,7 +573,10 @@ li {
 	max-width: 73ch;
 }
 
-dfn, cite, em, i {
+dfn,
+cite,
+em,
+i {
 	font-style: italic;
 }
 
@@ -580,7 +595,7 @@ pre {
 	background: #eee;
 	font-family: "Courier 10 Pitch", Courier, monospace;
 	font-size: 15px;
-	font-size: 0.9375rem;
+	font-size: .9375rem;
 	line-height: 1.6;
 	margin-bottom: 1.6em;
 	max-width: 100%;
@@ -588,10 +603,13 @@ pre {
 	padding: 1.6em;
 }
 
-code, kbd, tt, var {
+code,
+kbd,
+tt,
+var {
 	font-family: Monaco, Consolas, "Andale Mono", "DejaVu Sans Mono", monospace;
 	font-size: 15px;
-	font-size: 0.9375rem;
+	font-size: .9375rem;
 }
 
 code {
@@ -599,12 +617,14 @@ code {
 	padding: .125em;
 }
 
-abbr, acronym {
+abbr,
+acronym {
 	border-bottom: 1px dotted #666;
 	cursor: help;
 }
 
-mark, ins {
+mark,
+ins {
 	background: #fff9c0;
 	text-decoration: none;
 }
@@ -640,6 +660,7 @@ big {
 /*--------------------------------------------------------------
 # Elements
 --------------------------------------------------------------*/
+
 html {
 	box-sizing: border-box;
 }
@@ -647,12 +668,14 @@ html {
 *,
 *:before,
 *:after {
+
 	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
 	box-sizing: inherit;
 }
 
 body {
 	background: #fff;
+
 	/* Fallback for when there is no custom background color defined. */
 }
 
@@ -670,8 +693,9 @@ hr {
 	margin-bottom: 1.5em;
 }
 
-ul, ol {
-	margin: 0 0 1.5em 0;
+ul,
+ol {
+	margin: 0 0 1.5em;
 	padding-left: 2em;
 }
 
@@ -694,7 +718,7 @@ li > ol {
 }
 
 dt {
-	font-weight: bold;
+	font-weight: 700;
 }
 
 dd {
@@ -703,13 +727,16 @@ dd {
 
 img {
 	height: auto;
+
 	/* Make sure images are scaled correctly. */
 	max-width: 100%;
+
 	/* Adhere to container width. */
 }
 
 figure {
 	margin: 1em 0;
+
 	/* Extra wide images within figure tags don't overflow the content area. */
 }
 
@@ -721,6 +748,7 @@ table {
 /*--------------------------------------------------------------
 # Forms
 --------------------------------------------------------------*/
+
 button,
 input[type="button"],
 input[type="reset"],
@@ -729,9 +757,9 @@ input[type="submit"] {
 	border-color: #ccc #ccc #bbb;
 	border-radius: 3px;
 	background: #e6e6e6;
-	color: rgba(0, 0, 0, 0.8);
+	color: rgba(0, 0, 0, .8);
 	font-size: 12px;
-	font-size: 0.75rem;
+	font-size: .75rem;
 	line-height: 1;
 	padding: .6em 1em .4em;
 }
@@ -743,7 +771,8 @@ input[type="submit"]:hover {
 	border-color: #ccc #bbb #aaa;
 }
 
-button:active, button:focus,
+button:active,
+button:focus,
 input[type="button"]:active,
 input[type="button"]:focus,
 input[type="reset"]:active,
@@ -805,23 +834,28 @@ textarea {
 /*--------------------------------------------------------------
 # Navigation
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
 ## Links
 --------------------------------------------------------------*/
+
 a,
 a:visited {
 	color: #1e90ff;
 }
 
-a:hover, a:focus, a:active {
-	color: midnightblue;
+a:hover,
+a:focus,
+a:active {
+	color: #191970;
 }
 
 a:focus {
 	outline: thin dotted;
 }
 
-a:hover, a:active {
+a:hover,
+a:active {
 	outline: 0;
 }
 
@@ -834,13 +868,14 @@ a:hover, a:active {
 .site-title a:hover,
 .site-title a:focus,
 .site-title a:active {
-	color: blue;
+	color: #00f;
 	text-decoration: underline;
 }
 
 /*--------------------------------------------------------------
 ## Menus
 --------------------------------------------------------------*/
+
 .main-navigation ul {
 	display: none;
 	list-style: none;
@@ -853,7 +888,7 @@ a:hover, a:active {
 }
 
 .main-navigation ul ul {
-	box-shadow: 0 3px 3px rgba(0, 0, 0, 0.2);
+	box-shadow: 0 3px 3px rgba(0, 0, 0, .2);
 	float: left;
 	position: absolute;
 	top: 100%;
@@ -897,16 +932,20 @@ a:hover, a:active {
 }
 
 @media screen and (min-width: 37.5em) {
+
 	.menu-toggle {
 		display: none;
 	}
+
 	.main-navigation ul {
 		display: block;
 	}
 }
 
-.site-main .comment-navigation, .site-main
-.posts-navigation, .site-main
+.site-main .comment-navigation,
+.site-main
+.posts-navigation,
+.site-main
 .post-navigation {
 	margin: 0 0 1.5em;
 	overflow: hidden;
@@ -928,6 +967,7 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Accessibility
 --------------------------------------------------------------*/
+
 /* Text meant only for screen readers. */
 .screen-reader-text {
 	border: 0;
@@ -945,14 +985,14 @@ a:hover, a:active {
 .screen-reader-text:focus {
 	background-color: #f1f1f1;
 	border-radius: 3px;
-	box-shadow: 0 0 2px 2px rgba(0, 0, 0, 0.6);
+	box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
 	clip: auto !important;
 	clip-path: none;
 	color: #21759b;
 	display: block;
 	font-size: 14px;
-	font-size: 0.875rem;
-	font-weight: bold;
+	font-size: .875rem;
+	font-weight: 700;
 	height: auto;
 	left: 5px;
 	line-height: normal;
@@ -961,6 +1001,7 @@ a:hover, a:active {
 	top: 5px;
 	width: auto;
 	z-index: 100000;
+
 	/* Above WP toolbar. */
 }
 
@@ -972,6 +1013,7 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Alignments
 --------------------------------------------------------------*/
+
 .alignleft {
 	display: inline;
 	float: left;
@@ -994,6 +1036,7 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Clearings
 --------------------------------------------------------------*/
+
 .clear:before,
 .clear:after,
 .entry-content:before,
@@ -1023,8 +1066,10 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Widgets
 --------------------------------------------------------------*/
+
 .widget {
 	margin: 0 0 1.5em;
+
 	/* Make sure select elements fit in widgets. */
 }
 
@@ -1035,9 +1080,11 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Content
 --------------------------------------------------------------*/
+
 /*--------------------------------------------------------------
 ## Posts and pages
 --------------------------------------------------------------*/
+
 .sticky {
 	display: block;
 }
@@ -1064,6 +1111,7 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 ## Comments
 --------------------------------------------------------------*/
+
 .comment-content a {
 	word-wrap: break-word;
 }
@@ -1075,14 +1123,18 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Infinite scroll
 --------------------------------------------------------------*/
+
 /* Globally hidden elements when Infinite Scroll is supported and in use. */
 .infinite-scroll .posts-navigation,
 .infinite-scroll.neverending .site-footer {
+
 	/* Theme Footer (when set to scrolling) */
 	display: none;
 }
 
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+/* When Infinite Scroll has reached its end we need to re-display elements that
+   were hidden (via .neverending) before. */
+
 .infinity-end.neverending .site-footer {
 	display: block;
 }
@@ -1090,6 +1142,7 @@ a:hover, a:active {
 /*--------------------------------------------------------------
 # Media
 --------------------------------------------------------------*/
+
 .page-content .wp-smiley,
 .entry-content .wp-smiley,
 .comment-content .wp-smiley {
@@ -1114,6 +1167,7 @@ object {
 /*--------------------------------------------------------------
 ## Captions
 --------------------------------------------------------------*/
+
 .wp-caption {
 	margin-bottom: 1.5em;
 	max-width: 100%;
@@ -1126,7 +1180,7 @@ object {
 }
 
 .wp-caption .wp-caption-text {
-	margin: 0.8075em 0;
+	margin: .8075em 0;
 }
 
 .wp-caption-text {
@@ -1136,6 +1190,7 @@ object {
 /*--------------------------------------------------------------
 ## Galleries
 --------------------------------------------------------------*/
+
 .gallery {
 	margin-bottom: 1.5em;
 }
@@ -1205,6 +1260,7 @@ object {
 .widget_recent_entries li {
 	margin-bottom: .25em;
 }
+
 .widget_recent_entries .post-date {
 	font-weight: 300;
 	font-size: .9em;
@@ -1215,8 +1271,9 @@ object {
 
 .site-footer .site-info a {
 	font-weight: 400;
-	color: lightskyblue;
+	color: #87cefa;
 }
+
 .site-footer .site-info a:hover {
 	color: #fff;
 }
@@ -1224,9 +1281,10 @@ object {
 /*--------------------------------------------------------------
 ## Custom styles entered into Customizer at some point.
 --------------------------------------------------------------*/
+
 .postid-11687 .post-thumbnail img,
 .post-11687 .post-thumbnail img {
-    max-width: 500px;
+	max-width: 500px;
 }
 
 .postid-11711 .post-thumbnail img,
@@ -1235,41 +1293,41 @@ object {
 }
 
 .wp-block-image {
-    max-width: 73ch;
+	max-width: 73ch;
 }
 
 .wp-block-quote {
-    margin-left: .5em;
-    color: #333;
+	margin-left: .5em;
+	color: #333;
 }
 
 .wp-block-quote p {
-    font-size: 1em;
+	font-size: 1em;
 }
 
 .wp-block-quote cite {
-    font-style: normal;
+	font-style: normal;
 }
 
 .wp-block-separator.is-style-dots {
-    max-width: 73ch;
-    margin-left: 0;
+	max-width: 73ch;
+	margin-left: 0;
 }
 
 .entry-content .syntaxhighlighter table {
-    max-width: 73ch !important;
-    table-layout: fixed !important;
+	max-width: 73ch !important;
+	table-layout: fixed !important;
 }
 
 pre.wp-block-code {
-    white-space: pre-wrap;
-    white-space: -moz-pre-wrap;
-    white-space: -pre-wrap;
-    white-space: -o-pre-wrap;
-    word-wrap: break-word;
-    width: 800px;
-    max-width: 92vw;
-    padding: .75em;
+	white-space: pre-wrap;
+	white-space: -moz-pre-wrap;
+	white-space: -pre-wrap;
+	white-space: -o-pre-wrap;
+	word-wrap: break-word;
+	width: 800px;
+	max-width: 92vw;
+	padding: .75em;
 }
 
 pre.wp-block-code code {
