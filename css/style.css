@@ -106,7 +106,7 @@ abbr[title] {
 
 b,
 strong {
-	font-weight: bold;
+	font-weight: 700;
 }
 
 dfn {
@@ -246,7 +246,7 @@ textarea {
 }
 
 optgroup {
-	font-weight: bold;
+	font-weight: 700;
 }
 
 table {
@@ -394,7 +394,7 @@ footer.site-footer {
 }
 
 .widget-area section {
-	width: calc(100vw/3);
+	width: calc(100vw / 3);
 	padding: 0 1em;
 }
 
@@ -452,7 +452,7 @@ footer.site-footer {
 		background: #1e90ff;
 		color: #fff;
 		font-weight: 300;
-		border-color: skyblue dodgerblue #ccc;
+		border-color: #87ceeb #1e90ff #ccc;
 	}
 
 	main.site-main {
@@ -554,7 +554,7 @@ h2.entry-title a:visited {
 
 h2.entry-title a:hover,
 h2.entry-title a:focus {
-	color: blue;
+	color: #00f;
 	text-decoration: underline;
 }
 
@@ -718,7 +718,7 @@ li > ol {
 }
 
 dt {
-	font-weight: bold;
+	font-weight: 700;
 }
 
 dd {
@@ -847,7 +847,7 @@ a:visited {
 a:hover,
 a:focus,
 a:active {
-	color: midnightblue;
+	color: #191970;
 }
 
 a:focus {
@@ -868,7 +868,7 @@ a:active {
 .site-title a:hover,
 .site-title a:focus,
 .site-title a:active {
-	color: blue;
+	color: #00f;
 	text-decoration: underline;
 }
 
@@ -992,7 +992,7 @@ a:active {
 	display: block;
 	font-size: 14px;
 	font-size: .875rem;
-	font-weight: bold;
+	font-weight: 700;
 	height: auto;
 	left: 5px;
 	line-height: normal;
@@ -1132,7 +1132,9 @@ a:active {
 	display: none;
 }
 
-/* When Infinite Scroll has reached its end we need to re-display elements that were hidden (via .neverending) before. */
+/* When Infinite Scroll has reached its end we need to re-display elements that
+   were hidden (via .neverending) before. */
+
 .infinity-end.neverending .site-footer {
 	display: block;
 }
@@ -1269,7 +1271,7 @@ object {
 
 .site-footer .site-info a {
 	font-weight: 400;
-	color: lightskyblue;
+	color: #87cefa;
 }
 
 .site-footer .site-info a:hover {
