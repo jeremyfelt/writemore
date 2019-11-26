@@ -45,7 +45,7 @@
     "keyframe-declaration-no-important": true,
     "length-zero-no-unit": true,
     "max-empty-lines": 2,
-    "max-line-length": [ 80, {
+    "max-line-length": [ 200, {
       "ignore": "non-comments",
     } ],
     "media-feature-colon-space-after": "always",
