@@ -569,7 +569,8 @@ p {
 }
 
 p,
-li {
+li,
+blockquote {
 	max-width: 73ch;
 }
 
