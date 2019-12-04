@@ -4,7 +4,7 @@ Theme URI: http://underscores.me/
 Author: Jeremy Felt
 Author URI: https://jeremyfelt.com
 Description: A theme to encourage more writing.
-Version: 1.0.4
+Version: 1.0.5
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: writemore
@@ -356,7 +356,8 @@ h2.entry-title {
 	padding-bottom: 0;
 }
 
-.entry-footer .cat-links {
+.entry-footer .cat-links,
+.entry-footer .tags-links {
 	display: block;
 }
 
