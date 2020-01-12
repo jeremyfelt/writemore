@@ -1366,3 +1366,7 @@ pre.wp-block-code code {
 	padding-left: 1em;
 	border-bottom: 0;
 }
+
+.reply {
+	font-size: .9em;
+}

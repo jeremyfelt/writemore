@@ -97,6 +97,11 @@ class Writemore_Comment_Walker extends Walker_Comment {
 		}
 
 		$url = get_comment_meta( $comment->comment_ID, 'webmention_source_url', true );
+
+		if ( '' === $url ) {
+			$url = get_comment_link( $comment, $args );
+		}
+
 		$author_url = get_comment_meta( $comment->comment_ID, 'semantic_linkbacks_author_url', true );
 
 		if ( '' === $author_url ) {
@@ -121,33 +126,23 @@ class Writemore_Comment_Walker extends Walker_Comment {
 
 		<article id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 			<footer class="comment-meta">
+				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
 				<div class="comment-author vcard">
 					<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
-
-					<?php
-						printf(
-							/* translators: %s: Comment author link. */
-							__( '%s <span class="says">says:</span>' ),
-							sprintf( '<span class="fn">%s</span>', get_comment_author_link( $comment ) )
-						);
-					?>
-				</div><!-- .comment-author -->
-
-				<div class="comment-metadata">
-					<a href="<?php echo esc_url( get_comment_link( $comment, $args ) ); ?>">
-						<time datetime="<?php comment_time( 'c' ); ?>">
-							<?php
-								/* translators: 1: Comment date, 2: Comment time. */
-								printf( __( '%1$s at %2$s' ), get_comment_date( '', $comment ), get_comment_time() );
-							?>
-						</time>
-					</a>
-					<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
-				</div><!-- .comment-metadata -->
+					<span>
+						<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
+						replied on
+						<a class="u-url" href="<?php echo esc_url( $url ); ?>">
+							<time datetime="<?php comment_time( 'c' ); ?>" class="dt-published"><?php echo get_comment_date( 'F j, Y', $comment ); ?> at <?php echo get_comment_time(); ?></time>
+						</a>
+						<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+					</span>
+				</div>
 
 				<?php if ( '0' == $comment->comment_approved ) : ?>
 				<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
 				<?php endif; ?>
+
 			</footer><!-- .comment-meta -->
 
 			<div class="comment-content">
@@ -164,6 +159,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 						'max_depth' => $args['max_depth'],
 						'before'    => '<div class="reply">',
 						'after'     => '</div>',
+						'reply_text' => 'Reply to ' . esc_html( $comment->comment_author ),
 					)
 				)
 			);
