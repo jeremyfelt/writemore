@@ -96,16 +96,34 @@ class Writemore_Comment_Walker extends Walker_Comment {
 			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.' );
 		}
 
+		$url = get_comment_meta( $comment->comment_ID, 'webmention_source_url', true );
+		$author_url = get_comment_meta( $comment->comment_ID, 'semantic_linkbacks_author_url', true );
+
+		if ( '' === $author_url ) {
+			$author_url = $url;
+		}
+
+		// An avatar URL is stored with a Webmention, even if an email is not provided. Look
+		// there before trying to build an avatar based on a comment's email.
+		$avatar = get_comment_meta( $comment->comment_ID, 'avatar', true );
+
+		// If there is no stored avatar URL, use WordPress to make default assumptions.
+		if ( '' === $avatar ) {
+			$avatar = get_avatar_url( $comment );
+		}
+
+		// And if there is still nothing, use the theme's mystery person.
+		if ( '' === $avatar ) {
+			$avatar = get_template_directory_uri() . '/images/mystery-person.png';
+		}
+
 		?>
 
 		<article id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 			<footer class="comment-meta">
 				<div class="comment-author vcard">
-					<?php
-					if ( 0 != $args['avatar_size'] ) {
-						echo get_avatar( $comment, $args['avatar_size'] );
-					}
-					?>
+					<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
+
 					<?php
 						printf(
 							/* translators: %s: Comment author link. */
