@@ -155,22 +155,24 @@ if ( post_password_required() ) {
 		<h3>Replies</h3>
 
 		<?php
-			// Retrieve only the comments classified as replies.
-			$comments = get_comments( array(
-				'comment__in' => $typed_comments['reply'],
-			) );
 
-			wp_list_comments( array(
-				'walker' => new Writemore_Comment_Walker(),
-				'style' => 'div',
-				'format' => 'html5',
-			), $comments );
+		// Retrieve only the comments classified as replies.
+		$comments = get_comments( array(
+			'comment__in' => $typed_comments['reply'],
+		) );
+
+		wp_list_comments( array(
+			'walker' => new Writemore_Comment_Walker(),
+			'style' => 'div',
+			'format' => 'html5',
+		), $comments );
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
-		if ( ! comments_open() ) : ?>
+		if ( ! comments_open() ) {
+			?>
 			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'writemore' ); ?></p>
-		<?php
-		endif;
+			<?php
+		}
 
 	endif; // Check for have_comments().
 
