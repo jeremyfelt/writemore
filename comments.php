@@ -78,8 +78,7 @@ if ( post_password_required() ) {
 		?>
 
 		<!-- Is there a semantic way to group a collection of reactions? -->
-		<div class="webmention-likes">
-			<h3>Likes</h3>
+		<h3>Likes</h3>
 		<?php
 
 		foreach ( $typed_comments['like'] as $like_id ) {
@@ -117,10 +116,8 @@ if ( post_password_required() ) {
 		}
 
 		?>
-		</div>
 
-		<div class="webmention-mentions">
-			<h3>Mentions</h3>
+		<h3>Mentions</h3>
 		<?php
 		foreach ( $typed_comments['mention'] as $mention_id ) {
 			$mention = get_comment( $mention_id );
@@ -154,20 +151,17 @@ if ( post_password_required() ) {
 		}
 
 		?>
-		</div>
 
-		<div class="webmention-replies">
-			<h3>Replies</h3>
+		<h3>Replies</h3>
 
-			<ol class="comment-list">
-			<?php
-				$comments = get_comments( array(
-					'comment__in' => $typed_comments['reply'],
-				) );
-				wp_list_comments( array(), $comments );
-			?>
-			</ol><!-- .comment-list -->
-		</div>
+		<ol class="comment-list">
+		<?php
+			$comments = get_comments( array(
+				'comment__in' => $typed_comments['reply'],
+			) );
+			wp_list_comments( array(), $comments );
+		?>
+		</ol><!-- .comment-list -->
 
 		<?php
 
