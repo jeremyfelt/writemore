@@ -47,8 +47,6 @@ if ( post_password_required() ) {
 
 		<?php
 
-		the_comments_navigation();
-
 		$comments = get_comments( array(
 			'post_id' => get_the_ID(),
 			'status' => 1,
@@ -171,7 +169,7 @@ if ( post_password_required() ) {
 			</ol><!-- .comment-list -->
 		</div>
 
-		<?php the_comments_navigation();
+		<?php
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) : ?>
