@@ -1337,12 +1337,15 @@ pre.wp-block-code code {
 	font-size: 1em;
 }
 
+.p-mention,
 .p-like {
 	display: flex;
 	align-items: center;
 	margin-bottom: .5em;
 }
 
+.p-mention img,
 .p-like img {
 	margin-right: .5em;
+	min-width: 40px;
 }
