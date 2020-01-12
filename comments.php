@@ -81,7 +81,7 @@ if ( post_password_required() ) {
 
 		<!-- Is there a semantic way to group a collection of reactions? -->
 		<div class="webmention-likes">
-			<h3>Liked</h3>
+			<h3>Likes</h3>
 		<?php
 
 		foreach ( $typed_comments['like'] as $like_id ) {
@@ -122,7 +122,7 @@ if ( post_password_required() ) {
 		</div>
 
 		<div class="webmention-mentions">
-			<h3>Mentioned by:</h3>
+			<h3>Mentions</h3>
 			<ul>
 		<?php
 		foreach ( $typed_comments['mention'] as $mention_id ) {
