@@ -94,25 +94,25 @@ if ( post_password_required() ) {
 				$author_url = $url;
 			}
 
+			if ( '' === $avatar ) {
+				$avatar = get_template_directory_uri() . '/images/mystery-person.png';
+			}
+
 			?>
 
 			<!-- Markup inspired by https://indieweb.org/like -->
 			<article class="p-like h-cite">
-				<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>">
-				<?php
-					if ( '' !== $avatar ) {
-						?>
-						<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
-						<img src="<?php echo esc_url( $avatar ); ?>" width=50 alt="" loading="lazy" />
-						<?php
-					}
+				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
+				<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
-					echo esc_html( $like->comment_author );
-				?></a>
-				liked this on
-				<a class="u-url" href="<?php echo esc_url( $url ); ?>">
-					<time class="dt-published"><?php echo get_comment_date( 'F j, Y \a\t g:i a', $like ); ?></time>
-				</a>
+				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
+				<span>
+					<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $like->comment_author ); ?></a>
+					liked this on
+					<a class="u-url" href="<?php echo esc_url( $url ); ?>">
+						<time class="dt-published"><?php echo get_comment_date( 'F j, Y \a\t g:i a', $like ); ?></time>
+					</a>
+				</span>
 			</article>
 
 			<?php
