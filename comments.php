@@ -79,25 +79,46 @@ if ( post_password_required() ) {
 
 		?>
 
+		<!-- Is there a semantic way to group a collection of reactions? -->
 		<div class="webmention-likes">
-			<h3>Liked by:</h3>
-			<ul>
+			<h3>Liked</h3>
 		<?php
+
 		foreach ( $typed_comments['like'] as $like_id ) {
 			$like = get_comment( $like_id );
 			$url = get_comment_meta( $like_id, 'webmention_source_url', true );
 			$avatar = get_comment_meta( $like_id, 'avatar', true );
+			$author_url = get_comment_meta( $like_id, 'semantic_linkbacks_author_url', true );
+
+			if ( '' === $author_url ) {
+				$author_url = $url;
+			}
 
 			?>
-				<li>
-					<img alt="" width=50 src="<?php echo esc_url( $avatar ); ?>" />
-					<a href="<?php echo esc_url( $url ); ?>" ><?php echo esc_html( $like->comment_author ); ?></a>
-				</li>
+
+			<!-- Markup inspired by https://indieweb.org/like -->
+			<article class="p-like h-cite">
+				<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>">
+				<?php
+					if ( '' !== $avatar ) {
+						?>
+						<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
+						<img src="<?php echo esc_url( $avatar ); ?>" width=50 alt="" loading="lazy" />
+						<?php
+					}
+
+					echo esc_html( $like->comment_author );
+				?></a>
+				liked this on
+				<a class="u-url" href="<?php echo esc_url( $url ); ?>">
+					<time class="dt-published"><?php echo get_comment_date( 'F j, Y \a\t g:i a', $like ); ?></time>
+				</a>
+			</article>
+
 			<?php
 		}
 
 		?>
-			</ul>
 		</div>
 
 		<div class="webmention-mentions">
