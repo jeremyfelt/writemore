@@ -1337,6 +1337,7 @@ pre.wp-block-code code {
 	font-size: 1em;
 }
 
+.comment-author,
 .p-mention,
 .p-like {
 	display: flex;
@@ -1344,8 +1345,24 @@ pre.wp-block-code code {
 	margin-bottom: .5em;
 }
 
+.comment-author img,
 .p-mention img,
 .p-like img {
 	margin-right: .5em;
 	min-width: 40px;
+}
+
+.comment {
+	border-left: 2px solid #eee;
+	padding-left: 1em;
+	padding-bottom: 1em;
+	margin-top: 2em;
+}
+
+.comment > .comment {
+	margin-left: 0;
+	margin-top: 2em;
+	border-left: 1px solid #ccc;
+	padding-left: 1em;
+	border-bottom: 0;
 }
