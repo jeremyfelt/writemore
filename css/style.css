@@ -1336,3 +1336,13 @@ pre.wp-block-code code {
 	font-family: monospace;
 	font-size: 1em;
 }
+
+.p-like {
+	display: flex;
+	align-items: center;
+	margin-bottom: .5em;
+}
+
+.p-like img {
+	margin-right: .5em;
+}
