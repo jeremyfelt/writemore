@@ -45,16 +45,94 @@ if ( post_password_required() ) {
 			?>
 		</h2><!-- .comments-title -->
 
-		<?php the_comments_navigation(); ?>
+		<?php
 
-		<ol class="comment-list">
-			<?php
-				wp_list_comments( array(
-					'style'      => 'ol',
-					'short_ping' => true,
-				) );
+		the_comments_navigation();
+
+		$comments = get_comments( array(
+			'post_id' => get_the_ID(),
+			'status' => 1,
+			'fields' => 'ids',
+		) );
+
+		$typed_comments = array(
+			'reply' => array(),
+			'like'  => array(),
+			'mention' => array(),
+			'other' => array(),
+		);
+
+		foreach ( $comments as $comment_id ) {
+			$type = get_comment_meta( $comment_id, 'semantic_linkbacks_type', true );
+
+			if ( '' === $type ) {
+				$type = 'reply';
+			}
+
+			if ( isset( $typed_comments[ $type ] ) ) {
+				$typed_comments[ $type ][] = $comment_id;
+			} else {
+				$typed_comments['other'][] = $comment_id;
+			}
+
+		}
+
+		?>
+
+		<div class="webmention-likes">
+			<h3>Liked by:</h3>
+			<ul>
+		<?php
+		foreach ( $typed_comments['like'] as $like_id ) {
+			$like = get_comment( $like_id );
+			$url = get_comment_meta( $like_id, 'webmention_source_url', true );
+			$avatar = get_comment_meta( $like_id, 'avatar', true );
+
 			?>
-		</ol><!-- .comment-list -->
+				<li>
+					<img alt="" width=50 src="<?php echo esc_url( $avatar ); ?>" />
+					<a href="<?php echo esc_url( $url ); ?>" ><?php echo esc_html( $like->comment_author ); ?></a>
+				</li>
+			<?php
+		}
+
+		?>
+			</ul>
+		</div>
+
+		<div class="webmention-mentions">
+			<h3>Mentioned by:</h3>
+			<ul>
+		<?php
+		foreach ( $typed_comments['mention'] as $mention_id ) {
+			$mention = get_comment( $mention_id );
+			$url = get_comment_meta( $mention_id, 'webmention_source_url', true );
+			$avatar = get_comment_meta( $mention_id, 'avatar', true );
+
+			?>
+				<li>
+					<img alt="" width=50 src="<?php echo esc_url( $avatar ); ?>" />
+					<a href="<?php echo esc_url( $url ); ?>" ><?php echo esc_html( $mention->comment_author ); ?></a>
+				</li>
+			<?php
+		}
+
+		?>
+			</ul>
+		</div>
+
+		<div class="webmention-replies">
+			<h3>Replies</h3>
+
+			<ol class="comment-list">
+			<?php
+				$comments = get_comments( array(
+					'comment__in' => $typed_comments['reply'],
+				) );
+				wp_list_comments( array(), $comments );
+			?>
+			</ol><!-- .comment-list -->
+		</div>
 
 		<?php the_comments_navigation();
 
