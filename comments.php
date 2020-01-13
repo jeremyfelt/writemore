@@ -76,6 +76,8 @@ if ( post_password_required() ) {
 
 		}
 
+		if ( 0 < count( $typed_comments['like'] ) ) :
+
 		?>
 
 		<!-- Is there a semantic way to group a collection of reactions? -->
@@ -116,6 +118,9 @@ if ( post_password_required() ) {
 			<?php
 		}
 
+		endif;
+
+		if ( 0 < count( $typed_comments['bookmark'] ) ) :
 		?>
 
 		<h3>Bookmarks</h3>
@@ -155,6 +160,9 @@ if ( post_password_required() ) {
 			<?php
 		}
 
+		endif;
+
+		if ( 0 < count( $typed_comments['mention'] ) ) :
 		?>
 
 		<h3>Mentions</h3>
@@ -190,6 +198,9 @@ if ( post_password_required() ) {
 			<?php
 		}
 
+		endif;
+
+		if ( 0 < count( $typed_comments['reply'] ) ) :
 		?>
 
 		<h3>Replies</h3>
@@ -206,6 +217,8 @@ if ( post_password_required() ) {
 			'style' => 'div',
 			'format' => 'html5',
 		), $comments );
+
+		endif;
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) {
