@@ -71,7 +71,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 			return;
 		}
 
-		$output .= "</article><!-- #comment-## -->\n";
+		$output .= "</div><!-- #comment-## -->\n";
 	}
 
 	/**
@@ -123,48 +123,49 @@ class Writemore_Comment_Walker extends Walker_Comment {
 		}
 
 		?>
+		<div id="comment-153393" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+			<article id="div-comment-<?php comment_ID(); ?>" >
+				<footer class="comment-meta">
+					<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
+					<div class="comment-author vcard">
+						<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
-		<article id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
-			<footer class="comment-meta">
-				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
-				<div class="comment-author vcard">
-					<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
-					<span>
-						<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
-						replied on
-						<a class="u-url" href="<?php echo esc_url( $url ); ?>">
-							<time datetime="<?php comment_time( 'c' ); ?>" class="dt-published"><?php echo get_comment_date( 'F j, Y', $comment ); ?> at <?php echo get_comment_time(); ?></time>
-						</a>
-						<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
-					</span>
-				</div>
+						<span>
+							<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
+							replied on
+							<a class="u-url" href="<?php echo esc_url( $url ); ?>">
+								<time datetime="<?php comment_time( 'c' ); ?>" class="dt-published"><?php echo get_comment_date( 'F j, Y', $comment ); ?> at <?php echo get_comment_time(); ?></time>
+							</a>
+							<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
+						</span>
+					</div>
 
-				<?php if ( '0' == $comment->comment_approved ) : ?>
-				<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
-				<?php endif; ?>
+					<?php if ( '0' == $comment->comment_approved ) : ?>
+					<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
+					<?php endif; ?>
 
-			</footer><!-- .comment-meta -->
+				</footer><!-- .comment-meta -->
 
-			<div class="comment-content">
-				<?php comment_text(); ?>
-			</div><!-- .comment-content -->
+				<div class="comment-content">
+					<?php comment_text(); ?>
+				</div><!-- .comment-content -->
 
-			<?php
-			comment_reply_link(
-				array_merge(
-					$args,
-					array(
-						'add_below' => 'div-comment',
-						'depth'     => $depth,
-						'max_depth' => $args['max_depth'],
-						'before'    => '<div class="reply">',
-						'after'     => '</div>',
-						'reply_text' => 'Reply to ' . esc_html( $comment->comment_author ),
+				<?php
+				comment_reply_link(
+					array_merge(
+						$args,
+						array(
+							'add_below' => 'div-comment',
+							'depth'     => $depth,
+							'max_depth' => $args['max_depth'],
+							'before'    => '<div class="reply">',
+							'after'     => '</div>',
+							'reply_text' => 'Reply to ' . esc_html( $comment->comment_author ),
+						)
 					)
-				)
-			);
-			?>
-
+				);
+				?>
+			</article>
 		<?php
 	}
 }
