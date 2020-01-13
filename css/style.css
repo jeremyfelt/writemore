@@ -1,14 +1,13 @@
 /*!
 Theme Name: Write More Things
-Theme URI: http://underscores.me/
+Theme URI: http://github.com/jeremyfelt/writemore
 Author: Jeremy Felt
 Author URI: https://jeremyfelt.com
 Description: A theme to encourage more writing.
-Version: 1.0.5
+Version: 1.1.0
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: writemore
-Tags: custom-background, custom-logo, custom-menu, featured-images, threaded-comments, translation-ready
 
 This theme, like WordPress, is licensed under the GPL.
 Use it to make something cool, have fun, and share what you've learned with others.
@@ -1335,4 +1334,38 @@ pre.wp-block-code {
 pre.wp-block-code code {
 	font-family: monospace;
 	font-size: 1em;
+}
+
+.comment-author,
+.p-mention,
+.p-like {
+	display: flex;
+	align-items: center;
+	margin-bottom: .5em;
+}
+
+.comment-author img,
+.p-mention img,
+.p-like img {
+	margin-right: .5em;
+	min-width: 40px;
+}
+
+.comment {
+	border-left: 2px solid #eee;
+	padding-left: 1em;
+	padding-bottom: 1em;
+	margin-top: 2em;
+}
+
+.comment > .comment {
+	margin-left: 0;
+	margin-top: 2em;
+	border-left: 1px solid #ccc;
+	padding-left: 1em;
+	border-bottom: 0;
+}
+
+.reply {
+	font-size: .9em;
 }
