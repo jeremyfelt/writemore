@@ -55,6 +55,7 @@ if ( post_password_required() ) {
 
 		$typed_comments = array(
 			'reply' => array(),
+			'bookmark' => array(),
 			'like'  => array(),
 			'mention' => array(),
 			'other' => array(),
@@ -74,6 +75,8 @@ if ( post_password_required() ) {
 			}
 
 		}
+
+		if ( 0 < count( $typed_comments['like'] ) ) :
 
 		?>
 
@@ -115,6 +118,51 @@ if ( post_password_required() ) {
 			<?php
 		}
 
+		endif;
+
+		if ( 0 < count( $typed_comments['bookmark'] ) ) :
+		?>
+
+		<h3>Bookmarks</h3>
+		<?php
+
+		foreach ( $typed_comments['bookmark'] as $bookmark_id ) {
+			$like = get_comment( $bookmark_id );
+			$url = get_comment_meta( $bookmark_id, 'webmention_source_url', true );
+			$avatar = get_comment_meta( $bookmark_id, 'avatar', true );
+			$author_url = get_comment_meta( $bookmark_id, 'semantic_linkbacks_author_url', true );
+
+			if ( '' === $author_url ) {
+				$author_url = $url;
+			}
+
+			if ( '' === $avatar ) {
+				$avatar = get_template_directory_uri() . '/images/mystery-person.png';
+			}
+
+			?>
+
+			<!-- Markup inspired by https://indieweb.org/like -->
+			<article class="p-bookmark h-cite">
+				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
+				<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
+
+				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
+				<span>
+					<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $like->comment_author ); ?></a>
+					bookmarked this on
+					<a class="u-url" href="<?php echo esc_url( $url ); ?>">
+						<time class="dt-published"><?php echo get_comment_date( 'F j, Y \a\t g:i a', $like ); ?></time>
+					</a>
+				</span>
+			</article>
+
+			<?php
+		}
+
+		endif;
+
+		if ( 0 < count( $typed_comments['mention'] ) ) :
 		?>
 
 		<h3>Mentions</h3>
@@ -150,6 +198,9 @@ if ( post_password_required() ) {
 			<?php
 		}
 
+		endif;
+
+		if ( 0 < count( $typed_comments['reply'] ) ) :
 		?>
 
 		<h3>Replies</h3>
@@ -166,6 +217,8 @@ if ( post_password_required() ) {
 			'style' => 'div',
 			'format' => 'html5',
 		), $comments );
+
+		endif;
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
 		if ( ! comments_open() ) {

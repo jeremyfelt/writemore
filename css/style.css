@@ -1337,6 +1337,7 @@ pre.wp-block-code code {
 }
 
 .comment-author,
+.p-bookmark,
 .p-mention,
 .p-like {
 	display: flex;
@@ -1345,6 +1346,7 @@ pre.wp-block-code code {
 }
 
 .comment-author img,
+.p-bookmark img,
 .p-mention img,
 .p-like img {
 	margin-right: .5em;
