@@ -25,25 +25,7 @@ if ( post_password_required() ) {
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
-		<h2 class="comments-title">
-			<?php
-			$comment_count = get_comments_number();
-			if ( 1 === $comment_count ) {
-				printf(
-					/* translators: 1: title. */
-					esc_html_e( 'One reaction on &ldquo;%1$s&rdquo;', 'writemore' ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			} else {
-				printf( // WPCS: XSS OK.
-					/* translators: 1: comment count number, 2: title. */
-					esc_html( _nx( '%1$s reactions on &ldquo;%2$s&rdquo;', '%1$s reactions on &ldquo;%2$s&rdquo;', $comment_count, 'comments title', 'writemore' ) ),
-					number_format_i18n( $comment_count ),
-					'<span>' . get_the_title() . '</span>'
-				);
-			}
-			?>
-		</h2><!-- .comments-title -->
+		<h2 class="comments-title">Reactions on &ldquo;<?php echo get_the_title(); ?>&rdquo;</h2>
 
 		<?php
 
