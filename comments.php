@@ -68,6 +68,11 @@ if ( post_password_required() ) {
 				$type = 'reply';
 			}
 
+			// Mirror "favorite" to the "like" type.
+			if ( 'favorite' === $type ) {
+				$type = 'like';
+			}
+
 			// Leave "read" actions as private for now.
 			if ( 'read' === $type ) {
 				continue;
