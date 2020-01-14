@@ -68,6 +68,11 @@ if ( post_password_required() ) {
 				$type = 'reply';
 			}
 
+			// Leave "read" actions as private for now.
+			if ( 'read' === $type ) {
+				continue;
+			}
+
 			if ( isset( $typed_comments[ $type ] ) ) {
 				$typed_comments[ $type ][] = $comment_id;
 			} else {
