@@ -61,6 +61,20 @@ if ( post_password_required() ) {
 			'other' => array(),
 		);
 
+		$skip_actions = array(
+			'repost',
+			'tag',
+			'rsvp:yes',
+			'rsvp:no',
+			'rsvp:maybe',
+			'rsvp:interested',
+			'invited',
+			'listen',
+			'read',
+			'watch',
+			'follow',
+		);
+
 		foreach ( $comments as $comment_id ) {
 			$type = get_comment_meta( $comment_id, 'semantic_linkbacks_type', true );
 
@@ -73,17 +87,12 @@ if ( post_password_required() ) {
 				$type = 'like';
 			}
 
-			// Leave "read" actions as private for now.
-			if ( 'read' === $type ) {
+			// Skip the actions that aren't handled.
+			if ( in_array( $type, $skip_actions, true ) ) {
 				continue;
 			}
 
-			if ( isset( $typed_comments[ $type ] ) ) {
-				$typed_comments[ $type ][] = $comment_id;
-			} else {
-				$typed_comments['other'][] = $comment_id;
-			}
-
+			$typed_comments[ $type ][] = $comment_id;
 		}
 
 		if ( 0 < count( $typed_comments['like'] ) ) :
