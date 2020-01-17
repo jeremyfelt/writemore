@@ -123,7 +123,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 		}
 
 		?>
-		<div id="comment-153393" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+		<div id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
 			<article id="div-comment-<?php comment_ID(); ?>" >
 				<footer class="comment-meta">
 					<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
