@@ -131,7 +131,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 						<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
 						<span>
-							<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
+							<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
 							replied on
 							<a class="u-url" href="<?php echo esc_url( $url ); ?>">
 								<time datetime="<?php comment_time( 'c' ); ?>" class="dt-published"><?php echo get_comment_date( 'F j, Y', $comment ); ?> at <?php echo get_comment_time(); ?></time>
