@@ -90,6 +90,7 @@ if ( post_password_required() ) {
 			$url = get_comment_meta( $like_id, 'webmention_source_url', true );
 			$avatar = get_comment_meta( $like_id, 'avatar', true );
 			$author_url = get_comment_meta( $like_id, 'semantic_linkbacks_author_url', true );
+			$type = get_comment_meta( $comment_id, 'semantic_linkbacks_type', true );
 
 			if ( '' === $author_url ) {
 				$author_url = $url;
@@ -99,10 +100,17 @@ if ( post_password_required() ) {
 				$avatar = get_template_directory_uri() . '/images/mystery-person.png';
 			}
 
+			$u_class = 'u-like';
+
+			// Even though favorites are classified as likes, use the correct markup.
+			if ( 'favorite' === $type ) {
+				$u_class = 'u-favorite';
+			}
+
 			?>
 
 			<!-- Markup inspired by https://indieweb.org/like -->
-			<article class="u-like h-cite">
+			<article class="<?php echo $u_class; ?> h-cite">
 				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
 				<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
