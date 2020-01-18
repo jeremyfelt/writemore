@@ -56,7 +56,16 @@ function remove_comment_classes( $classes, $class, $comment_id, $comment, $post_
 
 	// Re-add the classes that should always be there.
 	$classes[] = 'u-comment';
-	$classes[] = 'h-cite';
+
+	$protocol = get_comment_meta( $comment_id, 'protocol', true );
+
+	// If the comment originated somewhere else, mark it as a citation. If it originated
+	// on this site, mark it as an entry.
+	if ( '' === $comment->comment_type && 'webmention' !== $protocol ) {
+		$classes[] = 'h-entry';
+	} else {
+		$classes[] = 'h-cite';
+	}
 
 	return $classes;
 }
