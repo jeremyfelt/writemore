@@ -102,7 +102,7 @@ if ( post_password_required() ) {
 			?>
 
 			<!-- Markup inspired by https://indieweb.org/like -->
-			<article class="p-like h-cite">
+			<article class="u-like h-cite">
 				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
 				<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
