@@ -191,7 +191,7 @@ if ( post_password_required() ) {
 			}
 			?>
 
-			<article class="p-mention h-cite">
+			<article class="u-mention h-cite">
 				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
 				<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
