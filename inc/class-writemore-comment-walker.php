@@ -146,7 +146,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 
 				</footer><!-- .comment-meta -->
 
-				<div class="p-content">
+				<div class="e-content">
 					<?php
 						// This is hilarious, but I'm feeling lazy. Replace all single line breaks in a
 						// comment with a double linke break so that wpautop() uses paragraph tags instead
