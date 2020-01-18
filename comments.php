@@ -90,6 +90,7 @@ if ( post_password_required() ) {
 			$url = get_comment_meta( $like_id, 'webmention_source_url', true );
 			$avatar = get_comment_meta( $like_id, 'avatar', true );
 			$author_url = get_comment_meta( $like_id, 'semantic_linkbacks_author_url', true );
+			$type = get_comment_meta( $comment_id, 'semantic_linkbacks_type', true );
 
 			if ( '' === $author_url ) {
 				$author_url = $url;
@@ -99,16 +100,23 @@ if ( post_password_required() ) {
 				$avatar = get_template_directory_uri() . '/images/mystery-person.png';
 			}
 
+			$u_class = 'u-like';
+
+			// Even though favorites are classified as likes, use the correct markup.
+			if ( 'favorite' === $type ) {
+				$u_class = 'u-favorite';
+			}
+
 			?>
 
 			<!-- Markup inspired by https://indieweb.org/like -->
-			<article class="p-like h-cite">
+			<article class="<?php echo $u_class; ?> h-cite">
 				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
 				<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
 				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
 				<span>
-					<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $like->comment_author ); ?></a>
+					<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $like->comment_author ); ?></a>
 					liked this on
 					<a class="u-url" href="<?php echo esc_url( $url ); ?>">
 						<time class="dt-published"><?php echo get_comment_date( 'F j, Y \a\t g:i a', $like ); ?></time>
@@ -144,13 +152,13 @@ if ( post_password_required() ) {
 			?>
 
 			<!-- Markup inspired by https://indieweb.org/like -->
-			<article class="p-bookmark h-cite">
+			<article class="u-bookmark h-cite">
 				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
 				<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
 				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
 				<span>
-					<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $like->comment_author ); ?></a>
+					<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $like->comment_author ); ?></a>
 					bookmarked this on
 					<a class="u-url" href="<?php echo esc_url( $url ); ?>">
 						<time class="dt-published"><?php echo get_comment_date( 'F j, Y \a\t g:i a', $like ); ?></time>
@@ -183,13 +191,13 @@ if ( post_password_required() ) {
 			}
 			?>
 
-			<article class="p-mention h-cite">
+			<article class="u-mention h-cite">
 				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
 				<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
 				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
 				<span>
-					<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $mention->comment_author ); ?></a>
+					<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $mention->comment_author ); ?></a>
 					mentioned this on
 					<a class="u-url" href="<?php echo esc_url( $url ); ?>">
 						<time class="dt-published"><?php echo get_comment_date( 'F j, Y \a\t g:i a', $mention ); ?></time>

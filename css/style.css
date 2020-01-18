@@ -1337,30 +1337,30 @@ pre.wp-block-code code {
 }
 
 .comment-author,
-.p-bookmark,
-.p-mention,
-.p-like {
+.u-bookmark,
+.u-mention,
+.u-like {
 	display: flex;
 	align-items: center;
 	margin-bottom: .5em;
 }
 
 .comment-author img,
-.p-bookmark img,
-.p-mention img,
-.p-like img {
+.u-bookmark img,
+.u-mention img,
+.u-like img {
 	margin-right: .5em;
 	min-width: 40px;
 }
 
-.comment {
+.u-comment {
 	border-left: 2px solid #eee;
 	padding-left: 1em;
 	padding-bottom: 1em;
 	margin-top: 2em;
 }
 
-.comment > .comment {
+.u-comment > .u-comment {
 	margin-left: 0;
 	margin-top: 2em;
 	border-left: 1px solid #ccc;

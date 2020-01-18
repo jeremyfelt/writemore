@@ -123,7 +123,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 		}
 
 		?>
-		<div id="comment-153393" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+		<div id="comment-<?php comment_ID(); ?>" <?php comment_class( '', $comment ); ?>>
 			<article id="div-comment-<?php comment_ID(); ?>" >
 				<footer class="comment-meta">
 					<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
@@ -131,7 +131,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 						<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
 						<span>
-							<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
+							<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
 							replied on
 							<a class="u-url" href="<?php echo esc_url( $url ); ?>">
 								<time datetime="<?php comment_time( 'c' ); ?>" class="dt-published"><?php echo get_comment_date( 'F j, Y', $comment ); ?> at <?php echo get_comment_time(); ?></time>
@@ -146,7 +146,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 
 				</footer><!-- .comment-meta -->
 
-				<div class="comment-content">
+				<div class="e-content">
 					<?php
 						// This is hilarious, but I'm feeling lazy. Replace all single line breaks in a
 						// comment with a double linke break so that wpautop() uses paragraph tags instead

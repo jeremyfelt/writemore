@@ -162,3 +162,4 @@ require get_template_directory() . '/inc/template-functions.php';
 require get_template_directory() . '/inc/customizer.php';
 
 require get_template_directory() . '/inc/class-writemore-comment-walker.php';
+require get_template_directory() . '/inc/comments.php';
