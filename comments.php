@@ -108,7 +108,7 @@ if ( post_password_required() ) {
 
 				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
 				<span>
-					<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $like->comment_author ); ?></a>
+					<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $like->comment_author ); ?></a>
 					liked this on
 					<a class="u-url" href="<?php echo esc_url( $url ); ?>">
 						<time class="dt-published"><?php echo get_comment_date( 'F j, Y \a\t g:i a', $like ); ?></time>
@@ -150,7 +150,7 @@ if ( post_password_required() ) {
 
 				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
 				<span>
-					<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $like->comment_author ); ?></a>
+					<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $like->comment_author ); ?></a>
 					bookmarked this on
 					<a class="u-url" href="<?php echo esc_url( $url ); ?>">
 						<time class="dt-published"><?php echo get_comment_date( 'F j, Y \a\t g:i a', $like ); ?></time>
@@ -189,7 +189,7 @@ if ( post_password_required() ) {
 
 				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
 				<span>
-					<a class="p-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $mention->comment_author ); ?></a>
+					<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $mention->comment_author ); ?></a>
 					mentioned this on
 					<a class="u-url" href="<?php echo esc_url( $url ); ?>">
 						<time class="dt-published"><?php echo get_comment_date( 'F j, Y \a\t g:i a', $mention ); ?></time>
