@@ -128,7 +128,14 @@ class Writemore_Comment_Walker extends Walker_Comment {
 				<footer class="comment-meta">
 					<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
 					<div class="comment-author vcard">
-						<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
+						<?php
+						if ( false !== $avatar ) {
+							?>
+							<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
+							<?php
+						}
+
+						?>
 
 						<span>
 							<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
