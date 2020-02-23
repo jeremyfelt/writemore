@@ -99,7 +99,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 		$url = get_comment_meta( $comment->comment_ID, 'webmention_source_url', true );
 
 		if ( '' === $url ) {
-			$url = get_comment_link( $comment, $args );
+			$url = $comment->comment_author_url;
 		}
 
 		$author_url = get_comment_meta( $comment->comment_ID, 'semantic_linkbacks_author_url', true );
@@ -128,7 +128,14 @@ class Writemore_Comment_Walker extends Walker_Comment {
 				<footer class="comment-meta">
 					<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
 					<div class="comment-author vcard">
-						<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
+						<?php
+						if ( false !== $avatar ) {
+							?>
+							<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
+							<?php
+						}
+
+						?>
 
 						<span>
 							<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
@@ -166,7 +173,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 							'max_depth' => $args['max_depth'],
 							'before'    => '<div class="reply">',
 							'after'     => '</div>',
-							'reply_text' => 'Reply to ' . esc_html( $comment->comment_author ),
+							'reply_text' => 'Reply',
 						)
 					)
 				);
