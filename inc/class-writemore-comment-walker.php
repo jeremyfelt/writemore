@@ -99,7 +99,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 		$url = get_comment_meta( $comment->comment_ID, 'webmention_source_url', true );
 
 		if ( '' === $url ) {
-			$url = get_comment_link( $comment, $args );
+			$url = $comment->comment_author_url;
 		}
 
 		$author_url = get_comment_meta( $comment->comment_ID, 'semantic_linkbacks_author_url', true );
