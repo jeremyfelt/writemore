@@ -173,7 +173,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 							'max_depth' => $args['max_depth'],
 							'before'    => '<div class="reply">',
 							'after'     => '</div>',
-							'reply_text' => 'Reply to ' . esc_html( $comment->comment_author ),
+							'reply_text' => 'Reply',
 						)
 					)
 				);
