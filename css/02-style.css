@@ -1,46 +1,3 @@
-/*!
-Theme Name: Write More Things
-Theme URI: http://github.com/jeremyfelt/writemore
-Author: Jeremy Felt
-Author URI: https://jeremyfelt.com
-Description: A theme to encourage more writing.
-Version: 1.1.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-Text Domain: writemore
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
-
-Write More Things is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
-Underscores is distributed under the terms of the GNU GPL v2 or later.
-
-Normalizing styles have been helped along thanks to the fine work of
-Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
-*/
-
-/*--------------------------------------------------------------
->>> TABLE OF CONTENTS:
-----------------------------------------------------------------
-# Normalize
-# Typography
-# Elements
-# Forms
-# Navigation
-	## Links
-	## Menus
-# Accessibility
-# Alignments
-# Clearings
-# Widgets
-# Content
-	## Posts and pages
-	## Comments
-# Infinite scroll
-# Media
-	## Captions
-	## Galleries
---------------------------------------------------------------*/
 
 /*--------------------------------------------------------------
 # Normalize
@@ -271,6 +228,7 @@ header.site-header {
 }
 
 .site-branding {
+	display: -webkit-box;
 	display: flex;
 	font-size: 2em;
 	margin-top: 1em;
@@ -363,6 +321,7 @@ h2.entry-title {
 aside.widget-area {
 	grid-column: full;
 	width: 100%;
+	display: -webkit-box;
 	display: flex;
 }
 
@@ -390,6 +349,7 @@ footer.site-footer {
 .widget-area {
 	border-top: 1px solid #ddd;
 	border-bottom: 1px solid #eee;
+	-webkit-box-pack: center;
 	justify-content: center;
 }
 
@@ -416,6 +376,8 @@ footer.site-footer {
 	}
 
 	.site-branding {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
 		flex-direction: column;
 		margin-bottom: .5em;
 	}
@@ -495,6 +457,8 @@ footer.site-footer {
 	}
 
 	aside.widget-area {
+		-webkit-box-orient: vertical;
+		-webkit-box-direction: normal;
 		flex-direction: column;
 	}
 
@@ -973,6 +937,7 @@ a:active {
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
+	-webkit-clip-path: inset(50%);
 	clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
@@ -988,6 +953,7 @@ a:active {
 	border-radius: 3px;
 	box-shadow: 0 0 2px 2px rgba(0, 0, 0, .6);
 	clip: auto !important;
+	-webkit-clip-path: none;
 	clip-path: none;
 	color: #21759b;
 	display: block;
@@ -1293,10 +1259,6 @@ object {
 	max-width: 800px;
 }
 
-.wp-block-image {
-	max-width: 73ch;
-}
-
 .wp-block-quote {
 	margin-left: .5em;
 	color: #333;
@@ -1340,7 +1302,9 @@ pre.wp-block-code code {
 .u-bookmark,
 .u-mention,
 .u-like {
+	display: -webkit-box;
 	display: flex;
+	-webkit-box-align: center;
 	align-items: center;
 	margin-bottom: .5em;
 }
