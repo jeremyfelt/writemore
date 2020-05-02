@@ -79,12 +79,8 @@ function writemore_setup() {
 		'flex-height' => true,
 	) );
 
-	/**
-	 * Add theme support for specific Gutenberg options.
-	 */
-	add_theme_support( 'gutenberg', array(
-		'wide-images' => true,
-	) );
+	// Add support for full and wide align images.
+	add_theme_support( 'align-wide' );
 }
 add_action( 'after_setup_theme', 'writemore_setup' );
 
