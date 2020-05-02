@@ -130,6 +130,18 @@ function writemore_scripts() {
 }
 add_action( 'wp_enqueue_scripts', 'writemore_scripts' );
 
+add_action( 'wp_enqueue_scripts', 'writemore_disable_block_library', 9999 );
+/**
+ * Disable the default block library styles provided by WordPress and/or
+ * the Gutenberg plugin.
+ *
+ * Instead, these styles are included as part of the theme to allow for a
+ * bit of pick and choose.
+ */
+function writemore_disable_block_library() {
+	wp_deregister_style( 'wp-block-library' );
+}
+
 add_filter( 'previous_post_link', 'writemore_post_nav_link_text', 10, 5 );
 add_filter( 'next_post_link', 'writemore_post_nav_link_text', 10, 5 );
 function writemore_post_nav_link_text( $output, $format, $link, $post, $adjacent ) {
