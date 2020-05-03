@@ -32,3 +32,36 @@ pre.wp-block-code code {
 	font-family: monospace;
 	font-size: 1em;
 }
+
+@media (min-width: 600px) {
+	.wp-block-gallery {
+		max-width: calc( 100% - 50px );
+	}
+}
+
+@media (max-width: 599px) {
+	.blocks-gallery-grid .blocks-gallery-image,
+	.blocks-gallery-grid .blocks-gallery-item,
+	.wp-block-gallery .blocks-gallery-image,
+	.wp-block-gallery .blocks-gallery-item {
+		width: calc(33% - 25px);
+	}
+
+	.blocks-gallery-grid .blocks-gallery-image,
+	.blocks-gallery-grid .blocks-gallery-item,
+	.wp-block-gallery .blocks-gallery-image,
+	.wp-block-gallery .blocks-gallery-item {
+		margin: 0 9px 9px 0;
+	}
+
+	.blocks-gallery-grid .blocks-gallery-image:last-child,
+	.blocks-gallery-grid .blocks-gallery-item:last-child,
+	.blocks-gallery-grid .blocks-gallery-image:nth-of-type(2n),
+	.blocks-gallery-grid .blocks-gallery-item:nth-of-type(2n),
+	.wp-block-gallery .blocks-gallery-image:last-child,
+	.wp-block-gallery .blocks-gallery-item:last-child,
+	.wp-block-gallery .blocks-gallery-image:nth-of-type(2n),
+	.wp-block-gallery .blocks-gallery-item:nth-of-type(2n) {
+		margin-right: 9px;
+	}
+}
