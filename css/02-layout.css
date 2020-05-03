@@ -61,9 +61,7 @@ h2.entry-title {
 }
 
 .entry-footer {
-	margin-left: -3em;
-	margin-right: -3em;
-	padding: 1em 3em 1.25em;
+	padding: 1em 3em 1.25em 0;
 	border-bottom: 1px solid #ddd;
 }
 
@@ -74,12 +72,10 @@ h2.entry-title {
 .single .entry-footer,
 .single .post-navigation {
 	background: #fbfbfb;
-	margin-left: calc(-50vw - 125px + 50%);
-	margin-right: calc(-50vw - 125px + 50%);
-	padding-left: calc(50vw + 125px - 50%);
 	padding-top: 1em;
 	padding-bottom: 1.25em;
-	padding-right: calc(50vw + 125px - 50%);
+	padding-left: 250px;
+	margin-left: -250px;
 }
 
 .single .post-thumbnail {
@@ -147,8 +143,7 @@ footer.site-footer {
 	grid-template-columns:
 		[full-start gutter1-start] 250px
 		[gutter1-end main-start] 4fr
-		[main-end gutter2-start] 1fr
-		[gutter2-end full-end];
+		[main-end full-end];
 }
 
 @media screen and (max-width: 640px) {
