@@ -139,6 +139,7 @@ add_action( 'wp_enqueue_scripts', 'writemore_disable_block_library', 9999 );
  * bit of pick and choose.
  */
 function writemore_disable_block_library() {
+	wp_dequeue_style( 'wp-block-library' );
 	wp_deregister_style( 'wp-block-library' );
 }
 
