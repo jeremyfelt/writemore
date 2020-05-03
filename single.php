@@ -7,13 +7,20 @@
  * @package Write_More_Things
  */
 
-get_header();
+get_header(); ?>
 
-while ( have_posts() ) : the_post();
+	<main id="main" class="site-main">
+	<?php
 
-	get_template_part( 'template-parts/content', get_post_type() );
+	while ( have_posts() ) : the_post();
 
-endwhile; // End of the loop.
+		get_template_part( 'template-parts/content', get_post_type() );
+
+	endwhile; // End of the loop.
+
+	?>
+	</main>
+<?php
 
 get_sidebar();
 get_footer();
