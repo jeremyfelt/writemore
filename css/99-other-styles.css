@@ -1,26 +1,4 @@
 
-/*--------------------------------------------------------------
-# Elements
---------------------------------------------------------------*/
-
-html {
-	box-sizing: border-box;
-}
-
-*,
-*:before,
-*:after {
-
-	/* Inherit box-sizing to make it easier to change the property for components that leverage other behavior; see https://css-tricks.com/inheriting-box-sizing-probably-slightly-better-best-practice/ */
-	box-sizing: inherit;
-}
-
-body {
-	background: #fff;
-
-	/* Fallback for when there is no custom background color defined. */
-}
-
 h2.entry-title,
 article.post h1.entry-title {
 	line-height: 1;
