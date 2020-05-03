@@ -3,6 +3,7 @@ h2.entry-title,
 article.post h1.entry-title {
 	line-height: 1;
 	margin-top: 0;
+	margin-bottom: .67em;
 	max-width: 815px;
 }
 
