@@ -1043,43 +1043,9 @@ object {
 	max-width: 800px;
 }
 
-.wp-block-quote {
-	margin-left: .5em;
-	color: #333;
-}
-
-.wp-block-quote p {
-	font-size: 1em;
-}
-
-.wp-block-quote cite {
-	font-style: normal;
-}
-
-.wp-block-separator.is-style-dots {
-	max-width: 73ch;
-	margin-left: 0;
-}
-
 .entry-content .syntaxhighlighter table {
 	max-width: 73ch !important;
 	table-layout: fixed !important;
-}
-
-pre.wp-block-code {
-	white-space: pre-wrap;
-	white-space: -moz-pre-wrap;
-	white-space: -pre-wrap;
-	white-space: -o-pre-wrap;
-	word-wrap: break-word;
-	width: 800px;
-	max-width: 92vw;
-	padding: .75em;
-}
-
-pre.wp-block-code code {
-	font-family: monospace;
-	font-size: 1em;
 }
 
 .comment-author,
