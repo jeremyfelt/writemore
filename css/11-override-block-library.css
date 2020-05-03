@@ -34,12 +34,14 @@ pre.wp-block-code code {
 }
 
 @media (min-width: 600px) {
+
 	.wp-block-gallery {
-		max-width: calc( 100% - 50px );
+		max-width: calc(100% - 50px);
 	}
 }
 
 @media (max-width: 599px) {
+
 	.blocks-gallery-grid .blocks-gallery-image,
 	.blocks-gallery-grid .blocks-gallery-item,
 	.wp-block-gallery .blocks-gallery-image,
