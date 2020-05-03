@@ -61,7 +61,7 @@ h2.entry-title {
 }
 
 .entry-footer {
-	padding: 1em 3em 1.25em;
+	padding: 1em 3em 1.25em 0;
 	border-bottom: 1px solid #ddd;
 }
 
