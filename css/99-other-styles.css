@@ -55,3 +55,12 @@
 .reply {
 	font-size: .9em;
 }
+
+#webmention-form label {
+	font-size: var(--global--font-size-base);
+	font-weight: normal;
+}
+
+#webmention-form p:first-of-type {
+	margin-bottom: var(--global--spacing-vertical);
+}
