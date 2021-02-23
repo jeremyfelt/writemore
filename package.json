@@ -1,18 +1,24 @@
 {
 	"name": "writemore",
-	"version": "1.0.5",
+	"version": "2.0.0",
 	"description": "A WordPress theme.",
 	"dependencies": {},
 	"devDependencies": {
-		"@wordpress/browserslist-config": "^3.0.1",
+		"autoprefixer": "^10.2.4",
+		"postcss": "^8.2.6",
 		"postcss-cli": "^8.3.1",
+		"postcss-custom-media": "^8.0.0",
 		"postcss-import": "^14.0.0",
 		"precss": "^4.0.0",
-		"stylelint": "^13.11.0"
+		"stylelint": "^13.11.0",
+		"stylelint-config-wordpress": "^17.0.0"
 	},
 	"scripts": {
-		"fix-css": "stylelint --fix css/*.css",
-		"build-css": "cat css/*.css > style.css && postcss style.css --replace"
+		"build": "npm run build:theme",
+		"build:theme": "npm run stylelint:theme & npm run postcss:main & npm run postcss:editor",
+		"postcss:main": "postcss -o style.css css/style.css",
+		"postcss:editor": "postcss -o editor-style.css css/editor-style.css",
+		"stylelint:theme": "stylelint css/**/*.css"
 	},
 	"repository": {
 		"type": "git",

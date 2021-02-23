@@ -58,7 +58,7 @@
 
 #webmention-form label {
 	font-size: var(--global--font-size-base);
-	font-weight: normal;
+	font-weight: 400;
 }
 
 #webmention-form p:first-of-type {

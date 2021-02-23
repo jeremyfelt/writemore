@@ -4,7 +4,7 @@ Theme URI: http://github.com/jeremyfelt/writemore
 Author: Jeremy Felt
 Author URI: https://jeremyfelt.com
 Description: A theme to encourage more writing.
-Version: 1.1.1
+Version: 2.0.0
 Template: twentytwentyone
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -19,3 +19,5 @@ Underscores is distributed under the terms of the GNU GPL v2 or later.
 Normalizing styles have been helped along thanks to the fine work of
 Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 */
+
+@import 'imports/extra-junk.css';

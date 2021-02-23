@@ -1,0 +1,85 @@
+/*!
+Theme Name: Write More Things
+Theme URI: http://github.com/jeremyfelt/writemore
+Author: Jeremy Felt
+Author URI: https://jeremyfelt.com
+Description: A theme to encourage more writing.
+Version: 2.0.0
+Template: twentytwentyone
+License: GNU General Public License v2 or later
+License URI: LICENSE
+Text Domain: writemore
+
+This theme, like WordPress, is licensed under the GPL.
+Use it to make something cool, have fun, and share what you've learned with others.
+
+Write More Things is based on Underscores https://underscores.me/, (C) 2012-2017 Automattic, Inc.
+Underscores is distributed under the terms of the GNU GPL v2 or later.
+
+Normalizing styles have been helped along thanks to the fine work of
+Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
+*/
+
+/*--------------------------------------------------------------
+## Custom styles entered into Customizer at some point.
+--------------------------------------------------------------*/
+
+.postid-11687 .post-thumbnail img,
+.post-11687 .post-thumbnail img {
+	max-width: 500px;
+}
+
+.postid-11711 .post-thumbnail img,
+.post-11711 .post-thumbnail img {
+	max-width: 800px;
+}
+
+.entry-content .syntaxhighlighter table {
+	max-width: 73ch !important;
+	table-layout: fixed !important;
+}
+
+.comment-author,
+.u-bookmark,
+.u-mention,
+.u-like {
+	display: flex;
+	align-items: center;
+	margin-bottom: .5em;
+}
+
+.comment-author img,
+.u-bookmark img,
+.u-mention img,
+.u-like img {
+	margin-right: .5em;
+	min-width: 40px;
+}
+
+.u-comment {
+	border-left: 2px solid #eee;
+	padding-left: 1em;
+	padding-bottom: 1em;
+	margin-top: 2em;
+}
+
+.u-comment > .u-comment {
+	margin-left: 0;
+	margin-top: 2em;
+	border-left: 1px solid #ccc;
+	padding-left: 1em;
+	border-bottom: 0;
+}
+
+.reply {
+	font-size: .9em;
+}
+
+#webmention-form label {
+	font-size: var(--global--font-size-base);
+	font-weight: 400;
+}
+
+#webmention-form p:first-of-type {
+	margin-bottom: var(--global--spacing-vertical);
+}
