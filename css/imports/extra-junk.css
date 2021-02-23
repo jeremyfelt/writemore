@@ -1,0 +1,66 @@
+
+/*--------------------------------------------------------------
+## Custom styles entered into Customizer at some point.
+--------------------------------------------------------------*/
+
+.postid-11687 .post-thumbnail img,
+.post-11687 .post-thumbnail img {
+	max-width: 500px;
+}
+
+.postid-11711 .post-thumbnail img,
+.post-11711 .post-thumbnail img {
+	max-width: 800px;
+}
+
+.entry-content .syntaxhighlighter table {
+	max-width: 73ch !important;
+	table-layout: fixed !important;
+}
+
+.comment-author,
+.u-bookmark,
+.u-mention,
+.u-like {
+	display: -webkit-box;
+	display: flex;
+	-webkit-box-align: center;
+	align-items: center;
+	margin-bottom: .5em;
+}
+
+.comment-author img,
+.u-bookmark img,
+.u-mention img,
+.u-like img {
+	margin-right: .5em;
+	min-width: 40px;
+}
+
+.u-comment {
+	border-left: 2px solid #eee;
+	padding-left: 1em;
+	padding-bottom: 1em;
+	margin-top: 2em;
+}
+
+.u-comment > .u-comment {
+	margin-left: 0;
+	margin-top: 2em;
+	border-left: 1px solid #ccc;
+	padding-left: 1em;
+	border-bottom: 0;
+}
+
+.reply {
+	font-size: .9em;
+}
+
+#webmention-form label {
+	font-size: var(--global--font-size-base);
+	font-weight: 400;
+}
+
+#webmention-form p:first-of-type {
+	margin-bottom: var(--global--spacing-vertical);
+}
