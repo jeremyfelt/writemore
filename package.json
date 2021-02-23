@@ -4,11 +4,11 @@
 	"description": "A WordPress theme.",
 	"dependencies": {},
 	"devDependencies": {
-		"@wordpress/browserslist-config": "^2.6.0",
-		"postcss-cli": "^7.1.1",
-		"postcss-import": "^12.0.1",
+		"@wordpress/browserslist-config": "^3.0.1",
+		"postcss-cli": "^8.3.1",
+		"postcss-import": "^14.0.0",
 		"precss": "^4.0.0",
-		"stylelint": "^13.3.3"
+		"stylelint": "^13.11.0"
 	},
 	"scripts": {
 		"fix-css": "stylelint --fix css/*.css",
