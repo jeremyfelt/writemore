@@ -18,9 +18,7 @@ $description = get_the_archive_description();
 
 	<header class="page-header alignwide">
 		<h1 class="page-title">Notes</h1>
-		<?php if ( $description ) : ?>
-			<div class="archive-description"><?php echo wp_kses_post( wpautop( $description ) ); ?></div>
-		<?php endif; ?>
+		<div class="archive-description">For shorter content, like notes.</div>
 	</header><!-- .page-header -->
 
 	<?php while ( have_posts() ) : ?>
