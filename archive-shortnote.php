@@ -19,6 +19,7 @@ $description = get_the_archive_description();
 	<header class="page-header alignwide">
 		<h1 class="page-title">Notes</h1>
 		<div class="archive-description">For shorter content, like notes.</div>
+		<p><a href="<?php echo get_post_type_archive_feed_link( 'shortnote' ); ?>">Follow via RSS</a></p>
 	</header><!-- .page-header -->
 
 	<?php while ( have_posts() ) : ?>
