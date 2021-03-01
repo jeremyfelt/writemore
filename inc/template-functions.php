@@ -30,3 +30,47 @@ function writemore_pingback_header() {
 	}
 }
 add_action( 'wp_head', 'writemore_pingback_header' );
+
+add_filter( 'post_class', 'writemore_post_class', 10 );
+/**
+ * Mark articles up with the microformat class `h-entry` for an entry.
+ */
+function writemore_post_class( $classes ) {
+	if ( ! in_array( 'h-entry', $classes, true ) ) {
+		$classes[] = 'h-entry';
+	}
+
+	return $classes;
+}
+
+/**
+ * Hack together a way to output the right posted on information
+ * for an archive of shortnotes.
+ */
+function writemore_posted_on() {
+	$time_string = '<time class="entry-date dt-published published updated" datetime="%1$s">%2$s</time>';
+
+	$time_string = sprintf(
+		$time_string,
+		esc_attr( get_the_date( DATE_W3C ) ),
+		esc_html( get_the_date() )
+	);
+
+	if ( is_archive( 'shortnote' ) ) {
+		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="posted-on">';
+	} else {
+		echo '<span class="posted-on">';
+	}
+
+	printf(
+		/* translators: %s: publish date. */
+		esc_html__( 'Published %s', 'twentytwentyone' ),
+		$time_string // phpcs:ignore WordPress.Security.EscapeOutput
+	);
+
+	if ( is_archive( 'shortnote' ) ) {
+		echo '</a>';
+	} else {
+		echo '</span>';
+	}
+}
