@@ -24,6 +24,11 @@
 	endif;
 	?>
 
+	<?php
+	if ( function_exists( 'ShortNotes\PostType\Note\reply_to_markup' ) ) {
+		\ShortNotes\PostType\Note\reply_to_markup();
+	}
+	?>
 	<div class="entry-content e-content">
 		<?php
 		the_content();

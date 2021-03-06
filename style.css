@@ -83,3 +83,10 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 #webmention-form p:first-of-type {
 	margin-bottom: var(--global--spacing-vertical);
 }
+
+.shortnotes-reply-to {
+	font-style: italic;
+	max-width: var(--responsive--aligndefault-width);
+	margin-left: auto;
+	margin-right: auto;
+}
