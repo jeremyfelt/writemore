@@ -214,6 +214,7 @@ if ( post_password_required() ) {
 
 		<h3>Replies</h3>
 
+		<ol class="comment-list">
 		<?php
 
 		// Retrieve only the comments classified as replies.
@@ -222,11 +223,13 @@ if ( post_password_required() ) {
 		) );
 
 		wp_list_comments( array(
+			'avatar_size' => 60,
 			'walker' => new Writemore_Comment_Walker(),
-			'style' => 'div',
+			'style' => 'ol',
 			'format' => 'html5',
 		), $comments );
 
+		?></ol><?php
 		endif;
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?

@@ -71,7 +71,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 			return;
 		}
 
-		$output .= "</div><!-- #comment-## -->\n";
+		$output .= "</li><!-- #comment-## -->\n";
 	}
 
 	/**
@@ -123,29 +123,45 @@ class Writemore_Comment_Walker extends Walker_Comment {
 		}
 
 		?>
-		<div id="comment-<?php comment_ID(); ?>" <?php comment_class( '', $comment ); ?>>
-			<article id="div-comment-<?php comment_ID(); ?>" >
+		<li id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
 				<footer class="comment-meta">
 					<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
 					<div class="comment-author vcard">
 						<?php
+						/*
 						if ( false !== $avatar ) {
 							?>
-							<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
+							<img class="avatar" src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 							<?php
 						}
+						*/
 
+						if ( 0 != $args['avatar_size'] ) {
+							echo get_avatar( $comment, $args['avatar_size'] );
+						}
 						?>
-
-						<span>
-							<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
-							replied on
-							<a class="u-url" href="<?php echo esc_url( $url ); ?>">
-								<time datetime="<?php comment_time( 'c' ); ?>" class="dt-published"><?php echo get_comment_date( 'F j, Y', $comment ); ?> at <?php echo get_comment_time(); ?></time>
-							</a>
-							<?php edit_comment_link( __( 'Edit' ), '<span class="edit-link">', '</span>' ); ?>
-						</span>
+						<a class="u-author h-card fn" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
+							<span class="says">replied:</span>
 					</div>
+
+					<div class="comment-metadata">
+						<?php
+						printf(
+							'<a class="u-url" href="%s"><time class="dt-published" datetime="%s">%s</time></a>',
+							esc_url( $url ),
+							get_comment_time( 'c' ),
+							sprintf(
+								/* translators: 1: Comment date, 2: Comment time. */
+								__( '%1$s at %2$s' ),
+								get_comment_date( 'F j, Y', $comment ),
+								get_comment_time()
+							)
+						);
+
+						edit_comment_link( __( 'Edit' ), ' <span class="edit-link">', '</span>' );
+						?>
+					</div><!-- .comment-metadata -->
 
 					<?php if ( '0' == $comment->comment_approved ) : ?>
 					<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
@@ -153,7 +169,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 
 				</footer><!-- .comment-meta -->
 
-				<div class="e-content">
+				<div class="comment-content e-content">
 					<?php
 						// This is hilarious, but I'm feeling lazy. Replace all single line breaks in a
 						// comment with a double linke break so that wpautop() uses paragraph tags instead

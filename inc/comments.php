@@ -16,8 +16,6 @@ function remove_comment_classes( $classes, $class, $comment_id, $comment, $post_
 		'thread-alt',
 		'thread-even',
 		'thread-odd',
-		'parent',
-		'depth-' . $comment_depth,
 	);
 
 	// Remove these classes, which are added by the Semantic Linkbacks plugin, because
