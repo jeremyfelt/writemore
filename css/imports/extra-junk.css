@@ -46,3 +46,8 @@
 	font-size: calc(var(--global--font-size-xl) * 1.25);
 	font-weight: 600;
 }
+
+.single .site-main > article > .entry-footer {
+	display: block;
+	margin-bottom: var(--global--spacing-vertical);
+}
