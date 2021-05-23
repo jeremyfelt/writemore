@@ -71,6 +71,6 @@ function writemore_posted_on() {
 	if ( is_archive( 'shortnote' ) ) {
 		echo '</a>';
 	} else {
-		echo '</span>';
+		echo ' under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International License</a>.</span>';
 	}
 }
