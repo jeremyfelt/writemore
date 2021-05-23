@@ -33,3 +33,16 @@
 	margin-left: auto;
 	margin-right: auto;
 }
+
+.archive-description {
+	font-size: var(--global--font-size-primary);
+}
+
+.archive-description p {
+	margin-bottom: var(--global--spacing-vertical);
+}
+
+.category .page-title {
+	font-size: calc(var(--global--font-size-xl) * 1.25);
+	font-weight: 600;
+}
