@@ -18,17 +18,6 @@
 			?>
 			</h2>
 			<p class="author-description"> <?php the_author_meta( 'description' ); ?></p><!-- .author-description -->
-			<?php
-			printf(
-				'<a class="author-link" href="%1$s" rel="author">%2$s</a>',
-				esc_url( get_author_posts_url( get_the_author_meta( 'ID' ) ) ),
-				sprintf(
-					/* translators: %s: Author name. */
-					esc_html__( 'View all of %s\'s posts.', 'writemore' ),
-					get_the_author()
-				)
-			);
-			?>
 		</div><!-- .author-bio-content -->
 	</div><!-- .author-bio -->
 <?php endif; ?>
