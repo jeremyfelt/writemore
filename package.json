@@ -4,13 +4,13 @@
 	"description": "A WordPress theme.",
 	"dependencies": {},
 	"devDependencies": {
-		"autoprefixer": "^10.2.4",
-		"postcss": "^8.2.6",
+		"autoprefixer": "^10.2.5",
+		"postcss": "^8.3.0",
 		"postcss-cli": "^8.3.1",
 		"postcss-custom-media": "^8.0.0",
-		"postcss-import": "^14.0.0",
+		"postcss-import": "^14.0.2",
 		"precss": "^4.0.0",
-		"stylelint": "^13.11.0",
+		"stylelint": "^13.13.1",
 		"stylelint-config-wordpress": "^17.0.0"
 	},
 	"scripts": {
