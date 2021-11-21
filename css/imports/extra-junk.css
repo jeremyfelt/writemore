@@ -51,3 +51,7 @@
 	display: block;
 	margin-bottom: var(--global--spacing-vertical);
 }
+
+.u-comment .p-author {
+	position: relative;
+}
