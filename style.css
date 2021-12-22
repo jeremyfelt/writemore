@@ -4,7 +4,7 @@ Theme URI: http://github.com/jeremyfelt/writemore
 Author: Jeremy Felt
 Author URI: https://jeremyfelt.com
 Description: A theme to encourage more writing.
-Version: 2.0.2
+Version: 2.0.3
 Template: twentytwentyone
 License: GNU General Public License v2 or later
 License URI: LICENSE
@@ -75,4 +75,24 @@ Nicolas Gallagher and Jonathan Neal https://necolas.github.io/normalize.css/
 
 .u-comment .p-author {
 	position: relative;
+}
+
+.wp-block-quote:before {
+	content: none;
+}
+
+.wp-block-quote p {
+	color: #333;
+	font-weight: 400;
+	font-size: .8em;
+}
+
+.wp-block-quote cite {
+	font-size: .75em;
+	font-weight: 600;
+	font-style: italic;
+}
+
+.wp-block-quote {
+	border-left: 1px solid #bbb;
 }

@@ -55,3 +55,23 @@
 .u-comment .p-author {
 	position: relative;
 }
+
+.wp-block-quote:before {
+	content: none;
+}
+
+.wp-block-quote p {
+	color: #333;
+	font-weight: 400;
+	font-size: .8em;
+}
+
+.wp-block-quote cite {
+	font-size: .75em;
+	font-weight: 600;
+	font-style: italic;
+}
+
+.wp-block-quote {
+	border-left: 1px solid #bbb;
+}
