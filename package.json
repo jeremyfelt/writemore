@@ -5,16 +5,16 @@
 	"devDependencies": {
 		"@wordpress/stylelint-config": "^19.1.0",
 		"autoprefixer": "^10.4.0",
-		"postcss": "^8.3.11",
-		"postcss-cli": "^9.0.2",
+		"postcss": "^8.4.5",
+		"postcss-cli": "^9.1.0",
 		"postcss-custom-media": "^8.0.0",
 		"postcss-import": "^14.0.2",
 		"precss": "^4.0.0",
-		"stylelint": "^13.13.1"
+		"stylelint": "^13"
 	},
 	"scripts": {
 		"build": "npm run build:theme",
-		"build:theme": "npm run stylelint:theme & npm run postcss:main & npm run postcss:editor",
+		"build:theme": "npm run stylelint:theme && npm run postcss:main && npm run postcss:editor",
 		"postcss:main": "postcss -o style.css css/style.css",
 		"postcss:editor": "postcss -o editor-style.css css/editor-style.css",
 		"stylelint:theme": "stylelint css/**/*.css"
