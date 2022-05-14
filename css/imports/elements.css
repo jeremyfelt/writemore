@@ -1,0 +1,23 @@
+body {
+	font-family: var(--sans-serif);
+	line-height: 1.5;
+	font-size: 18px;
+}
+
+header {
+	max-width: 640px;
+	margin: 0 auto;
+}
+
+main > header {
+	text-align: right;
+}
+
+article header {
+	position: relative;
+}
+
+img {
+	width: 100%;
+	height: auto;
+}

@@ -14,7 +14,9 @@
 function writemore_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
-		$classes[] = 'hfeed';
+		$classes = array( 'multiple hfeed' );
+	} else {
+		$classes = array( 'single');
 	}
 
 	return $classes;
@@ -35,10 +37,11 @@ add_filter( 'post_class', 'writemore_post_class', 10 );
 /**
  * Mark articles up with the microformat class `h-entry` for an entry.
  */
-function writemore_post_class( $classes ) {
-	if ( ! in_array( 'h-entry', $classes, true ) ) {
-		$classes[] = 'h-entry';
-	}
+function writemore_post_class() {
+	$classes = array();
+
+	$classes[] = 'type-' . get_post_type();
+	$classes[] = 'h-entry';
 
 	return $classes;
 }
@@ -57,14 +60,14 @@ function writemore_posted_on() {
 	);
 
 	if ( is_archive( 'shortnote' ) ) {
-		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="posted-on">';
+		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="posted-on u-url">';
 	} else {
 		echo '<span class="posted-on">';
 	}
 
 	printf(
 		/* translators: %s: publish date. */
-		esc_html__( 'Published %s', 'twentytwentyone' ),
+		esc_html__( 'Published %s', 'writemore' ),
 		$time_string // phpcs:ignore WordPress.Security.EscapeOutput
 	);
 

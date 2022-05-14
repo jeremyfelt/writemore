@@ -1,53 +1,7 @@
-/*!
-Theme Name: Write More Things
-Theme URI: http://github.com/jeremyfelt/writemore
-Author: Jeremy Felt
-Author URI: https://jeremyfelt.com
-Description: A theme to encourage more writing.
-Version: 3.0.0
-License: GNU General Public License v2 or later
-License URI: LICENSE
-Text Domain: writemore
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what
-you've learned with others.
-*/
-
-:root {
-	--sans-serif: montserrat, sans-serif;
-}
-
-body {
-	font-family: montserrat, sans-serif;
-	font-family: var(--sans-serif);
-	line-height: 1.5;
-	font-size: 18px;
-}
-
-header {
-	max-width: 640px;
-	margin: 0 auto;
-}
-
-main > header {
-	text-align: right;
-}
-
-article header {
-	position: relative;
-}
-
-img {
-	width: 100%;
-	height: auto;
-}
-
 .skip-link.screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
-	-webkit-clip-path: inset(50%);
-	        clip-path: inset(50%);
+	clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -60,8 +14,7 @@ img {
 .skip-link.screen-reader-text:focus {
 	background-color: #eee;
 	clip: auto !important;
-	-webkit-clip-path: none;
-	        clip-path: none;
+	clip-path: none;
 	color: #444;
 	display: block;
 	font-size: 1em;

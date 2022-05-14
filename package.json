@@ -6,10 +6,13 @@
 		"@wordpress/stylelint-config": "^20.0.2",
 		"autoprefixer": "^10.4.4",
 		"postcss": "^8.4.12",
+		"postcss-advanced-variables": "^3.0.1",
 		"postcss-cli": "^9.1.0",
 		"postcss-custom-media": "^8.0.0",
+		"postcss-generate-asset-php": "^0.0.1",
 		"postcss-import": "^14.1.0",
-		"precss": "^4.0.0"
+		"postcss-nested": "^5.0.6",
+		"postcss-preset-env": "^7.4.3"
 	},
 	"scripts": {
 		"build": "npm run build:theme",
