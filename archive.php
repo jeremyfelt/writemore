@@ -17,8 +17,9 @@ if ( 'shortnote' === get_post_type() ) {
 } elseif ( 'like' === get_post_type() ) {
 	$description = 'A list of pages I\'ve found interesting.';
 } elseif ( 'post' === get_post_type() ) {
-	$description === 'For things with titles.';
+	$description = 'For things with titles.';
 }
+
 ?>
 
 <?php if ( have_posts() ) : ?>
@@ -33,12 +34,20 @@ if ( 'shortnote' === get_post_type() ) {
 
 	<?php while ( have_posts() ) : ?>
 		<?php the_post(); ?>
-		<?php get_template_part( 'template-parts/content/content', 'single' ); ?>
+		<?php get_template_part( 'template-parts/content/content', 'archive' ); ?>
 	<?php endwhile; ?>
 
-	<?php the_posts_navigation(); ?>
+	<?php
+	the_posts_navigation(
+		array(
+			'prev_text' => 'View older ' . strtolower( $post_type->labels->name ),
+			'next_text' => 'View newer ' . strtolower( $post_type->labels->name ),
+		)
+	);
+	?>
 
 <?php else : ?>
+	<p>This page exists, but how did it happen?</p>
 	<?php get_template_part( 'template-parts/content/content-none' ); ?>
 <?php endif; ?>
 

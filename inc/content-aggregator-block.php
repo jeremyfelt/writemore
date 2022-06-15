@@ -4,6 +4,7 @@ namespace Writemore\ContentAggregatorBlock;
 
 add_filter( 'content_aggregator_block_item', __NAMESPACE__ . '\render_shortnote_item', 20, 3 );
 add_filter( 'content_aggregator_block_item', __NAMESPACE__ . '\render_weekly_note_item', 20, 3 );
+add_filter( 'content_aggregator_block_wrapper', __NAMESPACE__ . '\filter_block_wrapper', 10, 2 );
 
 function render_shortnote_item( $html, $post, $attributes ) {
 	if ( 'shortnote' !== $attributes['customPostType'] ) {
@@ -12,15 +13,17 @@ function render_shortnote_item( $html, $post, $attributes ) {
 
 	ob_start();
 	?>
-	<li class="note-item">
-		<div class="note-content">
+	<article class="type-shortnote h-entry">
+		<div class="entry-content e-content">
 			<?php echo wp_kses_post( html_entity_decode( $post->post_content, ENT_QUOTES, get_option( 'blog_charset' ) ) ); ?>
 		</div>
-		<a href="<?php the_permalink(); ?>" class="note-link"><time
-				class="note-date"
-				datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"
-			><?php echo esc_html( get_the_date( 'l F j, Y, g:i a' ) ); ?></time></a>
-	</li>
+
+		<footer class="entry-footer">
+			<a href="<?php the_permalink(); ?>" class="posted-on u-url"><time
+				class="entry-date dt-published published updated"
+				datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'l F j, Y, g:i a' ) ); ?></time></a>
+		</footer>
+	</article>
 	<?php
 
 	$html = ob_get_clean();
@@ -52,7 +55,7 @@ function render_weekly_note_item( $html, $post, $attributes ) {
 	<li class="weekly-preview">
 		<a href="<?php the_permalink(); ?>"><time
 				datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"
-			><?php echo esc_html( get_the_date( 'l F j, Y' ) ); ?></time></a>:
+			><?php echo esc_html( get_the_date( 'l F j, Y' ) ); ?></time></a><br />
 			<?php echo wp_kses_post( html_entity_decode( $post->post_excerpt, ENT_QUOTES, get_option( 'blog_charset' ) ) ); ?>
 
 	</li>
@@ -61,4 +64,19 @@ function render_weekly_note_item( $html, $post, $attributes ) {
 	$html = ob_get_clean();
 
 	return $html;
+}
+
+/**
+ * Filter the block wrapper on a list of posts to be section
+ * rather than the default of ul.
+ *
+ * @param string $wrapper    Wrapping HTML element.
+ * @param array  $attributes Block attributes.
+ */
+function filter_block_wrapper( $wrapper, $attributes ) {
+	if ( 'shortnote' !== $attributes['customPostType'] ) {
+		return $wrapper;
+	}
+
+	return 'section';
 }

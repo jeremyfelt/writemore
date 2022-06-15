@@ -4,6 +4,20 @@ namespace WriteMore\ThemeSetup;
 
 add_action( 'after_setup_theme', __NAMESPACE__ . '\setup_theme_support' );
 add_action( 'wp_enqueue_scripts', __NAMESPACE__ . '\enqueue_assets' );
+add_filter( 'nav_menu_item_id', '__return_empty_string' );
+add_filter( 'nav_menu_css_class', __NAMESPACE__ . '\filter_nav_menu_item_class', 10, 2 );
+
+/**
+ * @param array    $classes
+ * @param \WP_Post $menu_item
+ */
+function filter_nav_menu_item_class( $classes, $menu_item ) {
+	if ( $menu_item->current ) {
+		return array( 'current' );
+	}
+
+	return array();
+}
 
 function setup_theme_support() {
 	// Add default RSS feed links to <head>.
@@ -29,6 +43,12 @@ function setup_theme_support() {
 		)
 	);
 
+	register_nav_menus(
+		array(
+			'header-menu' => __( 'Header Menu' ),
+		)
+	);
+
 	// Clear the default editor styles, register support, and then enqueue our own.
 	remove_editor_styles();
 	add_theme_support( 'editor-styles' );
@@ -48,6 +68,6 @@ function enqueue_assets() {
 		'writemore-style',
 		get_stylesheet_uri(),
 		array(),
-		'3.0.0',
+		$asset_data['version'],
 	);
 }
