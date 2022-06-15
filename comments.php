@@ -7,7 +7,7 @@
  *
  * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
  *
- * @package Write_More_Things
+ * @package writemore
  */
 
 /*
@@ -20,12 +20,12 @@ if ( post_password_required() ) {
 }
 ?>
 
-<div id="comments" class="comments-area default-max-width <?php echo get_option( 'show_avatars' ) ? 'show-avatars' : ''; ?>">
+<section id="comments">
 
 	<?php
 	// You can start editing here -- including this comment!
 	if ( have_comments() ) : ?>
-		<h2 class="comments-title">Reactions on &ldquo;<?php echo get_the_title(); ?>&rdquo;</h2>
+		<h2>Responses and reactions</h2>
 
 		<?php
 
@@ -191,8 +191,7 @@ if ( post_password_required() ) {
 			}
 			?>
 
-			<article class="u-mention h-cite">
-				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
+			<article class="reaction u-mention h-cite">
 				<img src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
 
 				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
@@ -214,7 +213,6 @@ if ( post_password_required() ) {
 
 		<h3>Replies</h3>
 
-		<ol class="comment-list">
 		<?php
 
 		// Retrieve only the comments classified as replies.
@@ -225,11 +223,10 @@ if ( post_password_required() ) {
 		wp_list_comments( array(
 			'avatar_size' => 60,
 			'walker' => new Writemore_Comment_Walker(),
-			'style' => 'ol',
+			'style' => '',
 			'format' => 'html5',
 		), $comments );
 
-		?></ol><?php
 		endif;
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?

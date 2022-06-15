@@ -53,7 +53,8 @@ function remove_comment_classes( $classes, $class, $comment_id, $comment, $post_
 	}
 
 	// Re-add the classes that should always be there.
-	$classes[] = 'u-comment';
+	$classes[] = 'comment'; // CSS selector.
+	$classes[] = 'u-comment'; // Microformat property.
 
 	$protocol = get_comment_meta( $comment_id, 'protocol', true );
 

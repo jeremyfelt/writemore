@@ -55,6 +55,14 @@
 		<?php get_template_part( 'template-parts/post/author-bio' ); ?>
 	<?php endif; ?>
 	</footer><!-- .entry-footer -->
+
+	<?php
+	// If comments are open or there is at least one comment, load up the comment template.
+	if ( comments_open() || get_comments_number() ) {
+		comments_template(); // Outputs its own <section>.
+	}
+	?>
+
 	<?php endif; ?>
 
 </article><!-- #post-<?php the_ID(); ?> -->

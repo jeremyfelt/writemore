@@ -10,7 +10,8 @@ body {
 	margin: 0;
 }
 
-header {
+header,
+section {
 	max-width: 640px;
 	margin: 0 auto;
 }

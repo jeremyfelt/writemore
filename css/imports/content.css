@@ -123,3 +123,32 @@ article.type-post {
 .shortnotes-reply-to {
 	font-style: italic;
 }
+
+.reaction {
+	display: flex;
+}
+
+.reaction img {
+	width: 64px;
+}
+
+.reaction span {
+	padding-left: 1rem;
+	width: 100%;
+}
+
+.comment {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.comment img {
+	width: 64px;
+	margin-right: 1rem;
+}
+
+.reaction time,
+.comment time {
+	font-size: 1rem;
+}
