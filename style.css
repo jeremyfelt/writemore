@@ -225,6 +225,10 @@ article.type-post {
 	max-width: 640px;
 }
 
+.multiple .type-shortnote footer {
+	margin-top: 0;
+}
+
 .entry-content > * {
 	max-width: 640px;
 	margin-left: auto;
