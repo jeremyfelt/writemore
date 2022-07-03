@@ -70,8 +70,6 @@ class Writemore_Comment_Walker extends Walker_Comment {
 			$output .= ob_get_clean();
 			return;
 		}
-
-		$output .= "</li><!-- #comment-## -->\n";
 	}
 
 	/**
@@ -123,68 +121,49 @@ class Writemore_Comment_Walker extends Walker_Comment {
 		}
 
 		?>
-		<li id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
-			<article id="div-comment-<?php comment_ID(); ?>" class="comment-body">
-				<footer class="comment-meta">
-					<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
-					<div class="comment-author vcard">
-						<?php
-						/*
-						if ( false !== $avatar ) {
-							?>
-							<img class="avatar" src="<?php echo esc_url( $avatar ); ?>" width=40 alt="" loading="lazy" />
-							<?php
-						}
-						*/
+		<article id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+			<?php
+			if ( 0 != $args['avatar_size'] ) {
+				echo get_avatar( $comment, $args['avatar_size'] );
+			}
+			?>
+			<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>&nbsp;replied on&nbsp;
+			<?php
+			printf(
+				'<a class="u-url" href="%s"><time class="dt-published" datetime="%s">%s</time></a>',
+				esc_url( $url ),
+				get_comment_time( 'c' ),
+				sprintf(
+					/* translators: 1: Comment date, 2: Comment time. */
+					__( '%1$s at %2$s' ),
+					get_comment_date( 'F j, Y', $comment ),
+					get_comment_time()
+				)
+			);
 
-						if ( 0 != $args['avatar_size'] ) {
-							echo get_avatar( $comment, $args['avatar_size'] );
-						}
-						?>
-						<a class="u-author h-card fn" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>
-							<span class="says">replied:</span>
-					</div>
-
-					<div class="comment-metadata">
-						<?php
-						printf(
-							'<a class="u-url" href="%s"><time class="dt-published" datetime="%s">%s</time></a>',
-							esc_url( $url ),
-							get_comment_time( 'c' ),
-							sprintf(
-								/* translators: 1: Comment date, 2: Comment time. */
-								__( '%1$s at %2$s' ),
-								get_comment_date( 'F j, Y', $comment ),
-								get_comment_time()
-							)
-						);
-
-						edit_comment_link( __( 'Edit' ), ' <span class="edit-link">', '</span>' );
-						?>
-					</div><!-- .comment-metadata -->
-
-					<?php if ( '0' == $comment->comment_approved ) : ?>
-					<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
-					<?php endif; ?>
-
-				</footer><!-- .comment-meta -->
-
-				<div class="comment-content e-content">
-					<?php
-						// This is hilarious, but I'm feeling lazy. Replace all single line breaks in a
-						// comment with a double linke break so that wpautop() uses paragraph tags instead
-						// of <br> tags.
-						$comment_text = str_replace( "\n", "\n\n", get_comment_text( $comment, $args ) );
-						echo wpautop( $comment_text, false );
-					?>
-				</div><!-- .comment-content -->
-
+			// Use e-content because the comment content may not be plain text.
+			?>
+			<?php if ( '0' == $comment->comment_approved ) : ?>
+			<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
+			<?php endif; ?>
+			<div class="comment-content e-content">
 				<?php
-				comment_reply_link(
-					array_merge(
-						$args,
-						array(
-							'add_below' => 'div-comment',
+				// This is hilarious, but I'm feeling lazy. Replace all single line breaks in a
+				// comment with a double line break so that wpautop() uses paragraph tags instead
+				// of <br> tags.
+				$comment_text = str_replace( "\n", "\n\n", get_comment_text( $comment, $args ) );
+				echo wpautop( $comment_text, false );
+				?>
+			</div><!-- .comment-content -->
+			<?php
+
+			edit_comment_link( __( 'Edit' ), ' <span class="edit-link">', '</span>' );
+
+			comment_reply_link(
+				array_merge(
+					$args,
+					array(
+						'add_below' => 'div-comment',
 							'depth'     => $depth,
 							'max_depth' => $args['max_depth'],
 							'before'    => '<div class="reply">',

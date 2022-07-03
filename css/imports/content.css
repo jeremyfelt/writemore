@@ -1,0 +1,154 @@
+.screen-reader-text {
+	border: 0;
+	clip: rect(1px, 1px, 1px, 1px);
+	clip-path: inset(50%);
+	height: 1px;
+	margin: -1px;
+	overflow: hidden;
+	padding: 0;
+	position: absolute !important;
+	width: 1px;
+	word-wrap: normal !important;
+}
+
+.skip-link.screen-reader-text:focus {
+	background-color: #eee;
+	clip: auto !important;
+	clip-path: none;
+	color: #444;
+	display: block;
+	font-size: 1em;
+	height: auto;
+	left: 5px;
+	line-height: normal;
+	padding: 15px 23px 14px;
+	text-decoration: none;
+	top: 5px;
+	width: auto;
+	z-index: 100000;
+}
+
+.site-branding p:first-of-type {
+	margin-top: 0;
+}
+
+.weekly-preview {
+	list-style: none;
+	margin-bottom: 1.25rem;
+	padding-left: 0;
+	margin-left: -1rem;
+}
+
+.type-post {
+	position: relative;
+	padding-top: 0.5rem;
+}
+
+article.type-post {
+	margin-bottom: 5rem;
+}
+
+.multiple .type-like,
+.multiple .type-shortnote {
+	display: flex;
+	flex-direction: column;
+}
+
+.multiple .type-like,
+.multiple .type-shortnote,
+.single .type-shortnote .entry-content,
+.single .type-like .entry-content {
+	background: #fefefe;
+	padding: 1rem 1.5rem;
+	border: 1px solid #eee;
+	margin: 0 auto 2rem;
+	font-size: 1rem;
+	max-width: 640px;
+}
+
+.entry-content > * {
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.has-text-align-center {
+	text-align: center;
+}
+
+.entry-content > figure {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.entry-content .size-large {
+	max-width: 1024px;
+	height: auto;
+}
+
+.entry-content figure {
+	margin-top: 2rem;
+	margin-bottom: 2rem;
+}
+
+.author-bio {
+	display: flex;
+	width: 640px;
+	margin: 1rem auto 0 auto;
+	justify-content: space-evenly;
+}
+
+.author-bio img {
+	width: 150px;
+	height: 100%;
+}
+
+.author-bio-content {
+	padding: 0 1rem;
+	flex-basis: fit-content;
+}
+
+.author-bio-content p {
+	margin-top: 0;
+}
+
+.posts-navigation {
+	max-width: 640px;
+	margin: 3rem auto;
+	display: flex;
+	justify-content: space-between;
+	font-size: 1.35rem;
+}
+
+.shortnotes-reply-to {
+	font-style: italic;
+}
+
+.reaction {
+	display: flex;
+}
+
+.reaction img {
+	width: 64px;
+}
+
+.reaction span {
+	padding-left: 1rem;
+	width: 100%;
+}
+
+.comment {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+}
+
+.comment img {
+	width: 64px;
+	margin-right: 1rem;
+}
+
+.reaction time,
+.comment time {
+	font-size: 1rem;
+}
