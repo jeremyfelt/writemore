@@ -67,6 +67,7 @@ article.type-post {
 
 .multiple .type-shortnote footer {
 	margin-top: 0;
+	max-width: 640px;
 }
 
 .entry-content > * {
