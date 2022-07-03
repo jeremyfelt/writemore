@@ -10,6 +10,10 @@ body {
 	margin: 0;
 }
 
+header {
+	width: calc(100% - 2rem);
+}
+
 header,
 section {
 	max-width: 640px;
@@ -40,6 +44,11 @@ article header a:hover {
 article footer {
 	width: 640px;
 	margin: 3rem auto 0;
+	max-width: 100%;
+}
+
+footer > * {
+	max-width: 100%;
 }
 
 nav ul {

@@ -45,6 +45,9 @@
 
 article.type-post {
 	margin-bottom: 5rem;
+	width: calc(100% - 2rem);
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .multiple .type-like,
