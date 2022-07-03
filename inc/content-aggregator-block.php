@@ -40,6 +40,10 @@ function render_weekly_note_item( $html, $post, $attributes ) {
 		return $html;
 	}
 
+	if ( 'NOT IN' === $attributes['taxonomies'][0]['operator'] ) {
+		return $html;
+	}
+
 	if ( 'category,categories' !== $attributes['taxonomies'][0]['slug'] ) {
 		return $html;
 	}
