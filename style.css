@@ -45,6 +45,19 @@ main {
 	min-height: calc(100% - 375px);
 }
 
+@media (max-width: 800px) {
+
+	main {
+		max-width: calc(100% - 2rem);
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	main article header {
+		width: 100%;
+	}
+}
+
 main > header {
 	height: 175px;
 	text-align: right;
@@ -219,6 +232,10 @@ article.type-post {
 	margin-right: auto;
 }
 
+.multiple article {
+	margin-bottom: 2rem;
+}
+
 .multiple .type-like,
 .multiple .type-shortnote {
 	display: flex;
@@ -239,7 +256,6 @@ article.type-post {
 
 .multiple .type-shortnote footer {
 	margin-top: 0;
-	max-width: 640px;
 }
 
 .entry-content > * {
