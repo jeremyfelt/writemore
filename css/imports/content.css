@@ -76,6 +76,11 @@ article.type-post {
 	margin-top: 0;
 }
 
+ul.wp-block-latest-posts {
+	padding-left: 0;
+	list-style: none;
+}
+
 .entry-content > * {
 	max-width: 640px;
 	margin-left: auto;
