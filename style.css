@@ -210,7 +210,7 @@ time {
 	z-index: 100000;
 }
 
-.site-branding p:first-of-type {
+.site-branding p:first-of-type:first-child {
 	font-size: 2.25rem;
 	font-weight: 700;
 	margin-top: 1.525rem;
