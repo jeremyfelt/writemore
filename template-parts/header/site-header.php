@@ -23,7 +23,7 @@ $description = get_bloginfo( 'description', 'display' );
 		<?php elseif ( is_front_page() && ! is_home() ) : ?>
 			<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( $blog_info ); ?></a></h1>
 		<?php else : ?>
-			<p><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( $blog_info ); ?></a></p>
+			<p><?php echo esc_html( $blog_info ); ?></p>
 		<?php endif; ?>
 	<?php endif; ?>
 

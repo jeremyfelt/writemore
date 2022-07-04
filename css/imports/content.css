@@ -29,7 +29,10 @@
 }
 
 .site-branding p:first-of-type {
-	margin-top: 0;
+	font-size: 2.25rem;
+	font-weight: 700;
+	margin-top: 1.525rem;
+	margin-bottom: 1.475rem;
 }
 
 .weekly-preview {
