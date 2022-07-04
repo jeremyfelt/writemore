@@ -60,7 +60,7 @@ function published() {
 	$date = new \DateTime( get_the_time( 'c' ) );
 	?>
 	<p><a href="<?php the_permalink(); ?>" class="u-url"><span class="screen-reader-text">Published </span>
-		<time class="dt-published" datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( 'l, M n \a\t H:i' ) ); ?></time>
+		<time class="dt-published" datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( 'l, M j \a\t H:i' ) ); ?></time>
 	</a></p>
 	<?php
 }
