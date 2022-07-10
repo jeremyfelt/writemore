@@ -45,6 +45,10 @@ function writemore_post_class() {
 	$classes[] = 'type-' . get_post_type();
 	$classes[] = 'h-entry';
 
+	if (  has_block( 'core/image' ) && 'shortnote' === get_post_type() ) {
+		$classes[] = 'has-image';
+	}
+
 	return $classes;
 }
 

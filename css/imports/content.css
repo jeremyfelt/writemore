@@ -63,16 +63,31 @@ article.type-post {
 	flex-direction: column;
 }
 
+.single .type-shortnote {
+	margin-top: 4rem;
+}
+
 .multiple .type-like,
 .multiple .type-shortnote,
 .single .type-shortnote .entry-content,
 .single .type-like .entry-content {
 	background: #fefefe;
-	padding: 1rem 1.5rem;
-	border: 1px solid #eee;
+	padding: 0.75rem;
+	border: 1px solid #ddd;
 	margin: 0 auto 2rem;
 	font-size: 1rem;
 	max-width: 640px;
+}
+
+.multiple .has-image {
+	border: 0;
+	padding: 0;
+}
+
+.multiple .has-image figure {
+	width: 100vw;
+	margin-left: -1rem;
+	margin-bottom: 1rem;
 }
 
 .multiple .type-shortnote footer {
