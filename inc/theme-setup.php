@@ -57,11 +57,6 @@ function setup_theme_support() {
 
 function enqueue_assets() {
 
-	wp_enqueue_style(
-		'montserrat-font',
-		'https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,600;1,400;1,600&display=swap'
-	);
-
 	// Theme Stylesheet.
 	$asset_data = require dirname( __DIR__ ) . '/style.css.php';
 	wp_enqueue_style(

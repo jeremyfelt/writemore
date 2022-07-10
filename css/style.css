@@ -14,6 +14,7 @@ Use it to make something cool, have fun, and share what
 you've learned with others.
 */
 
+@import "imports/fonts.css";
 @import "imports/variables.css";
 @import "imports/elements.css";
 @import "imports/content.css";
