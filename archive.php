@@ -44,6 +44,8 @@ if ( 'shortnote' === get_post_type() ) {
 			'next_text' => 'View newer ' . strtolower( $post_type->labels->name ),
 		)
 	);
+
+	get_template_part( 'template-parts/post/author-bio' );
 	?>
 
 <?php else : ?>
