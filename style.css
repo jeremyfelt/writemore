@@ -354,6 +354,14 @@ ul.wp-block-latest-posts {
 	font-style: italic;
 }
 
+.single .shortnotes-reply-to {
+	max-width: 640px;
+	margin: 0 auto 1rem;
+	font-weight: 500;
+	border-left: 11px solid rgb(127, 255, 212);
+	padding-left: 1rem;
+}
+
 .reaction {
 	display: flex;
 }
