@@ -50,7 +50,7 @@ function render_weekly_note_item( $html, $post, $attributes ) {
 
 	$category = get_term( $attributes['taxonomies'][0]['terms'][0] );
 
-	if ( ! $category || 'a-weekly-note' !== $category->slug ) {
+	if ( ! $category || ! in_array( $category->slug, array( 'a-weekly-note', 'book-notes' ), true ) ) {
 		return $html;
 	}
 
