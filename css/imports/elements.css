@@ -85,6 +85,10 @@ h2 {
 	margin-bottom: 1rem;
 }
 
+pre {
+	white-space: break-spaces;
+}
+
 img {
 	width: 100%;
 	height: auto;
