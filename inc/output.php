@@ -2,15 +2,24 @@
 
 namespace Writemore\Output;
 
+/**
+ * Display archive content.
+ */
 function archive_content() {
 	if ( 'post' === get_post_type() ) {
 		excerpt();
 		return;
 	}
 
-	// Notes and likes are output in full.
-	if ( in_array( get_post_type(), [ 'shortnote', 'like' ] ) ) {
+	// Notes are output in full.
+	if ( in_array( get_post_type(), [ 'shortnote' ] ) ) {
 		note();
+		return;
+	}
+
+	// A like pieces together meta.
+	if ( in_array( get_post_type(), [ 'like' ] ) ) {
+		like();
 		return;
 	}
 }
@@ -41,8 +50,6 @@ function excerpt() {
 	}
 
 	echo wpautop( get_the_excerpt( $post ) );
-
-	return;
 }
 
 /**
@@ -50,6 +57,27 @@ function excerpt() {
  */
 function note() {
 	the_content();
+	published();
+}
+
+/**
+ * Display like formatted content.
+ */
+function like() {
+	$url   = get_post_meta( get_the_ID(), 'mf2_like-of', true );
+	$title = get_the_title();
+
+	if ( is_array( $url ) ) {
+		$url = array_pop( $url );
+	}
+
+	if ( '' === trim( $title ) ) {
+		$title = $url;
+	}
+
+	?>
+	<p><a class="u-like-of" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a>.</p>
+	<?php
 	published();
 }
 
