@@ -119,11 +119,11 @@ button:hover {
 main ~ footer {
 	background: #333;
 	color: #fff;
-	height: 200px;
+	height: 100px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
+	justify-content: center;
 }
 
 main ~ footer div {
