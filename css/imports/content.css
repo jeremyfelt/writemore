@@ -124,6 +124,25 @@ ul.wp-block-latest-posts {
 	margin-bottom: 2rem;
 }
 
+.wp-block-post-author {
+	display: flex;
+	margin-top: 2rem;
+}
+
+.wp-block-post-author__avatar {
+	width: 96px;
+}
+
+.wp-block-post-author__content {
+	width: calc(100% - 96px);
+	margin-left: 1rem;
+	margin-top: 0;
+}
+
+.wp-block-post-author__content p:first-of-type {
+	margin-top: 0;
+}
+
 .author-bio {
 	display: flex;
 	width: 640px;
