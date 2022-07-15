@@ -155,11 +155,11 @@ button:hover {
 main ~ footer {
 	background: #333;
 	color: #fff;
-	height: 200px;
+	height: 100px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	justify-content: flex-end;
+	justify-content: center;
 }
 
 main ~ footer div {
@@ -255,11 +255,10 @@ article.type-post {
 }
 
 .multiple article {
-	margin-bottom: 2rem;
+	margin-bottom: 4rem;
 }
 
-.multiple .type-like,
-.multiple .type-shortnote {
+.multiple .type-like {
 	display: flex;
 	flex-direction: column;
 }
@@ -269,8 +268,7 @@ article.type-post {
 }
 
 .multiple .type-like,
-.multiple .type-shortnote,
-.single .type-shortnote .entry-content,
+.type-shortnote .entry-content,
 .single .type-like .entry-content {
 	background: #fefefe;
 	padding: 0.75rem;
@@ -285,10 +283,14 @@ article.type-post {
 	padding: 0;
 }
 
+.multiple .has-image .entry-content {
+	max-width: 900px;
+	border: 0;
+}
+
 .multiple .has-image figure {
-	width: 100vw;
-	margin-left: -1rem;
-	margin-bottom: 1rem;
+	width: 100%;
+	margin-top: 0;
 }
 
 .multiple .type-shortnote footer {
@@ -375,9 +377,6 @@ ul.wp-block-latest-posts {
 
 .shortnotes-reply-to {
 	font-style: italic;
-}
-
-.single .shortnotes-reply-to {
 	max-width: 640px;
 	margin: 0 auto 1rem;
 	font-weight: 500;

@@ -2,6 +2,8 @@
 
 namespace Writemore\ContentAggregatorBlock;
 
+use function Writemore\Output\published;
+
 add_filter( 'content_aggregator_block_item', __NAMESPACE__ . '\render_shortnote_item', 20, 3 );
 add_filter( 'content_aggregator_block_item', __NAMESPACE__ . '\render_weekly_note_item', 20, 3 );
 add_filter( 'content_aggregator_block_wrapper', __NAMESPACE__ . '\filter_block_wrapper', 10, 2 );
@@ -14,15 +16,15 @@ function render_shortnote_item( $html, $post, $attributes ) {
 	ob_start();
 	?>
 	<article class="type-shortnote h-entry">
+		<?php
+		if ( function_exists( 'ShortNotes\PostType\Note\reply_to_markup' ) ) {
+			\ShortNotes\PostType\Note\reply_to_markup();
+		}
+		?>
 		<div class="entry-content e-content">
-			<?php echo wp_kses_post( html_entity_decode( $post->post_content, ENT_QUOTES, get_option( 'blog_charset' ) ) ); ?>
+			<?php echo apply_filters( 'the_content', $post->post_content ); ?>
+			<?php echo published(); ?>
 		</div>
-
-		<footer class="entry-footer">
-			<a href="<?php the_permalink(); ?>" class="posted-on u-url"><time
-				class="entry-date dt-published published updated"
-				datetime="<?php echo esc_attr( get_the_date( 'c' ) ); ?>"><?php echo esc_html( get_the_date( 'l F j, Y, g:i a' ) ); ?></time></a>
-		</footer>
 	</article>
 	<?php
 
