@@ -337,6 +337,7 @@ ul.wp-block-latest-posts {
 .author-bio {
 	display: flex;
 	width: 640px;
+	max-width: 100%;
 	margin: 1rem auto 0 auto;
 	justify-content: space-evenly;
 }
