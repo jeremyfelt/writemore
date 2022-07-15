@@ -62,12 +62,6 @@ main > header {
 	text-align: right;
 }
 
-article > * {
-	max-width: 640px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 article header {
 	position: relative;
 }
@@ -250,6 +244,12 @@ article.type-post {
 
 .multiple article {
 	margin-bottom: 4rem;
+}
+
+.type-page > * {
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
 }
 
 .multiple .type-like {

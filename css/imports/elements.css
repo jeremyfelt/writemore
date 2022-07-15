@@ -42,12 +42,6 @@ main > header {
 	text-align: right;
 }
 
-article > * {
-	max-width: 640px;
-	margin-left: auto;
-	margin-right: auto;
-}
-
 article header {
 	position: relative;
 }
