@@ -191,6 +191,10 @@ time {
 	font-size: 0.9rem;
 }
 
+iframe {
+	max-width: 100%;
+}
+
 .screen-reader-text {
 	position: absolute !important;
 	word-wrap: normal !important;

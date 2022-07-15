@@ -153,3 +153,7 @@ cite {
 time {
 	font-size: 0.9rem;
 }
+
+iframe {
+	max-width: 100%;
+}
