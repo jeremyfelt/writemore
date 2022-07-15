@@ -77,6 +77,10 @@ article.type-post {
 	max-width: 640px;
 }
 
+section.wp-block-latest-posts {
+	max-width: 100%;
+}
+
 .multiple .has-image {
 	border: 0;
 	padding: 0;

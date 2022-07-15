@@ -78,6 +78,12 @@ main > header {
 	text-align: right;
 }
 
+article > * {
+	max-width: 640px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
 article header {
 	position: relative;
 }
@@ -280,6 +286,10 @@ article.type-post {
 	margin: 0 auto 2rem;
 	font-size: 1rem;
 	max-width: 640px;
+}
+
+section.wp-block-latest-posts {
+	max-width: 100%;
 }
 
 .multiple .has-image {

@@ -15,14 +15,14 @@ function render_shortnote_item( $html, $post, $attributes ) {
 
 	ob_start();
 	?>
-	<article class="type-shortnote h-entry">
+	<article <?php post_class(); ?>>
 		<?php
 		if ( function_exists( 'ShortNotes\PostType\Note\reply_to_markup' ) ) {
 			\ShortNotes\PostType\Note\reply_to_markup();
 		}
 		?>
 		<div class="entry-content e-content">
-			<?php echo apply_filters( 'the_content', $post->post_content ); ?>
+			<?php the_content(); ?>
 			<?php echo published(); ?>
 		</div>
 	</article>

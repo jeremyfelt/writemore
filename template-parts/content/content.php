@@ -32,11 +32,17 @@
 	if ( function_exists( 'ShortNotes\PostType\Note\reply_to_markup' ) ) {
 		\ShortNotes\PostType\Note\reply_to_markup();
 	}
-	?>
-	<div class="entry-content e-content">
-		<?php the_content(); ?>
-	</div><!-- .entry-content -->
 
+	if ( ! is_front_page() ) {
+		?>
+		<div class="entry-content e-content">
+			<?php the_content(); ?>
+		</div><!-- .entry-content -->
+		<?php
+	} else {
+		the_content();
+	}
+	?>
 	<?php if ( ! is_front_page() ) : ?>
 	<footer class="entry-footer">
 		<?php
