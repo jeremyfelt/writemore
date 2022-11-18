@@ -37,6 +37,7 @@
 		?>
 		<div class="entry-content e-content">
 			<?php the_content(); ?>
+			<?php \Writemore\Output\published(); ?>
 		</div><!-- .entry-content -->
 		<?php
 	} else {
