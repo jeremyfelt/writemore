@@ -330,7 +330,6 @@ ul.wp-block-latest-posts {
 .wp-block-code {
 	max-width: calc(100vw - 2rem);
 	font-size: 0.9rem;
-	width: -webkit-fit-content;
 	width: -moz-fit-content;
 	width: fit-content;
 }
