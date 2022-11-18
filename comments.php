@@ -111,7 +111,6 @@ if ( post_password_required() ) {
 
 			<!-- Markup inspired by https://indieweb.org/like -->
 			<article class="reaction <?php echo $u_class; ?> h-cite">
-				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
 				<img src="<?php echo esc_url( $avatar ); ?>" width="40" alt="" loading="lazy" />
 
 				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
@@ -153,7 +152,6 @@ if ( post_password_required() ) {
 
 			<!-- Markup inspired by https://indieweb.org/like -->
 			<article class="reaction u-bookmark h-cite">
-				<!-- The loading attribute is only supported by Chrome right now, but I'd like to not use JavaScript for this. -->
 				<img src="<?php echo esc_url( $avatar ); ?>" width="40" alt="" loading="lazy" />
 
 				<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
