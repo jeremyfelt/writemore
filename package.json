@@ -3,16 +3,16 @@
 	"version": "2.0.0",
 	"description": "A WordPress theme.",
 	"devDependencies": {
-		"@wordpress/stylelint-config": "^20.0.2",
-		"autoprefixer": "^10.4.7",
-		"postcss": "^8.4.14",
+		"@wordpress/stylelint-config": "^21.5.0",
+		"autoprefixer": "^10.4.13",
+		"postcss": "^8.4.19",
 		"postcss-advanced-variables": "^3.0.1",
 		"postcss-cli": "^10.0.0",
-		"postcss-custom-media": "^8.0.2",
-		"postcss-generate-asset-php": "^0.0.1",
-		"postcss-import": "^14.1.0",
-		"postcss-nested": "^5.0.6",
-		"postcss-preset-env": "^7.7.2"
+		"postcss-custom-media": "^9.0.0",
+		"postcss-generate-asset-php": "^0.0.2",
+		"postcss-import": "^15.0.0",
+		"postcss-nested": "^6.0.0",
+		"postcss-preset-env": "^7.8.3"
 	},
 	"scripts": {
 		"build": "npm run build:theme",

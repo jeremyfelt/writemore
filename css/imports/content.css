@@ -136,6 +136,24 @@ ul.wp-block-latest-posts {
 	margin-bottom: 2rem;
 }
 
+.wp-block-code {
+	max-width: calc(100vw - 2rem);
+	font-size: 0.9rem;
+	width: fit-content;
+}
+
+.wp-block-gallery figure {
+	margin-top: 0;
+	margin-bottom: 0;
+	margin-left: 0;
+	margin-right: 0;
+}
+
+.is-layout-flex.wp-block-gallery {
+	display: flex;
+	gap: 1rem;
+}
+
 .wp-block-post-author {
 	display: flex;
 	margin-top: 2rem;
@@ -190,7 +208,7 @@ ul.wp-block-latest-posts {
 	max-width: 640px;
 	margin: 0 auto 1rem;
 	font-weight: 500;
-	border-left: 11px solid rgb(127, 255, 212);
+	border-left: 11px solid var(--color-context-reply);
 	padding-left: 1rem;
 }
 
@@ -211,6 +229,9 @@ ul.wp-block-latest-posts {
 	display: flex;
 	flex-wrap: wrap;
 	align-items: center;
+	border: 1px solid var(--color-context-reply);
+	padding: 1rem;
+	margin-top: 1rem;
 }
 
 .comment img {
@@ -221,4 +242,33 @@ ul.wp-block-latest-posts {
 .reaction time,
 .comment time {
 	font-size: 1rem;
+}
+
+.comment-form label {
+	display: block;
+	font-weight: 600;
+}
+
+.comment-form input,
+.comment-form textarea {
+	font-size: 1rem;
+	line-height: 1.5;
+	padding: 1rem;
+	width: 95%;
+	font-family: var(--sans-serif);
+}
+
+.comment-form input {
+	padding: 0.5rem 1rem;
+}
+
+.comment-form .submit {
+	margin: 1rem 0;
+	width: 200px;
+	background: var(--color-context-reply);
+	border: 1px solid #333;
+}
+
+.edit-link {
+	margin-right: 1rem;
 }
