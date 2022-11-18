@@ -37,6 +37,11 @@
 		?>
 		<div class="entry-content e-content">
 			<?php the_content(); ?>
+			<?php
+				if ( is_singular( 'shortnote' ) ) {
+					\Writemore\Output\published();
+				}
+			?>
 		</div><!-- .entry-content -->
 		<?php
 	} else {

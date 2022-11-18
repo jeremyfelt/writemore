@@ -85,10 +85,18 @@ function like() {
  * Display the published date.
  */
 function published() {
+	$now  = new \DateTime();
 	$date = new \DateTime( get_the_time( 'c' ) );
+
+	// Include the year for items published in previous years.
+	if ( $now->format( 'Y' ) === $date->format( 'Y' ) ) {
+		$format = 'l, M j \a\t H:i';
+	} else {
+		$format = 'l, M j, Y \a\t H:i';
+	}
 	?>
 	<p><a href="<?php the_permalink(); ?>" class="u-url"><span class="screen-reader-text">Published </span>
-		<time class="dt-published" datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( 'l, M j \a\t H:i' ) ); ?></time>
+		<time class="dt-published" datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( $format ) ); ?></time>
 	</a></p>
 	<?php
 }
