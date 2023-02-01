@@ -5,19 +5,12 @@
  * @package WriteMore
  */
 
+$blog_info = get_bloginfo( 'name' );
 ?>
 
 <header>
 
-<?php
-
-$blog_info   = get_bloginfo( 'name' );
-$description = get_bloginfo( 'description', 'display' );
-
-?>
-
-<div class="site-branding">
-	<?php if ( $blog_info ) : ?>
+	<div class="site-branding">
 		<?php if ( is_front_page() && ! is_paged() ) : ?>
 			<h1><?php echo esc_html( $blog_info ); ?></h1>
 		<?php elseif ( is_front_page() && ! is_home() ) : ?>
@@ -25,12 +18,7 @@ $description = get_bloginfo( 'description', 'display' );
 		<?php else : ?>
 			<p><?php echo esc_html( $blog_info ); ?></p>
 		<?php endif; ?>
-	<?php endif; ?>
-
-	<?php if ( $description ) : ?>
-		<p><?php echo $description; // phpcs:ignore WordPress.Security.EscapeOutput ?></p>
-	<?php endif; ?>
-</div><!-- .site-branding -->
+	</div>
 
 	<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
 	<nav id="site-navigation" aria-label="<?php esc_attr_e( 'Primary menu', 'writemore' ); ?>">
@@ -46,7 +34,7 @@ $description = get_bloginfo( 'description', 'display' );
 			)
 		);
 		?>
-	</nav><!-- #site-navigation -->
+	</nav>
 	<?php endif; ?>
 
-</header><!-- #masthead -->
+</header>
