@@ -21,19 +21,11 @@ get_header(); ?>
 <?php endif; ?>
 
 <?php
-if ( have_posts() ) {
+// Load posts loop.
+while ( have_posts() ) {
+	the_post();
 
-	// Load posts loop.
-	while ( have_posts() ) {
-		the_post();
-
-		get_template_part( 'template-parts/content/content', 'single' );
-	}
-
-} else {
-	// If no content, include the "No posts found" template.
-	get_template_part( 'template-parts/content/content-none' );
-
+	get_template_part( 'template-parts/content/content', 'single' );
 }
 
 get_footer();

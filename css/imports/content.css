@@ -272,3 +272,15 @@ ul.wp-block-latest-posts {
 .edit-link {
 	margin-right: 1rem;
 }
+
+.published-wrapper {
+	max-width: 640px;
+	margin: -1rem auto 2rem auto;
+	text-align: right;
+}
+
+.published-wrapper time {
+	background-color: #e1e1e1;
+	border-bottom: 0.25rem solid #c9a;
+	padding: 0.5rem 0.5rem 0.25rem 0.5rem;
+}

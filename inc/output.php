@@ -64,27 +64,16 @@ function note() {
  * Display like formatted content.
  */
 function like() {
-	$url   = get_post_meta( get_the_ID(), 'mf2_like-of', true );
-	$title = get_the_title();
-
-	if ( is_array( $url ) ) {
-		$url = array_pop( $url );
-	}
-
-	if ( '' === trim( $title ) ) {
-		$title = $url;
-	}
-
-	?>
-	<p><a class="u-like-of" href="<?php echo esc_url( $url ); ?>"><?php echo esc_html( $title ); ?></a>.</p>
-	<?php
+	the_content();
 	published();
 }
 
 /**
  * Display the published date.
+ *
+ * @param $microformat bool Whether to wrap with microformat data.
  */
-function published() {
+function published( $microformat = true ) {
 	$now  = new \DateTime();
 	$date = new \DateTime( get_the_time( 'c' ) );
 
@@ -94,9 +83,18 @@ function published() {
 	} else {
 		$format = 'l, M j, Y \a\t H:i';
 	}
-	?>
-	<p><a href="<?php the_permalink(); ?>" class="u-url"><span class="screen-reader-text">Published </span>
-		<time class="dt-published" datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( $format ) ); ?></time>
-	</a></p>
-	<?php
+
+	if ( false === $microformat ) {
+		?>
+		<div class="published-wrapper"><span class="screen-reader-text">Published </span>
+			<time datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( $format ) ); ?></time>
+		</div>
+		<?php
+	} else {
+		?>
+		<p><a href="<?php the_permalink(); ?>" class="u-url"><span class="screen-reader-text">Published </span>
+			<time class="dt-published" datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( $format ) ); ?></time>
+		</a></p>
+		<?php
+	}
 }
