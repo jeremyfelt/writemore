@@ -14,11 +14,10 @@ get_header(); ?>
 <?php endif; ?>
 
 <?php
-// Load posts loop.
+
 while ( have_posts() ) {
 	the_post();
-
 	get_template_part( 'template-parts/content/card', get_post_type() );
 }
-get_template_part( 'template-parts/post/author-bio' );
+
 get_footer();

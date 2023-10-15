@@ -1,8 +1,6 @@
 <?php
 /**
- * Template part for displaying posts
- *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
+ * Template part for displaying page content.
  *
  * @package writemore
  */
@@ -27,52 +25,26 @@
 		<?php
 	endif;
 
-	if ( function_exists( 'ShortNotes\PostType\Note\reply_to_markup' ) ) {
-		\ShortNotes\PostType\Note\reply_to_markup();
-	}
-
 	if ( ! is_front_page() ) {
-		if ( is_singular( 'post' ) ) {
-			\Writemore\Output\published( false );
-		}
 		?>
 		<div class="entry-content e-content">
 			<?php the_content(); ?>
-			<?php
-			if ( is_singular( 'shortnote' ) ) {
-				\Writemore\Output\published();
-			}
-			?>
 		</div><!-- .entry-content -->
 		<?php
 	} else {
 		the_content();
 	}
 	?>
-	<?php if ( ! is_front_page() ) : ?>
+
 	<footer class="entry-footer">
-		<?php
-		if ( is_singular( 'shortnote' ) || is_post_type_archive( 'shortnote' ) ) {
-			if ( is_singular( 'shortnote' ) ) {
-				echo '<p>Back to <a href="' . get_post_type_archive_link( 'shortnote' ) . '">all notes</a>.</p>';
-			}
-		}
+		<?php get_template_part( 'template-parts/post/author-bio' ); ?>
+	</footer><!-- .entry-footer -->r
 
-		if ( ! is_singular( 'shortnote' ) && ! is_post_type_archive( 'shortnote' ) ) {
-			\Writemore\Output\published();
-		}
-
-		get_template_part( 'template-parts/post/author-bio' );
-		?>
-	</footer><!-- .entry-footer -->
-
-		<?php
-		// If comments are open or there is at least one comment, load up the comment template.
-		if ( comments_open() || get_comments_number() ) {
-			comments_template(); // Outputs its own <section>.
-		}
-		?>
-
-	<?php endif; ?>
+	<?php
+	// If comments are open or there is at least one comment, load up the comment template.
+	if ( comments_open() || get_comments_number() ) {
+		comments_template(); // Outputs its own <section>.
+	}
+	?>
 
 </article><!-- #post-<?php the_ID(); ?> -->
