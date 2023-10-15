@@ -44,7 +44,7 @@ function remove_comment_classes( $classes, $class_name, $comment_id, $comment, $
 	// Remove classes added by WordPress (using this exact code) to indicate authorship
 	// of a comment. If I decide to highlight my comments as different, I'll add something in
 	// this section at a later time.
-	$user = $comment->user_id ? get_userdata( $comment->user_id ) : false;
+	$user = $comment->user_id ? get_userdata( (int) $comment->user_id ) : false;
 	if ( $user ) {
 		$remove_classes[] = 'byuser';
 		$remove_classes[] = 'comment-author-' . sanitize_html_class( $user->user_nicename, $comment->user_id );

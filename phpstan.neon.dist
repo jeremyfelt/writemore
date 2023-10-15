@@ -1,11 +1,10 @@
 parameters:
-  level: 4
+  level: 5
   paths:
     - ./
   scanFiles:
       - %rootDir%/../../php-stubs/wordpress-stubs/wordpress-stubs.php
       - %rootDir%/../../php-stubs/wordpress-tests-stubs/wordpress-tests-stubs.php
-	  -
   excludePaths:
     - vendor
     - node_modules
