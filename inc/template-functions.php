@@ -65,7 +65,7 @@ function writemore_posted_on() {
 		esc_html( get_the_date() )
 	);
 
-	if ( is_archive( 'shortnote' ) ) {
+	if ( is_post_type_archive( 'shortnote' ) ) {
 		echo '<a href="' . esc_url( get_the_permalink() ) . '" class="posted-on u-url">';
 	} else {
 		echo '<span class="posted-on">';
@@ -77,7 +77,7 @@ function writemore_posted_on() {
 		$time_string // phpcs:ignore WordPress.Security.EscapeOutput
 	);
 
-	if ( is_archive( 'shortnote' ) ) {
+	if ( is_post_type_archive( 'shortnote' ) ) {
 		echo '</a>';
 	} else {
 		echo ' under a <a rel="license" href="https://creativecommons.org/licenses/by-sa/4.0/">CC BY-SA 4.0 International License</a>.</span>';

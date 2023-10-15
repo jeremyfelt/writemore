@@ -52,17 +52,17 @@
 	<?php if ( ! is_front_page() ) : ?>
 	<footer class="entry-footer">
 		<?php
-		if ( is_singular( 'shortnote' ) || is_archive( 'shortnote' ) ) {
+		if ( is_singular( 'shortnote' ) || is_post_type_archive( 'shortnote' ) ) {
 			if ( is_singular( 'shortnote' ) ) {
 				echo '<p>Back to <a href="' . get_post_type_archive_link( 'shortnote' ) . '">all notes</a>.</p>';
 			}
 		}
 
-		if ( ! is_singular( 'shortnote' ) && ! is_archive( 'shortnote' ) ) {
+		if ( ! is_singular( 'shortnote' ) && ! is_post_type_archive( 'shortnote' ) ) {
 			\Writemore\Output\published();
 		}
 		?>
-		<?php if ( ! is_front_page() && ! is_singular( 'attachment' ) && ! is_archive( 'shortnote' ) ) : ?>
+		<?php if ( ! is_front_page() && ! is_singular( 'attachment' ) && ! is_post_type_archive( 'shortnote' ) ) : ?>
 			<?php get_template_part( 'template-parts/post/author-bio' ); ?>
 	<?php endif; ?>
 	</footer><!-- .entry-footer -->
