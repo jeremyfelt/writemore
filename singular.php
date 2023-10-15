@@ -20,5 +20,5 @@ while ( have_posts() ) {
 
 	get_template_part( 'template-parts/content/card', get_post_type() );
 }
-
+get_template_part( 'template-parts/post/author-bio' );
 get_footer();

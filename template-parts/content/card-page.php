@@ -61,10 +61,9 @@
 		if ( ! is_singular( 'shortnote' ) && ! is_post_type_archive( 'shortnote' ) ) {
 			\Writemore\Output\published();
 		}
+
+		get_template_part( 'template-parts/post/author-bio' );
 		?>
-		<?php if ( ! is_front_page() && ! is_singular( 'attachment' ) && ! is_post_type_archive( 'shortnote' ) ) : ?>
-			<?php get_template_part( 'template-parts/post/author-bio' ); ?>
-	<?php endif; ?>
 	</footer><!-- .entry-footer -->
 
 		<?php
