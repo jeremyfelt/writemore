@@ -55,14 +55,15 @@ function setup_theme_support() {
 	add_editor_style( 'editor-style.css' );
 }
 
+/**
+ * Enqueue theme assets.
+ */
 function enqueue_assets() {
 
-	// Theme Stylesheet.
-	$asset_data = require dirname( __DIR__ ) . '/style.css.php';
 	wp_enqueue_style(
 		'writemore-style',
 		get_stylesheet_uri(),
 		array(),
-		$asset_data['version'],
+		filemtime( get_stylesheet_directory() . '/style.css' ),
 	);
 }

@@ -213,6 +213,7 @@ iframe {
 	left: 5px;
 	line-height: normal;
 	padding: 15px 23px 14px;
+	-webkit-text-decoration: none;
 	text-decoration: none;
 	top: 5px;
 	width: auto;
