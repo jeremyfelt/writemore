@@ -1,28 +1,11 @@
 <?php
+/**
+ * Output functions.
+ *
+ * @package writemore
+ */
 
 namespace Writemore\Output;
-
-/**
- * Display archive content.
- */
-function archive_content() {
-	if ( 'post' === get_post_type() ) {
-		excerpt();
-		return;
-	}
-
-	// Notes are output in full.
-	if ( in_array( get_post_type(), [ 'shortnote' ] ) ) {
-		note();
-		return;
-	}
-
-	// A like pieces together meta.
-	if ( in_array( get_post_type(), [ 'like' ] ) ) {
-		like();
-		return;
-	}
-}
 
 /**
  * Display the excerpt for a piece of content.
@@ -50,22 +33,6 @@ function excerpt() {
 	}
 
 	echo wpautop( get_the_excerpt( $post ) );
-}
-
-/**
- * Display note formatted content.
- */
-function note() {
-	the_content();
-	published();
-}
-
-/**
- * Display like formatted content.
- */
-function like() {
-	the_content();
-	published();
 }
 
 /**
