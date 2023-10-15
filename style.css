@@ -271,9 +271,28 @@ article.type-post {
 	margin-right: auto;
 }
 
-.multiple .type-like {
-	display: flex;
-	flex-direction: column;
+.multiple .type-like .entry-content {
+	display: list-item;
+	list-style: disclosure-closed;
+	padding-left: 0.25rem;
+}
+
+.multiple .type-like .entry-content p {
+	margin-top: 0;
+	margin-bottom: 0.15rem;
+}
+
+.multiple .type-like .entry-footer {
+	margin-top: 0;
+}
+
+.multiple .type-like .entry-footer p {
+	margin: 0;
+}
+
+.multiple .type-like time {
+	font-size: 0.85rem;
+	padding-left: 0.25rem;
 }
 
 .single .type-shortnote {
@@ -289,6 +308,11 @@ article.type-post {
 	margin: 0 auto 2rem;
 	font-size: 1rem;
 	max-width: 640px;
+}
+
+.multiple .type-like {
+	border: none;
+	margin-bottom: 0.25rem;
 }
 
 section.wp-block-latest-posts {
