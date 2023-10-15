@@ -1,10 +1,8 @@
 <?php
 /**
- * The template for displaying archive pages
+ * The template for displaying archive pages.
  *
- * @link https://developer.wordpress.org/themes/basics/template-hierarchy/
- *
- * @package WriteMore
+ * @package writemore
  */
 
 get_header();
@@ -50,7 +48,6 @@ if ( 'shortnote' === get_post_type() ) {
 
 <?php else : ?>
 	<p>This page exists, but how did it happen?</p>
-	<?php get_template_part( 'template-parts/content/content-none' ); ?>
 <?php endif; ?>
 
 <?php get_footer(); ?>

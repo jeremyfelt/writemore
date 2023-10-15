@@ -1,17 +1,11 @@
 <?php
 /**
- * Write More Things functions and definitions
+ * The Write More theme.
  *
- * @link https://developer.wordpress.org/themes/basics/theme-functions/
- *
- * @package Write_More_Things
+ * @package writemore
  */
 
-/**
- * Functions which enhance the theme by hooking into WordPress.
- */
 require_once __DIR__ . '/inc/template-functions.php';
-
 require_once __DIR__ . '/inc/content-aggregator-block.php';
 require_once __DIR__ . '/inc/class-writemore-comment-walker.php';
 require_once __DIR__ . '/inc/comments.php';

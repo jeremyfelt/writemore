@@ -2,7 +2,7 @@
 /**
  * The template for displaying all singular views.
  *
- * @package WriteMore
+ * @package writemore
  */
 
 get_header(); ?>

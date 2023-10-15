@@ -2,7 +2,7 @@
 /**
  * The header template.
  *
- * @package WriteMore
+ * @package writemore
  */
 
 $writemore_blog_info = get_bloginfo( 'name' );

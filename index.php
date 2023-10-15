@@ -7,7 +7,7 @@
  *
  * If it is, I'm confused!
  *
- * @package WriteMore
+ * @package writemore
  */
 
 get_header(); ?>

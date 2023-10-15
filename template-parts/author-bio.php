@@ -2,7 +2,7 @@
 /**
  * The template for displaying author info below posts.
  *
- * @package WriteMore
+ * @package writemore
  */
 
 ?>
