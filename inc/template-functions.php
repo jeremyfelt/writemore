@@ -15,10 +15,10 @@ function writemore_body_classes( $classes ) {
 	// Adds a class of hfeed to non-singular pages.
 	if ( ! is_singular() ) {
 		$classes = array( 'multiple hfeed' );
-	} else if ( is_front_page() ) {
+	} elseif ( is_front_page() ) {
 		$classes = array( 'multiple' );
 	} else {
-		$classes = array( 'single');
+		$classes = array( 'single' );
 	}
 
 	return $classes;
@@ -45,7 +45,7 @@ function writemore_post_class() {
 	$classes[] = 'type-' . get_post_type();
 	$classes[] = 'h-entry';
 
-	if (  has_block( 'core/image' ) && 'shortnote' === get_post_type() ) {
+	if ( has_block( 'core/image' ) && 'shortnote' === get_post_type() ) {
 		$classes[] = 'has-image';
 	}
 

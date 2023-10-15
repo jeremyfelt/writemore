@@ -21,7 +21,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 	 * @param int        $id      Optional. ID of the current comment. Default 0 (unused).
 	 */
 	public function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) {
-		$depth++;
+		++$depth;
 		$GLOBALS['comment_depth'] = $depth;
 		$GLOBALS['comment']       = $comment;
 
@@ -163,16 +163,16 @@ class Writemore_Comment_Walker extends Walker_Comment {
 				array_merge(
 					$args,
 					array(
-						'add_below' => 'div-comment',
-							'depth'     => $depth,
-							'max_depth' => $args['max_depth'],
-							'before'    => '<div class="reply">',
-							'after'     => '</div>',
-							'reply_text' => 'Reply',
-						)
+						'add_below'  => 'div-comment',
+						'depth'      => $depth,
+						'max_depth'  => $args['max_depth'],
+						'before'     => '<div class="reply">',
+						'after'      => '</div>',
+						'reply_text' => 'Reply',
 					)
-				);
-				?>
+				)
+			);
+			?>
 			</article>
 		<?php
 	}

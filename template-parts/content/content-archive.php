@@ -10,12 +10,12 @@
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
 	<?php
 	if ( post_type_supports( get_post_type(), 'title' ) ) :
-	?>
+		?>
 	<header>
 		<?php the_title( '<h1><a href="' . get_the_permalink() . '" class="p-name">', '</a></h1>' ); ?>
 		<?php the_post_thumbnail(); ?>
 	</header>
-	<?php
+		<?php
 	endif;
 
 	if ( function_exists( 'ShortNotes\PostType\Note\reply_to_markup' ) ) {

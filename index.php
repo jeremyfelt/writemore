@@ -27,16 +27,14 @@ if ( have_posts() ) {
 	while ( have_posts() ) {
 		the_post();
 
-		get_template_part( 'template-parts/content/content', 'archive' );
+		get_template_part( 'template-parts/content/card', get_post_type() );
 	}
 
 	the_posts_navigation();
-
 } else {
 
 	// If no content, include the "No posts found" template.
 	get_template_part( 'template-parts/content/content-none' );
-
 }
 
 get_footer();

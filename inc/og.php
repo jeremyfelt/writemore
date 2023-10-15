@@ -32,5 +32,4 @@ function add_meta_tags() {
 			<?php
 		}
 	}
-
 }
