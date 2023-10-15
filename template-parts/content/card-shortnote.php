@@ -23,7 +23,7 @@
 		\Writemore\Output\published();
 		if ( is_singular() ) {
 			echo '<p>Back to <a href="' . get_post_type_archive_link( 'shortnote' ) . '">all notes</a>.</p>';
-			get_template_part( 'template-parts/post/author-bio' );
+			get_template_part( 'template-parts/author-bio' );
 		}
 		?>
 	</footer>

@@ -33,7 +33,7 @@
 	<footer class="entry-footer">
 		<?php
 		\Writemore\Output\published();
-		get_template_part( 'template-parts/post/author-bio' );
+		get_template_part( 'template-parts/author-bio' );
 		?>
 	</footer>
 	<?php

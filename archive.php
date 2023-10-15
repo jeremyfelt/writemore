@@ -45,7 +45,7 @@ if ( 'shortnote' === get_post_type() ) {
 		)
 	);
 
-	get_template_part( 'template-parts/post/author-bio' );
+	get_template_part( 'template-parts/author-bio' );
 	?>
 
 <?php else : ?>

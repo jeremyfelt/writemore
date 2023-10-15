@@ -25,7 +25,7 @@
 	?>
 
 	<footer class="entry-footer">
-		<?php get_template_part( 'template-parts/post/author-bio' ); ?>
+		<?php get_template_part( 'template-parts/author-bio' ); ?>
 	</footer><!-- .entry-footer -->r
 
 </article><!-- #post-<?php the_ID(); ?> -->
