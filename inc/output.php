@@ -9,8 +9,10 @@ namespace Writemore\Output;
 
 /**
  * Display the excerpt for a piece of content.
+ *
+ * @return void
  */
-function excerpt() {
+function excerpt(): void {
 	$post = get_post();
 
 	// If a manual excerpt was set, use it.
@@ -38,9 +40,10 @@ function excerpt() {
 /**
  * Display the published date.
  *
- * @param $microformat bool Whether to wrap with microformat data.
+ * @param bool $microformat bool Whether to wrap with microformat data.
+ * @return void
  */
-function published( $microformat = true ) {
+function published( bool $microformat = true ): void {
 	$now  = new \DateTime();
 	$date = new \DateTime( get_the_time( 'c' ) );
 
