@@ -31,7 +31,7 @@ if ( post_password_required() ) {
 
 		$comments = get_comments( array(
 			'post_id' => get_the_ID(),
-			'status' => 1,
+			'status' => 'approve',
 			'fields' => 'ids',
 		) );
 
@@ -90,7 +90,7 @@ if ( post_password_required() ) {
 			$url = get_comment_meta( $like_id, 'webmention_source_url', true );
 			$avatar = get_comment_meta( $like_id, 'avatar', true );
 			$author_url = get_comment_meta( $like_id, 'semantic_linkbacks_author_url', true );
-			$type = get_comment_meta( $comment_id, 'semantic_linkbacks_type', true );
+			$type = get_comment_meta( $like_id, 'semantic_linkbacks_type', true );
 
 			if ( '' === $author_url ) {
 				$author_url = $url;
