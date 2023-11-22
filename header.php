@@ -36,7 +36,7 @@ $writemore_blog_info = get_bloginfo( 'name' );
 		<?php
 		wp_nav_menu(
 			array(
-				'theme_location'  => 'primary',
+				'theme_location'  => 'header-menu',
 				'menu_class'      => 'menu-wrapper',
 				'container'       => false,
 				'container_class' => 'primary-menu-container',

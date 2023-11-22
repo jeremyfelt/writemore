@@ -49,15 +49,30 @@ function published( bool $microformat = true ): void {
 
 	// Include the year for items published in previous years.
 	if ( $now->format( 'Y' ) === $date->format( 'Y' ) ) {
-		$format = 'l, M j \a\t H:i';
+		$format = 'l, M j';
 	} else {
-		$format = 'l, M j, Y \a\t H:i';
+		$format = 'l, M j, Y ';
+	}
+
+	$post = get_post();
+	$more = '';
+	if ( str_contains( $post->post_content, ' snow' ) ) {
+		$more .= '❄️';
+	}
+
+	if ( str_contains( $post->post_content, ' rain' ) ) {
+		$more .= '🌧';
+	}
+
+	if ( str_contains( $post->post_content, ' sunny' ) ) {
+		$more .= '☀️';
 	}
 
 	if ( false === $microformat ) {
 		?>
 		<div class="published-wrapper"><span class="screen-reader-text">Published </span>
 			<time datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( $format ) ); ?></time>
+			<span class="moon-phase"><?php echo moon_phase( $date->getTimestamp() ); ?><?php echo $more; ?></span>
 		</div>
 		<?php
 	} else {
@@ -67,4 +82,55 @@ function published( bool $microformat = true ): void {
 		</a></p>
 		<?php
 	}
+}
+
+/**
+ * Display the current moon phase as an emoji.
+ *
+ * @see https://web.archive.org/web/20090218203728/http://home.att.net/~srschmitt/lunarphasecalc.html
+ *
+ * @param int $timestamp The timestamp.
+ */
+function moon_phase( int $timestamp ): void {
+	$julian_day =
+		( $timestamp / 86400 ) // The number of days since January 1, 1970.
+		+ 2440587.5; // The number of days before January 1, 1970.
+
+	// The number of days since an arbitrary new moon cycle starts on January 6, 2000.
+    $days_since_first_new_moon = $julian_day - 2451550.1;
+
+	// The age of the current cycle.
+    $moon_age = fmod( ( $days_since_first_new_moon + 29.53058853 ), 29.53058853 );
+
+	switch ( $moon_age ) {
+		case $moon_age < 1.84566:
+			$phase = '🌑';
+			break;
+		case $moon_age < 5.53699:
+			$phase = '🌒';
+			break;
+		case $moon_age < 9.22831:
+			$phase = '🌓';
+			break;
+		case $moon_age < 12.91963:
+			$phase = '🌔';
+			break;
+		case $moon_age < 16.61096:
+			$phase = '🌕';
+			break;
+		case $moon_age < 20.30228:
+			$phase = '🌖';
+			break;
+		case $moon_age < 23.99361:
+			$phase = '🌗';
+			break;
+		case $moon_age < 27.68493:
+			$phase = '🌘';
+			break;
+		default:
+			$phase = '🌑';
+			break;
+	}
+
+	echo $phase;
 }

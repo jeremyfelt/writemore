@@ -13,7 +13,8 @@
 		"build": "npm run build:theme",
 		"build:theme": "npm run postcss:editor",
 		"postcss:editor": "postcss -o editor-style.css style.css",
-		"stylelint:theme": "stylelint style.css"
+		"lint": "npm run lint:styles",
+		"lint:styles": "stylelint style.css"
 	},
 	"repository": {
 		"type": "git",
