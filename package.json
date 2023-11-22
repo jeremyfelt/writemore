@@ -11,10 +11,9 @@
 	},
 	"scripts": {
 		"build": "npm run build:theme",
-		"build:theme": "npm run stylelint:theme && npm run postcss:main && npm run postcss:editor",
-		"postcss:main": "postcss -o style.css css/style.css",
-		"postcss:editor": "postcss -o editor-style.css css/editor-style.css",
-		"stylelint:theme": "stylelint css/**/*.css"
+		"build:theme": "npm run postcss:editor",
+		"postcss:editor": "postcss -o editor-style.css style.css",
+		"stylelint:theme": "stylelint style.css"
 	},
 	"repository": {
 		"type": "git",
