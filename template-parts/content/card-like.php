@@ -17,7 +17,6 @@
 		<?php
 		\Writemore\Output\published();
 		if ( is_singular() ) {
-
 			echo '<p>Back to <a href="' . get_post_type_archive_link( 'like' ) . '">all likes</a>.</p>';
 			get_template_part( 'template-parts/author-bio' );
 		}
