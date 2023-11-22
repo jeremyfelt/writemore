@@ -31,8 +31,25 @@ you've learned with others.
 
 :root {
 	--sans-serif: montserrat, sans-serif;
-
+	--font-size-base: 1rem;
+	--font-size-default: 1.125rem;
+	--color-background: #f6f6f6;
+	--color-foreground: #222;
+	--color-content-background: #f9f9f9;
+	--color-border-default: #ddd;
+	--color-link: #2271b1;
 	--color-context-reply: rgb(127, 255, 212);
+}
+
+@media (prefers-color-scheme: dark) {
+
+	:root {
+		--color-background: #222;
+		--color-foreground: #f6f6f6;
+		--color-content-background: #343434;
+		--color-border-default: #888;
+		--color-link: #00c2e1;
+	}
 }
 
 html,
@@ -41,11 +58,29 @@ body {
 }
 
 body {
+	background: #f6f6f6;
+	background: var(--color-background);
+	color: #222;
+	color: var(--color-foreground);
 	font-family: montserrat, sans-serif;
 	font-family: var(--sans-serif);
 	line-height: 1.55;
-	font-size: 18px;
+	font-size: 1.125rem;
+	font-size: var(--font-size-default);
 	margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+
+	body {
+		font-size: 1rem;
+		font-size: var(--font-size-base);
+	}
+}
+
+a {
+	color: #2271b1;
+	color: var(--color-link);
 }
 
 header {
@@ -89,7 +124,8 @@ article header a {
 }
 
 article header a:hover {
-	color: #00f;
+	color: #2271b1;
+	color: var(--color-link);
 }
 
 article footer {
@@ -296,9 +332,11 @@ article.type-post {
 .multiple .type-like,
 .type-shortnote .entry-content,
 .single .type-like .entry-content {
-	background: #fefefe;
+	background: #f9f9f9;
+	background: var(--color-content-background);
 	padding: 0.75rem;
 	border: 1px solid #ddd;
+	border: 1px solid var(--color-border-default);
 	margin: 0 auto 2rem;
 	font-size: 1rem;
 	max-width: 640px;
@@ -319,6 +357,8 @@ section.wp-block-latest-posts {
 }
 
 .multiple .has-image .entry-content {
+	background-color: #f6f6f6;
+	background-color: var(--color-background);
 	max-width: 900px;
 	border: 0;
 }

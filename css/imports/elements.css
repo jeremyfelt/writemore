@@ -4,10 +4,23 @@ body {
 }
 
 body {
+	background: var(--color-background);
+	color: var(--color-foreground);
 	font-family: var(--sans-serif);
 	line-height: 1.55;
-	font-size: 18px;
+	font-size: var(--font-size-default);
 	margin: 0;
+}
+
+@media screen and (max-width: 800px) {
+
+	body {
+		font-size: var(--font-size-base);
+	}
+}
+
+a {
+	color: var(--color-link);
 }
 
 header {
@@ -51,7 +64,7 @@ article header a {
 }
 
 article header a:hover {
-	color: #00f;
+	color: var(--color-link);
 }
 
 article footer {

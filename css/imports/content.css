@@ -94,9 +94,9 @@ article.type-post {
 .multiple .type-like,
 .type-shortnote .entry-content,
 .single .type-like .entry-content {
-	background: #fefefe;
+	background: var(--color-content-background);
 	padding: 0.75rem;
-	border: 1px solid #ddd;
+	border: 1px solid var(--color-border-default);
 	margin: 0 auto 2rem;
 	font-size: 1rem;
 	max-width: 640px;
@@ -117,6 +117,7 @@ section.wp-block-latest-posts {
 }
 
 .multiple .has-image .entry-content {
+	background-color: var(--color-background);
 	max-width: 900px;
 	border: 0;
 }

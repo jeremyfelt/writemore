@@ -1,5 +1,22 @@
 :root {
 	--sans-serif: montserrat, sans-serif;
-
+	--font-size-base: 1rem;
+	--font-size-default: 1.125rem;
+	--color-background: #f6f6f6;
+	--color-foreground: #222;
+	--color-content-background: #f9f9f9;
+	--color-border-default: #ddd;
+	--color-link: #2271b1;
 	--color-context-reply: rgb(127, 255, 212);
+}
+
+@media (prefers-color-scheme: dark) {
+
+	:root {
+		--color-background: #222;
+		--color-foreground: #f6f6f6;
+		--color-content-background: #343434;
+		--color-border-default: #888;
+		--color-link: #00c2e1;
+	}
 }
