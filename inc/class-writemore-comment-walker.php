@@ -122,11 +122,14 @@ class Writemore_Comment_Walker extends Walker_Comment {
 
 		?>
 		<article id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+			<span>
 			<?php
 			if ( 0 != $args['avatar_size'] ) {
 				echo get_avatar( $comment, $args['avatar_size'] );
 			}
 			?>
+			<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
+			<span>
 			<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>&nbsp;replied on&nbsp;
 			<?php
 			printf(
@@ -143,6 +146,8 @@ class Writemore_Comment_Walker extends Walker_Comment {
 
 			// Use e-content because the comment content may not be plain text.
 			?>
+			</span>
+		</span>
 			<?php if ( '0' == $comment->comment_approved ) : ?>
 			<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
 			<?php endif; ?>

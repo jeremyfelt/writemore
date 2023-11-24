@@ -37,6 +37,7 @@ you've learned with others.
 	--font-size-content-heading: 1.5rem;
 
 	--content-width: 640px;
+	--content-width-wide: 1024px;
 
 	--spacing-base: 1rem;
 	--spacing-default: 3rem;
@@ -83,37 +84,31 @@ a {
 
 header {
 	width: calc(100% - var(--spacing-default));
+	max-width: var(--content-width-wide);
+}
+
+section {
+	max-width: var(--content-width);
 }
 
 header,
 section {
-	max-width: var(--content-width);
 	margin: 0 auto;
 }
 
 main {
+	max-width: calc(100% - var(--spacing-default));
 	min-height: calc(100% - 375px);
+	margin-left: auto;
+	margin-right: auto;
 }
 
 article {
 	margin-top: var(--spacing-large);
 }
 
-@media (max-width: 800px) {
-
-	body {
-		font-size: var(--font-size-base);
-	}
-
-	main {
-		max-width: calc(100% - var(--spacing-default));
-		margin-left: auto;
-		margin-right: auto;
-	}
-
-	main article header {
-		width: 100%;
-	}
+section article {
+	margin-top: var(--spacing-base );
 }
 
 main > header {
@@ -122,6 +117,7 @@ main > header {
 }
 
 article header {
+	width: 100%;
 	position: relative;
 }
 
@@ -134,7 +130,6 @@ article header a:hover {
 }
 
 article header h1 {
-	margin-left: -15rem;
 	margin-bottom: 0;
 	border-top: 1px solid var(--color-border-default);
 	padding-top: var(--spacing-base);
@@ -170,6 +165,11 @@ h2 {
 	margin-top: var(--spacing-default);
 	margin-bottom: var(--spacing-base);
 	font-weight: 900;
+}
+
+h3 {
+	margin-top: var(--spacing-base);
+	margin-bottom: var(--spacing-base );
 }
 
 pre,
@@ -220,12 +220,12 @@ input[type="search"] {
 
 button {
 	padding: 0.875rem;
-	font-size: 1rem;
+	font-size: var(--font-size-base);
 	margin-left: 0.35rem;
 	vertical-align: top;
 	border: 1px solid #bbb;
 	background: #eee;
-	width: 100px;
+	width: var(--spacing-large);
 }
 
 button:hover {
@@ -315,29 +315,128 @@ iframe {
 }
 
 .entry-content .size-large {
-	max-width: 1024px;
+	max-width: var(--content-width-wide);
 	height: auto;
 }
 
 .published-wrapper {
 	display: flex;
 	flex-direction: column;
-	margin-left: calc(50vw - (var(--content-width)/2) - 15rem);
+	width: 100%;
+	max-width: var(--content-width-wide);
+	margin: 0 auto;
 	color: var(--color-foreground);
 }
 
-@media screen and (max-width: 1400px) {
+.author-bio {
+	display: flex;
+	width: var(--content-width);
+	max-width: 100%;
+	margin: var(--spacing-base) auto 0 auto;
+	padding-top: var(--spacing-default);
+	border-top: 1px solid var(--color-border-default);
+	justify-content: space-evenly;
+}
 
-	article header h1 {
-		margin-left: 0;
-	}
+.author-bio img {
+	width: 150px;
+	height: 100%;
+}
 
-	.published-wrapper {
-		max-width: var(--content-width);
-		margin-left: auto;
-		margin-right: auto;
-		margin-bottom: 3rem;
-	}
+.author-bio-content {
+	padding: 0 var(--spacing-base);
+	flex-basis: fit-content;
+}
+
+.author-bio-content p {
+	margin-top: 0;
+}
+
+.reaction {
+	display: flex;
+}
+
+.reaction img {
+	width: 64px;
+	height: 64px;
+}
+
+.reaction span {
+	padding-left: var(--spacing-base);
+	width: 100%;
+}
+
+.comment {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	border: 1px solid var(--color-border-default);
+	padding: var(--spacing-base);
+	margin-top: var(--spacing-base);
+}
+
+.comment img {
+	width: 64px;
+	height: 64px;
+	margin-right: var(--spacing-base);
+}
+
+.comment > span {
+	display: flex;
+}
+
+.comment-content {
+	width: 100%;
+}
+
+.reaction time,
+.comment time {
+	font-size: var(--spacing-base);
+}
+
+.comment-respond {
+	margin-top: var(--spacing-default);
+	border-top: 1px solid var(--color-border-default);
+	width: 100%;
+}
+
+.comment-form label {
+	display: block;
+	font-weight: 600;
+}
+
+.comment-form input,
+.comment-form textarea {
+	font-size: var(--font-size-base);
+	line-height: 1.5;
+	padding: var(--spacing-base);
+	font-family: var(--sans-serif);
+	width: calc( 100% - (var(--spacing-base) * 2) );
+}
+
+.comment-form input {
+	padding: 0.5rem var(--spacing-base);
+}
+
+.comment-form .submit {
+	margin: var(--spacing-base) 0;
+	width: initial;
+	background: var(--color-foreground);
+	color: var(--color-background);
+	border: 1px solid var(--color-foreground);
+	padding-left: var(--spacing-default);
+	padding-right: var(--spacing-default);
+	cursor: pointer;
+}
+
+.comment-form .submit:hover {
+	background: var(--color-background);
+	color: var(--color-foreground);
+	border: 1px solid var(--color-foreground);
+}
+
+.edit-link {
+	margin-right: var(--spacing-base);
 }
 
 .multiple .published-wrapper {

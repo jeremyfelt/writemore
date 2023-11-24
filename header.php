@@ -5,7 +5,6 @@
  * @package writemore
  */
 
-$writemore_blog_info = get_bloginfo( 'name' );
 ?>
 <!doctype html>
 <html <?php language_attributes(); ?>>
@@ -22,12 +21,10 @@ $writemore_blog_info = get_bloginfo( 'name' );
 <header>
 
 	<div class="site-branding">
-		<?php if ( is_front_page() && ! is_paged() ) : ?>
-			<h1><?php echo esc_html( $writemore_blog_info ); ?></h1>
-		<?php elseif ( is_front_page() && ! is_home() ) : ?>
-			<h1><a href="<?php echo esc_url( home_url( '/' ) ); ?>"><?php echo esc_html( $writemore_blog_info ); ?></a></h1>
+		<?php if ( is_front_page() ) : ?>
+			<h1>Jeremy Felt's website</h1>
 		<?php else : ?>
-			<p><?php echo esc_html( $writemore_blog_info ); ?></p>
+			<p>Jeremy Felt's website</p>
 		<?php endif; ?>
 	</div>
 
