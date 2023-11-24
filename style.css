@@ -134,8 +134,10 @@ article header a:hover {
 }
 
 article header h1 {
-	margin-left: -20rem;
+	margin-left: -15rem;
 	margin-bottom: 0;
+	border-top: 1px solid var(--color-border-default);
+	padding-top: var(--spacing-base);
 }
 
 article footer {
@@ -320,7 +322,7 @@ iframe {
 .published-wrapper {
 	display: flex;
 	flex-direction: column;
-	margin-left: calc(50vw - var(--content-width));
+	margin-left: calc(50vw - (var(--content-width)/2) - 15rem);
 	color: var(--color-foreground);
 }
 
