@@ -303,6 +303,14 @@ iframe {
 	text-align: center;
 }
 
+.site-branding h1,
+.site-branding p {
+	font-size: var(--font-size-content-heading);
+	font-weight: 700;
+	margin-top: var(--spacing-base);
+	margin-bottom: var(--spacing-base);
+}
+
 .entry-content > * {
 	max-width: var(--content-width);
 	margin-left: auto;
@@ -326,6 +334,11 @@ iframe {
 	max-width: var(--content-width-wide);
 	margin: 0 auto;
 	color: var(--color-foreground);
+}
+
+.multiple .type-shortnote .published-wrapper {
+	border-top: 1px solid var(--color-border-default);
+	padding-top: var(--spacing-base);
 }
 
 .author-bio {
@@ -443,6 +456,76 @@ iframe {
 	margin-bottom: 0;
 }
 
-.multiple article {
-	margin-bottom: 4rem;
+.multiple article article {
+	margin-bottom: var(--spacing-default);
+	margin-left: auto;
+	margin-right: auto;
+	border: 1px solid var(--color-border-default);
+	width: calc(var(--content-width) + (var(--spacing-default) * 2));
+	max-width: 100%;
+	padding: var(--spacing-default);
+}
+
+.multiple article article.has-image {
+	border: none;
+	width: 100%;
+}
+
+.type-page > * {
+	max-width: var(--content-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.type-page > section {
+	max-width: var(--content-width-wide);
+}
+
+.multiple .type-shortnote {
+	max-width: var(--content-width-wide);
+	margin-top: var(--spacing-large);
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.multiple .type-shortnote footer {
+	width: var(--content-width-wide);
+	border-top: 1px solid var(--color-border-default);
+	width: var(--content-width-wide);
+	margin-bottom: 0;
+}
+
+.shortnotes-reply-to {
+	width: var(--content-width);
+	margin: var(--spacing-base) auto var(--spacing-default);
+	font-style: italic;
+}
+
+.type-shortnote .entry-content p:first-of-type {
+	margin-top: var(--spacing-base);
+}
+
+.type-shortnote .more-notes ul {
+	padding-left: 0;
+	margin: 0;
+}
+
+.type-shortnote .more-notes li {
+	list-style: none;
+	margin-bottom: 0.5rem;
+	font-size: var(--font-size-base);
+}
+
+ .type-shortnote .more-notes li time {
+	font-size: var(--font-size-base);
+}
+
+.more-notes {
+	margin-top: var(--spacing-base);
+}
+
+.more-notes h2 {
+	margin-top: 0;
+	border-top: 1px solid var(--color-border-default);
+	padding-top: var(--spacing-base);
 }

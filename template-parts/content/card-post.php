@@ -20,7 +20,7 @@
 		the_post_thumbnail();
 		?>
 	</header>
-	<?php \Writemore\Output\published( false ); ?>
+	<?php \Writemore\Output\published( 'full' ); ?>
 	<div class="entry-content e-content">
 		<?php
 		if ( is_home() || is_archive() ) {

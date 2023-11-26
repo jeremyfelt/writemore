@@ -22,9 +22,9 @@
 
 	<div class="site-branding">
 		<?php if ( is_front_page() ) : ?>
-			<h1>Jeremy Felt's website</h1>
+			<h1>Jeremy Felt's web</h1>
 		<?php else : ?>
-			<p>Jeremy Felt's website</p>
+			<p>Jeremy Felt's web</p>
 		<?php endif; ?>
 	</div>
 
