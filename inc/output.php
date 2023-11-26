@@ -7,7 +7,7 @@
 
 namespace Writemore\Output;
 
-use \ShortNotes\PostType\Note;
+use ShortNotes\PostType\Note;
 
 /**
  * Display the excerpt for a piece of content.
@@ -56,7 +56,7 @@ function published( string $version = 'microformat' ): void {
 		$format = 'M j, Y ';
 	}
 
-	$post = get_post();
+	$post    = get_post();
 	$content = strtolower( $post->post_content );
 	$weather = '';
 	if ( str_contains( $content, ' snow' ) ) {
@@ -100,7 +100,8 @@ function published( string $version = 'microformat' ): void {
 		<?php
 	} elseif ( 'basic' === $version ) {
 		$format .= ' \a\t H:i';
-		?><a href="<?php the_permalink(); ?>">
+		?>
+		<a href="<?php the_permalink(); ?>">
 			<span class="screen-reader-text">Published </span>
 			<time datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( $format ) ); ?></time></a>
 		<?php
@@ -127,10 +128,10 @@ function moon_phase( int $timestamp ): void {
 		+ 2440587.5; // The number of days before January 1, 1970.
 
 	// The number of days since an arbitrary new moon cycle starts on January 6, 2000.
-    $days_since_first_new_moon = $julian_day - 2451550.1;
+	$days_since_first_new_moon = $julian_day - 2451550.1;
 
 	// The age of the current cycle.
-    $moon_age = fmod( ( $days_since_first_new_moon + 29.53058853 ), 29.53058853 );
+	$moon_age = fmod( ( $days_since_first_new_moon + 29.53058853 ), 29.53058853 );
 
 	switch ( $moon_age ) {
 		case $moon_age < 1.84566:
@@ -165,122 +166,12 @@ function moon_phase( int $timestamp ): void {
 	echo $phase;
 }
 
-function next_notes() {
-	global $wpdb;
-
-	$next_note_ids = $wpdb->get_results(
-		$wpdb->prepare(
-			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' AND ID > %d ORDER BY ID ASC LIMIT 2",
-			Note\get_slug(),
-			get_the_ID()
-		)
-	);
-	$next_note_ids = wp_list_pluck( $next_note_ids, 'ID' );
-	$prior_note_ids = $wpdb->get_results(
-		$wpdb->prepare(
-			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' AND ID < %d ORDER BY ID DESC LIMIT 2",
-			Note\get_slug(),
-			get_the_ID()
-		)
-	);
-	$prior_note_ids = wp_list_pluck( $prior_note_ids, 'ID' );
-	if ( 0 === count( $next_note_ids ) ) {
-		return;
-	}
-
-	$next_notes = new \WP_Query(
-		[
-			'post_type' => Note\get_slug(),
-			'post__in' => $next_note_ids,
-		]
-	);
-
-	if ( $next_notes->have_posts() ) {
-		?>
-		<h2>Next notes</h2>
-		<ul>
-		<?php
-		while ( $next_notes->have_posts() ) {
-			$next_notes->the_post();
-			?>
-			<li><?php published( 'basic' ); ?> <?php echo str_replace( 'Note: ', '', get_the_title() ); ?></li>
-			<?php
-		}
-		?>
-		</ul>
-		<?php
-	}
-	wp_reset_postdata();
-}
-
-function prior_notes() {
-	global $wpdb;
-
-	$prior_note_ids = $wpdb->get_results(
-		$wpdb->prepare(
-			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' AND ID < %d ORDER BY ID DESC LIMIT 2",
-			Note\get_slug(),
-			get_the_ID()
-		)
-	);
-	$prior_note_ids = wp_list_pluck( $prior_note_ids, 'ID' );
-
-	if ( 0 === count( $prior_note_ids ) ) {
-		return;
-	}
-
-	$prior_notes = new \WP_Query(
-		[
-			'post_type' => Note\get_slug(),
-			'post__in' => $prior_note_ids,
-		]
-	);
-
-	if ( $prior_notes->have_posts() ) {
-		?>
-		<h2>Prior notes</h2>
-		<ul>
-		<?php
-		while ( $prior_notes->have_posts() ) {
-			$prior_notes->the_post();
-			?>
-			<li><?php published( 'basic' ); ?> <?php echo str_replace( 'Note: ', '', get_the_title() ); ?></li>
-			<?php
-		}
-		?>
-		</ul>
-		<?php
-	}
-	wp_reset_postdata();
-}
-
-function latest_notes() {
-	$latest_notes = new \WP_Query(
-		[
-			'post_type' => Note\get_slug(),
-			'posts_per_page' => 2,
-		]
-	);
-
-	if ( $latest_notes->have_posts() ) {
-		?>
-		<h2>Latest notes</h2>
-		<ul>
-		<?php
-		while ( $latest_notes->have_posts() ) {
-			$latest_notes->the_post();
-			?>
-			<li><?php published( 'basic' ); ?> <?php echo str_replace( 'Note: ', '', get_the_title() ); ?></li>
-			<?php
-		}
-		?>
-		</ul>
-		<?php
-	}
-	wp_reset_postdata();
-}
-
-function other_notes() {
+/**
+ * Display a group of other notes to accompany the current note.
+ *
+ * The next note. The prior note. The most recent note. Two random notes.
+ */
+function other_notes(): void {
 	global $wpdb;
 
 	$next_note_ids = $wpdb->get_results(
@@ -323,8 +214,8 @@ function other_notes() {
 
 	$other_notes = new \WP_Query(
 		[
-			'post_type' => Note\get_slug(),
-			'post__in' => $other_note_ids,
+			'post_type'              => Note\get_slug(),
+			'post__in'               => $other_note_ids,
 			'update_post_meta_cache' => false,
 			'update_post_term_cache' => false,
 		]
