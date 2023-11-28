@@ -18,7 +18,7 @@ use Writemore\Output;
 		</header>
 	<?php endif; ?>
 	<?php if ( ! is_singular( 'shortnote' ) ) : ?>
-	<?php Output\published(); ?>
+		<?php Output\published(); ?>
 	<?php endif; ?>
 	<?php
 	if ( function_exists( 'ShortNotes\PostType\Note\reply_to_markup' ) ) {
@@ -28,7 +28,7 @@ use Writemore\Output;
 	<div class="entry-content e-content">
 		<?php the_content(); ?>
 	</div>
-	<?php if ( is_singular( 'shortnote') ) : ?>
+	<?php if ( is_singular( 'shortnote' ) ) : ?>
 	<footer class="entry-footer">
 		<?php
 		Output\published();

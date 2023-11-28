@@ -18,12 +18,12 @@ use Writemore\Output;
 		</header>
 	<?php endif; ?>
 	<?php if ( ! is_singular( 'like' ) ) : ?>
-	<?php Output\published(); ?>
+		<?php Output\published(); ?>
 	<?php endif; ?>
 	<div class="entry-content e-content">
 		<?php the_content(); ?>
 	</div>
-	<?php if ( is_singular( 'like') ) : ?>
+	<?php if ( is_singular( 'like' ) ) : ?>
 	<footer class="entry-footer">
 		<?php
 		Output\published();
