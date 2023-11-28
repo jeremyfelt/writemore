@@ -9,8 +9,7 @@
 	</main><!-- #main -->
 
 	<footer id="colophon" class="site-footer" role="contentinfo">
-		<p>Read <a href="https://jeremyfelt.com/how-this-site-works/">how this site works</a>.</p>
-		<p>🍻</p>
+		<p>Powered by open source. Read <a href="https://jeremyfelt.com/how-this-site-works/">how this site works</a>. 🍻</p>
 	</footer><!-- #colophon -->
 
 </div><!-- #page -->

@@ -98,7 +98,7 @@ section {
 
 main {
 	max-width: calc(100% - var(--spacing-default));
-	min-height: calc(100% - 375px);
+	min-height: 100vh;
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -189,6 +189,11 @@ pre {
 	margin: var(--spacing-default) 0;
 }
 
+cite {
+	font-style: initial;
+	font-weight: 600;
+}
+
 blockquote {
 	font-size: 0.95rem;
 	font-style: italic;
@@ -234,30 +239,17 @@ button:hover {
 }
 
 main ~ footer {
-	background: #333;
-	color: #fff;
-	height: 100px;
-	text-align: center;
+	height: 175px;
 	display: flex;
 	flex-direction: column;
-	justify-content: center;
+	justify-content: end;
+	max-width: var(--content-width);
+	margin: 0 auto;
+	font-size: var(--font-size-base);
 }
 
 main ~ footer div {
 	margin-bottom: var(--spacing-base);
-}
-
-main ~ footer a {
-	color: #fff;
-}
-
-main ~ footer a:hover {
-	color: #ddd;
-}
-
-cite {
-	font-style: initial;
-	font-weight: 600;
 }
 
 .day,
@@ -554,4 +546,10 @@ iframe {
 ul.wp-block-latest-posts {
 	padding-left: 0;
 	list-style: none;
+}
+
+.site-footer > * {
+	max-width: var(--content-width);
+	margin-left: auto;
+	margin-right: auto;
 }
