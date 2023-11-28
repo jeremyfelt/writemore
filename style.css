@@ -542,3 +542,16 @@ iframe {
 	border-top: 1px solid var(--color-border-default);
 	padding-top: var(--spacing-base);
 }
+
+.weekly-preview {
+	margin-bottom: var(--spacing-base);
+}
+
+.wp-block-latest-posts .type-shortnote:first-of-type {
+	margin-top: var(--spacing-base);
+}
+
+ul.wp-block-latest-posts {
+	padding-left: 0;
+	list-style: none;
+}
