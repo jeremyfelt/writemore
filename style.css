@@ -108,7 +108,7 @@ article {
 }
 
 section article {
-	margin-top: var(--spacing-base );
+	margin-top: var(--spacing-base);
 }
 
 main > header {
@@ -169,7 +169,7 @@ h2 {
 
 h3 {
 	margin-top: var(--spacing-base);
-	margin-bottom: var(--spacing-base );
+	margin-bottom: var(--spacing-base);
 }
 
 pre,
@@ -228,14 +228,15 @@ button {
 	font-size: var(--font-size-base);
 	margin-left: 0.35rem;
 	vertical-align: top;
-	border: 1px solid #bbb;
-	background: #eee;
+	background: var(--color-foreground);
+	color: var(--color-background);
+	border: 1px solid var(--color-foreground);
 	width: var(--spacing-large);
 }
 
 button:hover {
-	background: #333;
-	color: #eee;
+	background: var(--color-background);
+	color: var(--color-foreground);
 }
 
 main ~ footer {
@@ -275,10 +276,10 @@ iframe {
 }
 
 .skip-link.screen-reader-text:focus {
-	background-color: #eee;
+	background-color: var(--color-border-default);
 	clip: auto !important;
 	clip-path: none;
-	color: #444;
+	color: var(--color-foreground);
 	display: block;
 	font-size: 1em;
 	height: auto;
@@ -411,7 +412,7 @@ iframe {
 	line-height: 1.5;
 	padding: var(--spacing-base);
 	font-family: var(--sans-serif);
-	width: calc( 100% - (var(--spacing-base) * 2) );
+	width: calc(100% - (var(--spacing-base) * 2));
 }
 
 .comment-form input {
