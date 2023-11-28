@@ -99,14 +99,14 @@ function published( string $version = 'microformat' ): void {
 		</div>
 		<?php
 	} elseif ( 'basic' === $version ) {
-		$format .= ' \a\t H:i';
+		$format .= ' g:ia';
 		?>
 		<a href="<?php the_permalink(); ?>">
 			<span class="screen-reader-text">Published </span>
 			<time datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( $format ) ); ?></time></a>
 		<?php
 	} elseif ( 'microformat' === $version ) {
-		$format = 'l, ' . $format;
+		$format .= ' g:ia';
 		?>
 		<p><a href="<?php the_permalink(); ?>" class="u-url"><span class="screen-reader-text">Published </span>
 			<time class="dt-published" datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( $format ) ); ?></time>

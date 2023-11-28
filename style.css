@@ -336,11 +336,6 @@ iframe {
 	color: var(--color-foreground);
 }
 
-.multiple .type-shortnote .published-wrapper {
-	border-top: 1px solid var(--color-border-default);
-	padding-top: var(--spacing-base);
-}
-
 .author-bio {
 	display: flex;
 	width: var(--content-width);
@@ -456,21 +451,6 @@ iframe {
 	margin-bottom: 0;
 }
 
-.multiple article article {
-	margin-bottom: var(--spacing-default);
-	margin-left: auto;
-	margin-right: auto;
-	border: 1px solid var(--color-border-default);
-	width: calc(var(--content-width) + (var(--spacing-default) * 2));
-	max-width: 100%;
-	padding: var(--spacing-default);
-}
-
-.multiple article article.has-image {
-	border: none;
-	width: 100%;
-}
-
 .type-page > * {
 	max-width: var(--content-width);
 	margin-left: auto;
@@ -481,6 +461,7 @@ iframe {
 	max-width: var(--content-width-wide);
 }
 
+.multiple .type-like,
 .multiple .type-shortnote {
 	max-width: var(--content-width-wide);
 	margin-top: var(--spacing-large);
@@ -488,10 +469,13 @@ iframe {
 	margin-right: auto;
 }
 
+.multiple .type-like {
+	margin-top: var(--spacing-default);
+}
+
 .multiple .type-shortnote footer {
 	width: var(--content-width-wide);
 	border-top: 1px solid var(--color-border-default);
-	width: var(--content-width-wide);
 	margin-bottom: 0;
 }
 
@@ -501,8 +485,31 @@ iframe {
 	font-style: italic;
 }
 
-.type-shortnote .entry-content p:first-of-type {
-	margin-top: var(--spacing-base);
+.type-like > p,
+.type-shortnote > p {
+	padding-top: var(--spacing-base);
+	margin-bottom: 0;
+}
+
+.multiple .type-shortnote .shortnotes-reply-to {
+	margin-top: -1.5rem;
+	padding-top: 0;
+	margin-bottom: var(--spacing-default);
+}
+
+.multiple .type-like > p {
+	padding: 0;
+}
+
+.multiple .type-like .entry-content > p {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding: 0;
+}
+
+.multiple .type-like .entry-content p:first-of-type,
+.multiple .type-shortnote .entry-content p:first-of-type {
+	margin-top: -1.5rem;
 }
 
 .type-shortnote .more-notes ul {
@@ -516,7 +523,13 @@ iframe {
 	font-size: var(--font-size-base);
 }
 
- .type-shortnote .more-notes li time {
+.type-like > p time,
+.type-shortnote > p time {
+	font-size: 0.8rem;
+	line-height: 1.55;
+}
+
+.type-shortnote .more-notes li time {
 	font-size: var(--font-size-base);
 }
 

@@ -12,12 +12,14 @@ use Writemore\Output;
 ?>
 
 <article id="post-<?php the_ID(); ?>" <?php post_class(); ?>>
-	<?php if ( is_singular() ) : ?>
+	<?php if ( is_singular( 'shortnote' ) ) : ?>
 		<header>
 			<h1>Note</h1>
 		</header>
 	<?php endif; ?>
-	<?php Output\published( 'full' ); ?>
+	<?php if ( ! is_singular( 'shortnote' ) ) : ?>
+	<?php Output\published(); ?>
+	<?php endif; ?>
 	<?php
 	if ( function_exists( 'ShortNotes\PostType\Note\reply_to_markup' ) ) {
 		\ShortNotes\PostType\Note\reply_to_markup();
@@ -26,7 +28,7 @@ use Writemore\Output;
 	<div class="entry-content e-content">
 		<?php the_content(); ?>
 	</div>
-	<?php if ( is_singular() ) : ?>
+	<?php if ( is_singular( 'shortnote') ) : ?>
 	<footer class="entry-footer">
 		<?php
 		Output\published();
