@@ -140,9 +140,9 @@ article header h1 {
 }
 
 article footer {
-	width: var(--content-width);
+	max-width: var(--content-width);
 	margin: var(--spacing-default) auto 0;
-	max-width: 100%;
+	width: 100%;
 }
 
 footer > * {
@@ -312,6 +312,7 @@ iframe {
 	max-width: var(--content-width);
 	margin-left: auto;
 	margin-right: auto;
+	width: auto;
 }
 
 .entry-content > figure {
@@ -521,6 +522,41 @@ iframe {
 	grid-row: first;
 }
 
+@media screen and (max-width: 1120px) {
+
+	.multiple .type-like,
+	.multiple .type-shortnote,
+	.multiple article.type-post {
+		display: flex;
+		flex-direction: column;
+		width: 100%;
+	}
+
+	.multiple .type-shortnote {
+		margin-top: var(--spacing-large);
+	}
+
+	.multiple .type-like > .entry-content,
+	.multiple .type-shortnote > .entry-content,
+	.multiple article.post > .entry-content {
+		margin-top: var(--spacing-base);
+	}
+
+	.multiple article.type-post > p {
+		order: -1;
+	}
+
+	form input,
+	form button {
+		width: 100%;
+	}
+
+	form button {
+		margin-top: var(--spacing-base);
+		margin-left: 0;
+	}
+}
+
 .multiple .type-shortnote > .entry-content > * {
 	margin-left: 0;
 	margin-right: 0;
@@ -543,7 +579,7 @@ iframe {
 }
 
 .shortnotes-reply-to {
-	width: var(--content-width);
+	max-width: var(--content-width);
 	margin: var(--spacing-base) auto var(--spacing-default);
 	font-style: italic;
 }
