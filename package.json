@@ -3,7 +3,7 @@
 	"version": "2.0.0",
 	"description": "A WordPress theme.",
 	"devDependencies": {
-		"@wordpress/scripts": "^26.14.0",
+		"@wordpress/scripts": "^26.18.0",
 		"@wordpress/stylelint-config": "^21.29.0",
 		"postcss-cli": "^10.1.0",
 		"postcss-import": "^15.1.0",
