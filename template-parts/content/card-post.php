@@ -27,7 +27,7 @@ use Writemore\Output;
 	<?php if ( ! is_singular( 'post' ) ) : ?>
 		<?php Output\published(); ?>
 	<?php else : ?>
-	<?php Output\published( 'full' ); ?>
+		<?php Output\published( 'full' ); ?>
 	<?php endif; ?>
 
 	<div class="entry-content e-content">

@@ -26,8 +26,7 @@ use ShortNotes\PostType\Note;
 
 <?php if ( function_exists( 'Note\reply_to_markup' ) ) : ?>
 		<?php Note\reply_to_markup(); ?>
-	<?php  ?>
-<?php endif; ?>
+	<?php endif; ?>
 
 	<div class="entry-content e-content">
 		<?php the_content(); ?>

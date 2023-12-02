@@ -8,7 +8,7 @@
 get_header();
 
 $writemore_description = 'Search results for ' . esc_html( get_search_query() );
-$writemore_header   = 'Search';
+$writemore_header      = 'Search';
 ?>
 <header>
 	<h1><?php echo esc_html( $writemore_header ); ?></h1>
