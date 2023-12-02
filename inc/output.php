@@ -94,7 +94,7 @@ function published( string $version = 'microformat' ): void {
 		<div class="published-wrapper"><span class="screen-reader-text">Published </span>
 			<span class="day"><?php echo esc_attr( $date->format( 'l' ) ); ?> <?php echo $day_part; ?></span>
 			<time datetime="<?php echo esc_attr( $date->format( \DateTimeInterface::ATOM ) ); ?>"><?php echo esc_attr( $date->format( $format ) ); ?></time>
-			<span class="moon-phase"><?php echo moon_phase( $date->getTimestamp() ); ?></span>
+			<span class="moon-phase"><?php moon_phase( $date->getTimestamp() ); ?></span>
 			<span class="weather"><?php echo $weather; ?></span>
 		</div>
 		<?php
