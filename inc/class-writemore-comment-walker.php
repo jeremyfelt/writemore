@@ -20,8 +20,8 @@ class Writemore_Comment_Walker extends Walker_Comment {
 	 * @param array      $args    Optional. An array of arguments. Default empty array.
 	 * @param int        $id      Optional. ID of the current comment. Default 0 (unused).
 	 */
-	public function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) {
-		$depth++;
+	public function start_el( &$output, $comment, $depth = 0, $args = array(), $id = 0 ) { // phpcs:ignore VariableAnalysis.CodeAnalysis.VariableAnalysis.UnusedVariable
+		++$depth;
 		$GLOBALS['comment_depth'] = $depth;
 		$GLOBALS['comment']       = $comment;
 
@@ -122,11 +122,14 @@ class Writemore_Comment_Walker extends Walker_Comment {
 
 		?>
 		<article id="comment-<?php comment_ID(); ?>" <?php comment_class( $this->has_children ? 'parent' : '', $comment ); ?>>
+			<span>
 			<?php
 			if ( 0 != $args['avatar_size'] ) {
 				echo get_avatar( $comment, $args['avatar_size'] );
 			}
 			?>
+			<!-- This span is my lazy way of enabling a vertically aligned flex display on the article element. -->
+			<span>
 			<a class="u-author h-card" href="<?php echo esc_url( $author_url ); ?>"><?php echo esc_html( $comment->comment_author ); ?></a>&nbsp;replied on&nbsp;
 			<?php
 			printf(
@@ -143,6 +146,8 @@ class Writemore_Comment_Walker extends Walker_Comment {
 
 			// Use e-content because the comment content may not be plain text.
 			?>
+			</span>
+		</span>
 			<?php if ( '0' == $comment->comment_approved ) : ?>
 			<em class="comment-awaiting-moderation"><?php echo $moderation_note; ?></em>
 			<?php endif; ?>
@@ -163,16 +168,16 @@ class Writemore_Comment_Walker extends Walker_Comment {
 				array_merge(
 					$args,
 					array(
-						'add_below' => 'div-comment',
-							'depth'     => $depth,
-							'max_depth' => $args['max_depth'],
-							'before'    => '<div class="reply">',
-							'after'     => '</div>',
-							'reply_text' => 'Reply',
-						)
+						'add_below'  => 'div-comment',
+						'depth'      => $depth,
+						'max_depth'  => $args['max_depth'],
+						'before'     => '<div class="reply">',
+						'after'      => '</div>',
+						'reply_text' => 'Reply',
 					)
-				);
-				?>
+				)
+			);
+			?>
 			</article>
 		<?php
 	}

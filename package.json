@@ -3,23 +3,18 @@
 	"version": "2.0.0",
 	"description": "A WordPress theme.",
 	"devDependencies": {
-		"@wordpress/stylelint-config": "^21.5.0",
-		"autoprefixer": "^10.4.13",
-		"postcss": "^8.4.19",
-		"postcss-advanced-variables": "^3.0.1",
-		"postcss-cli": "^10.0.0",
-		"postcss-custom-media": "^9.0.0",
-		"postcss-generate-asset-php": "^0.0.2",
-		"postcss-import": "^15.0.0",
-		"postcss-nested": "^6.0.0",
-		"postcss-preset-env": "^7.8.3"
+		"@wordpress/scripts": "^26.14.0",
+		"@wordpress/stylelint-config": "^21.29.0",
+		"postcss-cli": "^10.1.0",
+		"postcss-import": "^15.1.0",
+		"postcss-preset-env": "^9.3.0"
 	},
 	"scripts": {
 		"build": "npm run build:theme",
-		"build:theme": "npm run stylelint:theme && npm run postcss:main && npm run postcss:editor",
-		"postcss:main": "postcss -o style.css css/style.css",
-		"postcss:editor": "postcss -o editor-style.css css/editor-style.css",
-		"stylelint:theme": "stylelint css/**/*.css"
+		"build:theme": "npm run postcss:editor",
+		"postcss:editor": "postcss -o editor-style.css style.css",
+		"lint": "npm run lint:styles",
+		"lint:styles": "stylelint style.css"
 	},
 	"repository": {
 		"type": "git",

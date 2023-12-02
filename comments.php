@@ -24,23 +24,26 @@ if ( post_password_required() ) {
 
 	<?php
 	// You can start editing here -- including this comment!
-	if ( have_comments() ) : ?>
+	if ( have_comments() ) :
+		?>
 		<h2>Responses and reactions</h2>
 
 		<?php
 
-		$comments = get_comments( array(
-			'post_id' => get_the_ID(),
-			'status' => 1,
-			'fields' => 'ids',
-		) );
+		$comments = get_comments(
+			array(
+				'post_id' => get_the_ID(),
+				'status'  => 1,
+				'fields'  => 'ids',
+			)
+		);
 
 		$typed_comments = array(
-			'reply' => array(),
+			'reply'    => array(),
 			'bookmark' => array(),
-			'like'  => array(),
-			'mention' => array(),
-			'other' => array(),
+			'like'     => array(),
+			'mention'  => array(),
+			'other'    => array(),
 		);
 
 		$skip_actions = array(
@@ -79,35 +82,35 @@ if ( post_password_required() ) {
 
 		if ( 0 < count( $typed_comments['like'] ) ) :
 
-		?>
+			?>
 
 		<!-- Is there a semantic way to group a collection of reactions? -->
 		<h3>Likes</h3>
-		<?php
+			<?php
 
-		foreach ( $typed_comments['like'] as $like_id ) {
-			$like = get_comment( $like_id );
-			$url = get_comment_meta( $like_id, 'webmention_source_url', true );
-			$avatar = get_comment_meta( $like_id, 'avatar', true );
-			$author_url = get_comment_meta( $like_id, 'semantic_linkbacks_author_url', true );
-			$type = get_comment_meta( $comment_id, 'semantic_linkbacks_type', true );
+			foreach ( $typed_comments['like'] as $like_id ) {
+				$like       = get_comment( $like_id );
+				$url        = get_comment_meta( $like_id, 'webmention_source_url', true );
+				$avatar     = get_comment_meta( $like_id, 'avatar', true );
+				$author_url = get_comment_meta( $like_id, 'semantic_linkbacks_author_url', true );
+				$type       = get_comment_meta( $like_id, 'semantic_linkbacks_type', true );
 
-			if ( '' === $author_url ) {
-				$author_url = $url;
-			}
+				if ( '' === $author_url ) {
+					$author_url = $url;
+				}
 
-			if ( '' === $avatar ) {
-				$avatar = get_template_directory_uri() . '/images/mystery-person.png';
-			}
+				if ( '' === $avatar ) {
+					$avatar = get_template_directory_uri() . '/images/mystery-person.png';
+				}
 
-			$u_class = 'u-like';
+				$u_class = 'u-like';
 
-			// Even though favorites are classified as likes, use the correct markup.
-			if ( 'favorite' === $type ) {
-				$u_class = 'u-favorite';
-			}
+				// Even though favorites are classified as likes, use the correct markup.
+				if ( 'favorite' === $type ) {
+					$u_class = 'u-favorite';
+				}
 
-			?>
+				?>
 
 			<!-- Markup inspired by https://indieweb.org/like -->
 			<article class="reaction <?php echo $u_class; ?> h-cite">
@@ -123,32 +126,31 @@ if ( post_password_required() ) {
 				</span>
 			</article>
 
-			<?php
-		}
-
+				<?php
+			}
 		endif;
 
 		if ( 0 < count( $typed_comments['bookmark'] ) ) :
-		?>
+			?>
 
 		<h3>Bookmarks</h3>
-		<?php
+			<?php
 
-		foreach ( $typed_comments['bookmark'] as $bookmark_id ) {
-			$like = get_comment( $bookmark_id );
-			$url = get_comment_meta( $bookmark_id, 'webmention_source_url', true );
-			$avatar = get_comment_meta( $bookmark_id, 'avatar', true );
-			$author_url = get_comment_meta( $bookmark_id, 'semantic_linkbacks_author_url', true );
+			foreach ( $typed_comments['bookmark'] as $bookmark_id ) {
+				$like       = get_comment( $bookmark_id );
+				$url        = get_comment_meta( $bookmark_id, 'webmention_source_url', true );
+				$avatar     = get_comment_meta( $bookmark_id, 'avatar', true );
+				$author_url = get_comment_meta( $bookmark_id, 'semantic_linkbacks_author_url', true );
 
-			if ( '' === $author_url ) {
-				$author_url = $url;
-			}
+				if ( '' === $author_url ) {
+					$author_url = $url;
+				}
 
-			if ( '' === $avatar ) {
-				$avatar = get_template_directory_uri() . '/images/mystery-person.png';
-			}
+				if ( '' === $avatar ) {
+					$avatar = get_template_directory_uri() . '/images/mystery-person.png';
+				}
 
-			?>
+				?>
 
 			<!-- Markup inspired by https://indieweb.org/like -->
 			<article class="reaction u-bookmark h-cite">
@@ -164,30 +166,29 @@ if ( post_password_required() ) {
 				</span>
 			</article>
 
-			<?php
-		}
-
+				<?php
+			}
 		endif;
 
 		if ( 0 < count( $typed_comments['mention'] ) ) :
-		?>
+			?>
 
 		<h3>Mentions</h3>
-		<?php
-		foreach ( $typed_comments['mention'] as $mention_id ) {
-			$mention = get_comment( $mention_id );
-			$url = get_comment_meta( $mention_id, 'webmention_source_url', true );
-			$avatar = get_comment_meta( $mention_id, 'avatar', true );
-			$author_url = get_comment_meta( $mention_id, 'semantic_linkbacks_author_url', true );
+			<?php
+			foreach ( $typed_comments['mention'] as $mention_id ) {
+				$mention    = get_comment( $mention_id );
+				$url        = get_comment_meta( $mention_id, 'webmention_source_url', true );
+				$avatar     = get_comment_meta( $mention_id, 'avatar', true );
+				$author_url = get_comment_meta( $mention_id, 'semantic_linkbacks_author_url', true );
 
-			if ( '' === $author_url ) {
-				$author_url = $url;
-			}
+				if ( '' === $author_url ) {
+					$author_url = $url;
+				}
 
-			if ( '' === $avatar ) {
-				$avatar = get_template_directory_uri() . '/images/mystery-person.png';
-			}
-			?>
+				if ( '' === $avatar ) {
+					$avatar = get_template_directory_uri() . '/images/mystery-person.png';
+				}
+				?>
 
 			<article class="reaction u-mention h-cite">
 				<img src="<?php echo esc_url( $avatar ); ?>" width="40" alt="" loading="lazy" />
@@ -201,30 +202,33 @@ if ( post_password_required() ) {
 					</a>
 				</span>
 			</article>
-			<?php
-		}
-
+				<?php
+			}
 		endif;
 
 		if ( 0 < count( $typed_comments['reply'] ) ) :
-		?>
+			?>
 
 		<h3>Replies</h3>
 
-		<?php
+			<?php
 
-		// Retrieve only the comments classified as replies.
-		$comments = get_comments( array(
-			'comment__in' => $typed_comments['reply'],
-		) );
+			// Retrieve only the comments classified as replies.
+			$comments = get_comments(
+				array(
+					'comment__in' => $typed_comments['reply'],
+				)
+			);
 
-		wp_list_comments( array(
-			'avatar_size' => 60,
-			'walker' => new Writemore_Comment_Walker(),
-			'style' => '',
-			'format' => 'html5',
-		), $comments );
-
+			wp_list_comments(
+				array(
+					'avatar_size' => 60,
+					'walker'      => new Writemore_Comment_Walker(),
+					'style'       => '',
+					'format'      => 'html5',
+				),
+				$comments
+			);
 		endif;
 
 		// If comments are closed and there are comments, let's leave a little note, shall we?
@@ -233,7 +237,6 @@ if ( post_password_required() ) {
 			<p class="no-comments"><?php esc_html_e( 'Comments are closed.', 'writemore' ); ?></p>
 			<?php
 		}
-
 	endif; // Check for have_comments().
 
 	comment_form();

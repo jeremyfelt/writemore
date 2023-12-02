@@ -1,4 +1,9 @@
 <?php
+/**
+ * Configuration for the theme.
+ *
+ * @package writemore
+ */
 
 namespace WriteMore\ThemeSetup;
 
@@ -8,8 +13,11 @@ add_filter( 'nav_menu_item_id', '__return_empty_string' );
 add_filter( 'nav_menu_css_class', __NAMESPACE__ . '\filter_nav_menu_item_class', 10, 2 );
 
 /**
- * @param array    $classes
- * @param \WP_Post $menu_item
+ * Filter the classes for a nav menu item.
+ *
+ * @param array    $classes   Classes attached to a menu item.
+ * @param \WP_Post $menu_item The menu item.
+ * @return array Modified list of classes.
  */
 function filter_nav_menu_item_class( $classes, $menu_item ) {
 	if ( $menu_item->current ) {
@@ -55,14 +63,15 @@ function setup_theme_support() {
 	add_editor_style( 'editor-style.css' );
 }
 
+/**
+ * Enqueue theme assets.
+ */
 function enqueue_assets() {
 
-	// Theme Stylesheet.
-	$asset_data = require dirname( __DIR__ ) . '/style.css.php';
 	wp_enqueue_style(
 		'writemore-style',
 		get_stylesheet_uri(),
 		array(),
-		$asset_data['version'],
+		filemtime( get_stylesheet_directory() . '/style.css' ),
 	);
 }

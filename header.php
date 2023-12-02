@@ -1,12 +1,8 @@
 <?php
 /**
- * The header.
+ * The header template.
  *
- * This is the template that displays all of the <head> section and everything up until main.
- *
- * @link https://developer.wordpress.org/themes/basics/template-files/#template-partials
- *
- * @package WriteMore
+ * @package writemore
  */
 
 ?>
@@ -22,6 +18,33 @@
 <?php wp_body_open(); ?>
 <a class="skip-link screen-reader-text" href="#content"><?php esc_html_e( 'Skip to content', 'writemore' ); ?></a>
 
-<?php get_template_part( 'template-parts/header/site-header' ); ?>
+<header>
+
+	<div class="site-branding">
+		<?php if ( is_front_page() ) : ?>
+			<h1>Jeremy Felt's web</h1>
+		<?php else : ?>
+			<p>Jeremy Felt's web</p>
+		<?php endif; ?>
+	</div>
+
+	<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
+	<nav id="site-navigation" aria-label="<?php esc_attr_e( 'Primary menu', 'writemore' ); ?>">
+		<?php
+		wp_nav_menu(
+			array(
+				'theme_location'  => 'header-menu',
+				'menu_class'      => 'menu-wrapper',
+				'container'       => false,
+				'container_class' => 'primary-menu-container',
+				'items_wrap'      => '<ul id="primary-menu-list">%3$s</ul>',
+				'fallback_cb'     => false,
+			)
+		);
+		?>
+	</nav>
+	<?php endif; ?>
+
+</header>
 
 <main id="main">

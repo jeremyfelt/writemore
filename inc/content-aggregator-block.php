@@ -14,20 +14,7 @@ function render_shortnote_item( $html, $post, $attributes ) {
 	}
 
 	ob_start();
-	?>
-	<article <?php post_class(); ?>>
-		<?php
-		if ( function_exists( 'ShortNotes\PostType\Note\reply_to_markup' ) ) {
-			\ShortNotes\PostType\Note\reply_to_markup();
-		}
-		?>
-		<div class="entry-content e-content">
-			<?php the_content(); ?>
-			<?php echo published(); ?>
-		</div>
-	</article>
-	<?php
-
+	get_template_part( 'template-parts/content/card-shortnote' );
 	$html = ob_get_clean();
 
 	return $html;

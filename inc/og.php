@@ -1,4 +1,9 @@
 <?php
+/**
+ * Open Graph meta tags.
+ *
+ * @package writemore
+ */
 
 namespace Writemore\OG;
 
@@ -6,8 +11,10 @@ add_action( 'wp_head', __NAMESPACE__ . '\add_meta_tags' );
 
 /**
  * Inject meta tags into HTML head.
+ *
+ * @return void
  */
-function add_meta_tags() {
+function add_meta_tags(): void {
 
 	?>
 	<meta property="og:site_name" content="Jeremy Felt"/>
@@ -32,5 +39,4 @@ function add_meta_tags() {
 			<?php
 		}
 	}
-
 }

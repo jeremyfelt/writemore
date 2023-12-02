@@ -1,12 +1,25 @@
 <?php
+/**
+ * Comments customizations.
+ *
+ * @package writemore
+ */
 
 namespace Writemore\Comments;
 
 add_filter( 'comment_class', __NAMESPACE__ . '\remove_comment_classes', 999, 5 );
 
-function remove_comment_classes( $classes, $class, $comment_id, $comment, $post_id ) {
-	global $comment_depth;
-
+/**
+ * Remove unused class names from comment markup.
+ *
+ * @param array    $classes
+ * @param string   $class_name
+ * @param int      $comment_id
+ * @param \WP_Comment $comment
+ * @param int      $post_id
+ * @return array
+ */
+function remove_comment_classes( $classes, $class_name, $comment_id, $comment, $post_id ) {
 	// Remove a handful of classes that are not being used by this theme to apply
 	// styles or provide any kind of semantics or functionality.
 	$remove_classes = array(
@@ -31,7 +44,7 @@ function remove_comment_classes( $classes, $class, $comment_id, $comment, $post_
 	// Remove classes added by WordPress (using this exact code) to indicate authorship
 	// of a comment. If I decide to highlight my comments as different, I'll add something in
 	// this section at a later time.
-	$user = $comment->user_id ? get_userdata( $comment->user_id ) : false;
+	$user = $comment->user_id ? get_userdata( (int) $comment->user_id ) : false;
 	if ( $user ) {
 		$remove_classes[] = 'byuser';
 		$remove_classes[] = 'comment-author-' . sanitize_html_class( $user->user_nicename, $comment->user_id );
