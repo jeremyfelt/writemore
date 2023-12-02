@@ -238,3 +238,76 @@ function other_notes(): void {
 	}
 	wp_reset_postdata();
 }
+
+/**
+ * Display a group of other likes to accompany the current like.
+ *
+ * The next like. The prior like. The most recent like. Two random likes.
+ */
+function other_likes(): void {
+	global $wpdb;
+
+	$next_like_ids = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' AND ID > %d ORDER BY ID ASC LIMIT 1",
+			'like',
+			get_the_ID()
+		)
+	);
+	$next_like_ids = wp_list_pluck( $next_like_ids, 'ID' );
+
+	$prior_like_ids = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' AND ID < %d ORDER BY ID DESC LIMIT 1",
+			'like',
+			get_the_ID()
+		)
+	);
+	$prior_like_ids = wp_list_pluck( $prior_like_ids, 'ID' );
+
+	$recent_like_ids = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' ORDER BY ID DESC LIMIT 1",
+			'like'
+		)
+	);
+	$recent_like_ids = wp_list_pluck( $recent_like_ids, 'ID' );
+
+	$random_like_ids = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' ORDER BY RAND() LIMIT 2",
+			'like'
+		)
+	);
+	$random_like_ids = wp_list_pluck( $random_like_ids, 'ID' );
+
+	$other_like_ids = array_merge( $next_like_ids, $prior_like_ids, $recent_like_ids, $random_like_ids );
+	$other_like_ids = array_unique( $other_like_ids );
+	$other_like_ids = array_diff( $other_like_ids, [ get_the_ID() ] );
+
+	$other_likes = new \WP_Query(
+		[
+			'post_type'              => 'like',
+			'post__in'               => $other_like_ids,
+			'update_post_meta_cache' => false,
+			'update_post_term_cache' => false,
+		]
+	);
+
+	if ( $other_likes->have_posts() ) {
+		?>
+		<h2>Other likes</h2>
+		<ul>
+		<?php
+		while ( $other_likes->have_posts() ) {
+			$other_likes->the_post();
+			?>
+			<li><?php published( 'basic' ); ?> <?php echo str_replace( 'like: ', '', get_the_title() ); ?></li>
+			<?php
+		}
+		?>
+		</ul>
+		<?php
+	}
+	wp_reset_postdata();
+}

@@ -33,9 +33,9 @@ use Writemore\Output;
 		get_template_part( 'template-parts/author-bio' );
 		?>
 	</footer>
-	<section class="more-notes">
+	<section class="more-likes">
 		<?php
-		Output\other_notes();
+		Output\other_likes();
 		echo '<p>Back to <a href="' . get_post_type_archive_link( 'like' ) . '">all likes</a>.</p>';
 		?>
 	</section>
