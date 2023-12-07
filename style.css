@@ -32,6 +32,7 @@ you've learned with others.
 	--sans-serif: inter, sans-serif;
 	--monospace: monaspace, monospace;
 
+	--font-size-small: 0.8rem;
 	--font-size-base: 1rem;
 	--font-size-default: 1.125rem;
 	--font-size-content-heading: 1.5rem;
@@ -45,6 +46,7 @@ you've learned with others.
 
 	--color-background: #f6f6f6;
 	--color-foreground: #222;
+	--color-faded: #666;
 	--color-content-background: #f9f9f9;
 	--color-code-background: #e3e3e3;
 	--color-border-default: #ddd;
@@ -57,6 +59,7 @@ you've learned with others.
 	:root {
 		--color-background: #222;
 		--color-foreground: #f6f6f6;
+		--color-faded: #a8a8a8;
 		--color-content-background: #343434;
 		--color-code-background: #434343;
 		--color-border-default: #888;
@@ -602,11 +605,17 @@ iframe {
 	font-size: var(--font-size-base);
 }
 
-.multiple .type-post > p time,
 .type-like > p time,
-.type-shortnote > p time {
-	font-size: 0.8rem;
+.type-shortnote > p time,
+.multiple .type-post > p time {
+	font-size: var(--font-size-small);
 	line-height: 1.55;
+}
+
+.type-like .like-of-domain {
+	font-size: var(--font-size-small);
+	padding-left: 0.5rem;
+	color: var(--color-faded);
 }
 
 .type-like .more-likes li time,
