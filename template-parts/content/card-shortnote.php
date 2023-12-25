@@ -49,7 +49,7 @@ use ShortNotes\PostType\Note;
 
 <?php
 // If comments are open or there is at least one comment, load up the comment template.
-if ( is_singular( 'shortnote' ) && comments_open() || get_comments_number() ) {
+if ( is_singular( 'shortnote' ) && ( comments_open() || get_comments_number() ) ) {
 	comments_template(); // Outputs its own <section>.
 }
 ?>
