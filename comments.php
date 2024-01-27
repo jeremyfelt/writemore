@@ -33,7 +33,7 @@ if ( post_password_required() ) {
 		$comments = get_comments(
 			array(
 				'post_id' => get_the_ID(),
-				'status'  => 1,
+				'status'  => 'approve',
 				'fields'  => 'ids',
 			)
 		);
