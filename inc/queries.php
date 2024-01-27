@@ -25,7 +25,7 @@ function filter_queries( $query ) {
 		$query->set( 'posts_per_page', 25 );
 	}
 
-	if ( $query->is_archive( 'like' ) ) {
+	if ( $query->is_post_type_archive( 'like' ) ) {
 		$query->set( 'posts_per_page', 50 );
 	}
 }
