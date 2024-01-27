@@ -29,15 +29,13 @@
 	</div>
 
 	<?php if ( has_nav_menu( 'header-menu' ) ) : ?>
-	<nav id="site-navigation" aria-label="<?php esc_attr_e( 'Primary menu', 'writemore' ); ?>">
+	<nav aria-label="<?php esc_attr_e( 'Site navigation', 'writemore' ); ?>">
 		<?php
 		wp_nav_menu(
 			array(
 				'theme_location'  => 'header-menu',
-				'menu_class'      => 'menu-wrapper',
-				'container'       => false,
-				'container_class' => 'primary-menu-container',
-				'items_wrap'      => '<ul id="primary-menu-list">%3$s</ul>',
+				'container'       => '',
+				'items_wrap'      => '<ul>%3$s</ul>',
 				'fallback_cb'     => false,
 			)
 		);
