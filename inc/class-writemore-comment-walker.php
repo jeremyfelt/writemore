@@ -94,13 +94,13 @@ class Writemore_Comment_Walker extends Walker_Comment {
 			$moderation_note = __( 'Your comment is awaiting moderation. This is a preview, your comment will be visible after it has been approved.' );
 		}
 
-		$url = get_comment_meta( $comment->comment_ID, 'webmention_source_url', true );
+		$url = get_comment_meta( (int) $comment->comment_ID, 'webmention_source_url', true );
 
 		if ( '' === $url ) {
 			$url = $comment->comment_author_url;
 		}
 
-		$author_url = get_comment_meta( $comment->comment_ID, 'semantic_linkbacks_author_url', true );
+		$author_url = get_comment_meta( (int) $comment->comment_ID, 'semantic_linkbacks_author_url', true );
 
 		if ( '' === $author_url ) {
 			$author_url = $url;
@@ -108,7 +108,7 @@ class Writemore_Comment_Walker extends Walker_Comment {
 
 		// An avatar URL is stored with a Webmention, even if an email is not provided. Look
 		// there before trying to build an avatar based on a comment's email.
-		$avatar = get_comment_meta( $comment->comment_ID, 'avatar', true );
+		$avatar = get_comment_meta( (int) $comment->comment_ID, 'avatar', true );
 
 		// If there is no stored avatar URL, use WordPress to make default assumptions.
 		if ( '' === $avatar ) {
