@@ -67,6 +67,14 @@ you've learned with others.
 	}
 }
 
+@media screen and (max-width: 700px) {
+
+	body {
+		--content-width: 100%;
+		--content-width-wide: 100%;
+	}
+}
+
 html,
 body {
 	height: 100%;
@@ -568,6 +576,18 @@ iframe {
 	}
 }
 
+.site-footer section {
+	max-width: calc(100% - var(--spacing-default));
+	margin-left: auto;
+	margin-right: auto;
+}
+
+.site-footer section > * {
+	max-width: var(--content-width);
+	margin-left: auto;
+	margin-right: auto;
+}
+
 .multiple .type-shortnote > .entry-content > * {
 	margin-left: 0;
 	margin-right: 0;
@@ -659,10 +679,4 @@ ul.wp-block-latest-posts {
 .posts-navigation {
 	max-width: var(--content-width);
 	margin: var(--spacing-large) auto var(--spacing-default);
-}
-
-.site-footer > * {
-	max-width: var(--content-width);
-	margin-left: auto;
-	margin-right: auto;
 }
