@@ -97,7 +97,7 @@ section {
 
 main {
 	max-width: calc(100% - var(--spacing-default));
-	min-height: 100vh;
+	min-height: calc(100vh - var(--spacing-large) - 2rem - 325px);
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -122,6 +122,10 @@ article header {
 
 a {
 	color: var(--color-link);
+}
+
+main ~ footer a {
+	color: var(--color-content-background);
 }
 
 article header a {
@@ -248,12 +252,16 @@ button:hover {
 
 main ~ footer {
 	height: 175px;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
-	max-width: var(--content-width);
-	margin: 0 auto;
+	margin: var(--spacing-default) auto 0;
+	padding-top: var(--spacing-base);
+	padding-bottom: var(--spacing-default);
 	font-size: var(--font-size-base);
+	background: var(--color-link);
+	color: var(--color-content-background);
 }
 
 main ~ footer div {

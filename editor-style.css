@@ -32,6 +32,7 @@ you've learned with others.
 	--sans-serif: inter, sans-serif;
 	--monospace: monaspace, monospace;
 
+	--font-size-small: 0.8rem;
 	--font-size-base: 1rem;
 	--font-size-default: 1.125rem;
 	--font-size-content-heading: 1.5rem;
@@ -45,6 +46,7 @@ you've learned with others.
 
 	--color-background: #f6f6f6;
 	--color-foreground: #222;
+	--color-faded: #666;
 	--color-content-background: #f9f9f9;
 	--color-code-background: #e3e3e3;
 	--color-border-default: #ddd;
@@ -57,6 +59,7 @@ you've learned with others.
 	:root {
 		--color-background: #222;
 		--color-foreground: #f6f6f6;
+		--color-faded: #a8a8a8;
 		--color-content-background: #343434;
 		--color-code-background: #434343;
 		--color-border-default: #888;
@@ -102,7 +105,8 @@ section {
 main {
 	max-width: calc(100% - 3rem);
 	max-width: calc(100% - var(--spacing-default));
-	min-height: 100vh;
+	min-height: calc(100vh - 6rem - 2rem - 325px);
+	min-height: calc(100vh - var(--spacing-large) - 2rem - 325px);
 	margin-left: auto;
 	margin-right: auto;
 }
@@ -130,6 +134,11 @@ article header {
 a {
 	color: #2271b1;
 	color: var(--color-link);
+}
+
+main ~ footer a {
+	color: #f9f9f9;
+	color: var(--color-content-background);
 }
 
 article header a {
@@ -288,14 +297,22 @@ button:hover {
 
 main ~ footer {
 	height: 175px;
+	width: 100%;
 	display: flex;
 	flex-direction: column;
 	justify-content: end;
-	max-width: 640px;
-	max-width: var(--content-width);
-	margin: 0 auto;
+	margin: 3rem auto 0;
+	margin: var(--spacing-default) auto 0;
+	padding-top: 1rem;
+	padding-top: var(--spacing-base);
+	padding-bottom: 3rem;
+	padding-bottom: var(--spacing-default);
 	font-size: 1rem;
 	font-size: var(--font-size-base);
+	background: #2271b1;
+	background: var(--color-link);
+	color: #f9f9f9;
+	color: var(--color-content-background);
 }
 
 main ~ footer div {
@@ -705,11 +722,20 @@ iframe {
 	font-size: var(--font-size-base);
 }
 
-.multiple .type-post > p time,
 .type-like > p time,
-.type-shortnote > p time {
+.type-shortnote > p time,
+.multiple .type-post > p time {
 	font-size: 0.8rem;
+	font-size: var(--font-size-small);
 	line-height: 1.55;
+}
+
+.type-like .like-of-domain {
+	font-size: 0.8rem;
+	font-size: var(--font-size-small);
+	padding-left: 0.5rem;
+	color: #666;
+	color: var(--color-faded);
 }
 
 .type-like .more-likes li time,
