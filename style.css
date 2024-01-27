@@ -587,12 +587,11 @@ iframe {
 	max-width: calc(100% - var(--spacing-default));
 	margin-left: auto;
 	margin-right: auto;
+	text-align: center;
 }
 
 .site-footer section > * {
 	max-width: var(--content-width);
-	margin-left: auto;
-	margin-right: auto;
 }
 
 .multiple .type-shortnote > .entry-content > * {
