@@ -258,6 +258,14 @@ blockquote {
 	margin: var(--spacing-default) 0;
 }
 
+@media screen and (max-width: 700px) {
+
+	blockquote {
+		padding: 0 1rem 1rem;
+		padding: 0 var(--spacing-base) var(--spacing-base);
+	}
+}
+
 blockquote p {
 	margin-bottom: 0;
 }
