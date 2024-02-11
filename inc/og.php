@@ -15,9 +15,18 @@ add_action( 'wp_head', __NAMESPACE__ . '\add_meta_tags' );
  * @return void
  */
 function add_meta_tags(): void {
+	// Do not output extra meta if Yoast is active.
+	if ( function_exists( 'wpseo_init' ) ) {
+		return;
+	}
+
+	$writemore_tagline = get_bloginfo( 'description', 'display' );
+	if ( ! $writemore_tagline ) {
+		$writemore_tagline = get_bloginfo( 'name' );
+	}
 
 	?>
-	<meta property="og:site_name" content="Jeremy Felt"/>
+	<meta property="og:site_name" content="<?php echo esc_attr( $writemore_tagline ); ?>"/>
 	<?php
 
 	if ( is_single() ) {
