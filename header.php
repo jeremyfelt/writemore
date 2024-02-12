@@ -37,10 +37,10 @@ if ( ! $writemore_tagline ) {
 		<?php
 		wp_nav_menu(
 			array(
-				'theme_location'  => 'header-menu',
-				'container'       => '',
-				'items_wrap'      => '<ul>%3$s</ul>',
-				'fallback_cb'     => false,
+				'theme_location' => 'header-menu',
+				'container'      => '',
+				'items_wrap'     => '<ul>%3$s</ul>',
+				'fallback_cb'    => false,
 			)
 		);
 		?>
