@@ -13,7 +13,7 @@
 		get_the_author_meta( 'ID' ),
 		300,
 		'',
-		"Jeremy's profile photo: a selfie taken while walking through Berlin.",
+		apply_filters( 'writemore_author_avatar_alt_text', '' ),
 		array(
 			'class' => 'u-photo',
 		)
