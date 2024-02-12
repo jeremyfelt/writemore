@@ -6,21 +6,19 @@
  */
 
 ?>
-	</main><!-- #main -->
+</main><!-- #main -->
 
-	<?php
-	if ( is_active_sidebar( 'writemore-footer' ) ) {
-		?>
-		<footer id="colophon" class="site-footer" role="contentinfo">
-			<section>
-				<?php dynamic_sidebar( 'writemore-footer' ); ?>
-			</section>
-		</footer>
-		<?php
-	}
+<?php
+if ( is_active_sidebar( 'writemore-footer' ) ) {
 	?>
-
-</div><!-- #page -->
+	<footer id="colophon" class="site-footer" role="contentinfo">
+		<section>
+			<?php dynamic_sidebar( 'writemore-footer' ); ?>
+		</section>
+	</footer>
+	<?php
+}
+?>
 
 <?php wp_footer(); ?>
 
