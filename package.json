@@ -1,6 +1,6 @@
 {
 	"name": "writemore",
-	"version": "2.0.0",
+	"version": "3.0.1",
 	"description": "A WordPress theme.",
 	"devDependencies": {
 		"@wordpress/scripts": "^27.3.0",
