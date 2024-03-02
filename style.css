@@ -44,7 +44,7 @@ you've learned with others.
 	--spacing-default: 3rem;
 	--spacing-large: 6rem;
 
-	--color-background: #f6f6f6;
+	--color-background: #fbfbfb;
 	--color-foreground: #222;
 	--color-faded: #666;
 	--color-content-background: #f9f9f9;
@@ -330,7 +330,7 @@ iframe {
 .site-branding p {
 	font-size: var(--font-size-content-heading);
 	font-weight: 700;
-	margin-top: var(--spacing-base);
+	margin-top: var(--spacing-default);
 	margin-bottom: var(--spacing-base);
 }
 
@@ -669,6 +669,7 @@ iframe {
 	padding-top: var(--spacing-base);
 }
 
+.wp-block-latest-posts .type-post,
 .weekly-preview {
 	margin-bottom: var(--spacing-base);
 }
