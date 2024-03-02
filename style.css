@@ -669,6 +669,7 @@ iframe {
 	padding-top: var(--spacing-base);
 }
 
+.wp-block-latest-posts .type-post,
 .weekly-preview {
 	margin-bottom: var(--spacing-base);
 }
