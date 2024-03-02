@@ -57,6 +57,30 @@ function setup_theme_support() {
 		)
 	);
 
+	register_sidebar(
+		array(
+			'name'          => __( 'Author Bio' ),
+			'id'            => 'writemore-author-bio',
+			'description'   => __( 'Widgets in this area will be shown in the author bio.' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
+	register_sidebar(
+		array(
+			'name'          => __( 'Footer' ),
+			'id'            => 'writemore-footer',
+			'description'   => __( 'Widgets in this area will be shown in the site footer.' ),
+			'before_widget' => '',
+			'after_widget'  => '',
+			'before_title'  => '',
+			'after_title'   => '',
+		)
+	);
+
 	// Clear the default editor styles, register support, and then enqueue our own.
 	remove_editor_styles();
 	add_theme_support( 'editor-styles' );

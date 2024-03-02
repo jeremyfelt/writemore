@@ -13,18 +13,18 @@
 		get_the_author_meta( 'ID' ),
 		300,
 		'',
-		"Jeremy's profile photo: a selfie taken while walking through Berlin.",
+		apply_filters( 'writemore_author_avatar_alt_text', '' ),
 		array(
 			'class' => 'u-photo',
 		)
 	);
+
+	if ( is_active_sidebar( 'writemore-author-bio' ) ) {
+		?>
+		<div class="author-bio-content">
+			<?php dynamic_sidebar( 'writemore-author-bio' ); ?>
+		</div>
+		<?php
+	}
 	?>
-	<div class="author-bio-content">
-		<p class="author-name">
-			<a href="<?php echo esc_url( site_url() ); ?>" class="u-url p-name"><?php echo get_the_author(); ?></a> wrote this
-			and published it on the internet. His <a href="<?php echo esc_url( site_url( '/about/' ) ); ?>">about</a> or
-			<a href="<?php echo esc_url( site_url( '/now/' ) ); ?>">now</a> pages may have more.
-		</p>
-		<p>Unless otherwise expressly stated, the content above is licensed under a CC BY-SA 4.0 International License.</p>
-	</div>
 </div>
