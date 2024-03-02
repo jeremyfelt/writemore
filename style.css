@@ -330,7 +330,7 @@ iframe {
 .site-branding p {
 	font-size: var(--font-size-content-heading);
 	font-weight: 700;
-	margin-top: var(--spacing-base);
+	margin-top: var(--spacing-default);
 	margin-bottom: var(--spacing-base);
 }
 
