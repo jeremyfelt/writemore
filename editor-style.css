@@ -4,7 +4,7 @@ Theme URI: http://github.com/jeremyfelt/writemore
 Author: Jeremy Felt
 Author URI: https://jeremyfelt.com
 Description: A theme to encourage more writing.
-Version: 3.0.0
+Version: 3.0.1
 License: GNU General Public License v2 or later
 License URI: LICENSE
 Text Domain: writemore
@@ -44,7 +44,7 @@ you've learned with others.
 	--spacing-default: 3rem;
 	--spacing-large: 6rem;
 
-	--color-background: #f6f6f6;
+	--color-background: #fbfbfb;
 	--color-foreground: #222;
 	--color-faded: #666;
 	--color-content-background: #f9f9f9;
@@ -81,7 +81,7 @@ body {
 }
 
 body {
-	background: #f6f6f6;
+	background: #fbfbfb;
 	background: var(--color-background);
 	color: #222;
 	color: var(--color-foreground);
@@ -230,7 +230,7 @@ code {
 }
 
 pre {
-	background: #f6f6f6;
+	background: #fbfbfb;
 	background: var(--color-background);
 	border-left: 6px solid #e3e3e3;
 	border-left: 6px solid var(--color-code-background);
@@ -296,7 +296,7 @@ button {
 	vertical-align: top;
 	background: #222;
 	background: var(--color-foreground);
-	color: #f6f6f6;
+	color: #fbfbfb;
 	color: var(--color-background);
 	border: 1px solid #222;
 	border: 1px solid var(--color-foreground);
@@ -305,7 +305,7 @@ button {
 }
 
 button:hover {
-	background: #f6f6f6;
+	background: #fbfbfb;
 	background: var(--color-background);
 	color: #222;
 	color: var(--color-foreground);
@@ -348,8 +348,7 @@ iframe {
 .screen-reader-text {
 	border: 0;
 	clip: rect(1px, 1px, 1px, 1px);
-	-webkit-clip-path: inset(50%);
-	        clip-path: inset(50%);
+	clip-path: inset(50%);
 	height: 1px;
 	margin: -1px;
 	overflow: hidden;
@@ -363,8 +362,7 @@ iframe {
 	background-color: #ddd;
 	background-color: var(--color-border-default);
 	clip: auto !important;
-	-webkit-clip-path: none;
-	        clip-path: none;
+	clip-path: none;
 	color: #222;
 	color: var(--color-foreground);
 	display: block;
@@ -389,8 +387,8 @@ iframe {
 	font-size: 1.5rem;
 	font-size: var(--font-size-content-heading);
 	font-weight: 700;
-	margin-top: 1rem;
-	margin-top: var(--spacing-base);
+	margin-top: 3rem;
+	margin-top: var(--spacing-default);
 	margin-bottom: 1rem;
 	margin-bottom: var(--spacing-base);
 }
@@ -414,6 +412,17 @@ iframe {
 	max-width: 1024px;
 	max-width: var(--content-width-wide);
 	height: auto;
+}
+
+.wp-element-caption {
+	font-style: italic;
+	font-size: 0.9rem;
+}
+
+.wp-block-verse {
+	font-style: italic;
+	font-family: inter, sans-serif;
+	font-family: var(--sans-serif);
 }
 
 .published-wrapper {
@@ -542,7 +551,7 @@ iframe {
 	width: initial;
 	background: #222;
 	background: var(--color-foreground);
-	color: #f6f6f6;
+	color: #fbfbfb;
 	color: var(--color-background);
 	border: 1px solid #222;
 	border: 1px solid var(--color-foreground);
@@ -554,7 +563,7 @@ iframe {
 }
 
 .comment-form .submit:hover {
-	background: #f6f6f6;
+	background: #fbfbfb;
 	background: var(--color-background);
 	color: #222;
 	color: var(--color-foreground);
@@ -788,6 +797,7 @@ iframe {
 	padding-top: var(--spacing-base);
 }
 
+.wp-block-latest-posts .type-post,
 .weekly-preview {
 	margin-bottom: 1rem;
 	margin-bottom: var(--spacing-base);
