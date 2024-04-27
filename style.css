@@ -351,6 +351,16 @@ iframe {
 	height: auto;
 }
 
+.wp-element-caption {
+	font-style: italic;
+	font-size: 0.9rem;
+}
+
+.wp-block-verse {
+	font-style: italic;
+	font-family: var(--sans-serif);
+}
+
 .published-wrapper {
 	display: flex;
 	flex-direction: column;
