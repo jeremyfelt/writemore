@@ -3,11 +3,10 @@
 	"version": "3.0.1",
 	"description": "A WordPress theme.",
 	"devDependencies": {
-		"@wordpress/scripts": "^27.3.0",
-		"@wordpress/stylelint-config": "^21.35.0",
+		"@wordpress/stylelint-config": "^21.39.0",
 		"postcss-cli": "^11.0.0",
-		"postcss-import": "^16.0.1",
-		"postcss-preset-env": "^9.4.0"
+		"postcss-import": "^16.1.0",
+		"postcss-preset-env": "^9.5.9"
 	},
 	"scripts": {
 		"build": "npm run build:theme",
