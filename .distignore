@@ -1,0 +1,14 @@
+.distignore
+.git
+.github
+.gitignore
+.postcssrc.js
+.stylelintrc
+composer.json
+composer.lock
+package-lock.json
+package.json
+phpcs.xml
+phpstan.neon.dist
+vendor/
+node_modules
