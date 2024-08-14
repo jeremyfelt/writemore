@@ -49,7 +49,9 @@ you've learned with others.
 	--color-faded: #666;
 	--color-content-background: #f9f9f9;
 	--color-code-background: #e3e3e3;
+	--color-blockquote-background: #f2f7fb;
 	--color-border-default: #ddd;
+	--color-blockquote-border: #a6c2e7;
 	--color-link: #2271b1;
 	--color-context-reply: rgb(127, 255, 212);
 }
@@ -62,6 +64,7 @@ you've learned with others.
 		--color-faded: #a8a8a8;
 		--color-content-background: #343434;
 		--color-code-background: #434343;
+		--color-blockquote-background: var(--color-background);
 		--color-border-default: #888;
 		--color-link: #00c2e1;
 	}
@@ -248,32 +251,52 @@ cite {
 }
 
 blockquote {
-	font-size: 0.95rem;
-	font-style: italic;
-	border-left: 6px solid #e3e3e3;
-	border-left: 6px solid var(--color-code-background);
-	padding: 0 calc(3rem - 6px) 1rem;
-	padding: 0 calc(var(--spacing-default) - 6px) var(--spacing-base);
+	font-size: 1rem;
+	font-style: normal;
+	background: #f2f7fb;
+	background: var(--color-blockquote-background);
+	border-left: 1.1rem solid #a6c2e7;
+	border-left: 1.1rem solid var(--color-blockquote-border);
+	border-radius: 5px;
+	padding: 1rem calc(3rem - 1.1rem) 1rem;
+	padding: var(--spacing-base) calc(var(--spacing-default) - 1.1rem) var(--spacing-base);
 	margin: 3rem 0;
 	margin: var(--spacing-default) 0;
+}
+
+blockquote p {
+		margin-bottom: 0;
+	}
+
+blockquote p:first-of-type {
+		margin-top: 0;
+	}
+
+blockquote cite {
+		display: inline-block;
+		margin-top: 1rem;
+		margin-top: var(--spacing-base);
+	}
+
+@media (prefers-color-scheme: dark) {
+
+	blockquote {
+		border: 2px solid #a6c2e7;
+		border: 2px solid var(--color-blockquote-border);
+		border-left-width: 1.1rem;
+	}
 }
 
 @media screen and (max-width: 700px) {
 
 	blockquote {
-		padding: 0 1rem 1rem;
-		padding: 0 var(--spacing-base) var(--spacing-base);
+		border-left-width: calc(1rem / 2);
+		border-left-width: calc(var(--spacing-base) / 2);
+		padding-left: 1rem;
+		padding-left: var(--spacing-base);
+		padding-right: 1rem;
+		padding-right: var(--spacing-base);
 	}
-}
-
-blockquote p {
-	margin-bottom: 0;
-}
-
-blockquote cite {
-	display: inline-block;
-	margin-top: 1rem;
-	margin-top: var(--spacing-base);
 }
 
 img {
