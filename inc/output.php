@@ -311,3 +311,71 @@ function other_likes(): void {
 	}
 	wp_reset_postdata();
 }
+
+/**
+ * Output posts from this week in previous years.
+ *
+ * @return void
+ */
+function this_week_in(): void {
+
+	$week = (int) get_the_date( 'W' );
+
+	$posts = new \WP_Query(
+		[
+			'post_type'              => 'post',
+			'posts_per_page'         => 10,
+			'post__not_in'           => [ get_the_ID() ],
+			'update_post_meta_cache' => false,
+			'update_post_term_cache' => false,
+			'date_query'             => [
+				'week' => $week,
+			],
+			'tax_query'              => [
+				[
+					'taxonomy' => 'post_tag',
+					'field'    => 'slug',
+					'terms'    => [ 'weeknotes' ],
+					'operator' => 'IN',
+				],
+			],
+		]
+	);
+
+	if ( $posts->have_posts() ) {
+		$weeks = [];
+
+		while ( $posts->have_posts() ) {
+			$posts->the_post();
+
+			$date = new \DateTime( get_the_time( 'c' ) );
+
+			$weeks[] = [
+				'year' => $date->format( 'Y' ),
+				'link' => get_the_permalink(),
+			];
+		}
+
+		$week_links = [];
+
+		foreach ( $weeks as $week ) {
+			$week_links[] = '<a href="' . esc_url( $week['link'] ) . '">' . esc_html( $week['year'] ) . '</a>';
+		}
+
+		if ( 1 === count( $week_links ) ) {
+			?>
+			<p>This week also appears in <?php echo $week_links[0]; ?>.</p>
+			<?php
+		} elseif ( 2 === count( $week_links ) ) {
+			?>
+			<p>This week also appears in <?php echo implode( ' and ', $week_links ); ?>.</p>
+			<?php
+		} else {
+			$last = array_pop( $week_links );
+			?>
+			<p>This week also appears in <?php echo implode( ', ', $week_links ); ?>, and <?php echo $last; ?>.</p>
+			<?php
+		}
+	}
+	wp_reset_postdata();
+}

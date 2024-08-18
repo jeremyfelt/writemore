@@ -44,6 +44,15 @@ use Writemore\Output;
 	<footer class="entry-footer">
 		<?php
 		Output\published();
+
+		if ( has_tag( 'weeknotes' ) ) {
+			?>
+			<section class="other-weeks">
+				<?php Output\this_week_in(); ?>
+			</section>
+			<?php
+		}
+
 		get_template_part( 'template-parts/author-bio' );
 		?>
 	</footer>
