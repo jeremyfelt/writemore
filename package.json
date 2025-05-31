@@ -11,7 +11,8 @@
 	},
 	"scripts": {
 		"build": "npm run build:theme",
-		"build:theme": "npm run postcss:editor",
+		"build:theme": "npm run postcss:theme && npm run postcss:editor",
+		"postcss:theme": "postcss -o style.css style.css",
 		"postcss:editor": "postcss -o editor-style.css style.css",
 		"lint": "npm run lint:styles",
 		"lint:styles": "stylelint style.css"
