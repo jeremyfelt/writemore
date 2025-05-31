@@ -775,6 +775,7 @@ iframe {
 	margin: 0;
 }
 
+.type-post .other-weeks li,
 .type-like .more-likes li,
 .type-shortnote .more-notes li {
 	list-style: none;
@@ -810,6 +811,17 @@ iframe {
 	margin-top: 1rem;
 	margin-top: var(--spacing-base);
 }
+
+.other-weeks {
+	margin-top: 6rem;
+	margin-top: var(--spacing-large);
+	border-top: 1px solid #ddd;
+	border-top: 1px solid var(--color-border-default);
+}
+
+.other-weeks  ~ .author-bio {
+		border-top: 0;
+	}
 
 .more-likes h2,
 .more-notes h2 {

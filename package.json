@@ -3,10 +3,11 @@
 	"version": "3.0.1",
 	"description": "A WordPress theme.",
 	"devDependencies": {
-		"@wordpress/stylelint-config": "^22.5.0",
-		"postcss-cli": "^11.0.0",
+		"@happyprime/postcss-config": "*",
+		"@happyprime/stylelint-config": "*",
+		"postcss-cli": "^11.0.1",
 		"postcss-import": "^16.1.0",
-		"postcss-preset-env": "^10.0.0"
+		"postcss-preset-env": "^10.2.0"
 	},
 	"scripts": {
 		"build": "npm run build:theme",
