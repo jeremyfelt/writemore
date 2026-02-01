@@ -313,6 +313,83 @@ function other_likes(): void {
 }
 
 /**
+ * Display a group of other workouts to accompany the current workout.
+ *
+ * The next workout. The prior workout. The most recent workout. Two random workouts.
+ */
+function other_workouts(): void {
+	global $wpdb;
+
+	$next_workout_ids = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' AND ID > %d ORDER BY ID ASC LIMIT 1",
+			'hwt_workout',
+			get_the_ID()
+		)
+	);
+	$next_workout_ids = wp_list_pluck( $next_workout_ids, 'ID' );
+
+	$prior_workout_ids = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' AND ID < %d ORDER BY ID DESC LIMIT 1",
+			'hwt_workout',
+			get_the_ID()
+		)
+	);
+	$prior_workout_ids = wp_list_pluck( $prior_workout_ids, 'ID' );
+
+	$recent_workout_ids = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' ORDER BY ID DESC LIMIT 1",
+			'hwt_workout'
+		)
+	);
+	$recent_workout_ids = wp_list_pluck( $recent_workout_ids, 'ID' );
+
+	$random_workout_ids = $wpdb->get_results(
+		$wpdb->prepare(
+			"SELECT ID FROM $wpdb->posts WHERE post_type = %s AND post_status = 'publish' ORDER BY RAND() LIMIT 2",
+			'hwt_workout'
+		)
+	);
+	$random_workout_ids = wp_list_pluck( $random_workout_ids, 'ID' );
+
+	$other_workout_ids = array_merge( $next_workout_ids, $prior_workout_ids, $recent_workout_ids, $random_workout_ids );
+	$other_workout_ids = array_unique( $other_workout_ids );
+	$other_workout_ids = array_diff( $other_workout_ids, [ get_the_ID() ] );
+
+	if ( empty( $other_workout_ids ) ) {
+		return;
+	}
+
+	$other_workouts = new \WP_Query(
+		[
+			'post_type'              => 'hwt_workout',
+			'post__in'               => $other_workout_ids,
+			'update_post_meta_cache' => false,
+			'update_post_term_cache' => false,
+		]
+	);
+
+	if ( $other_workouts->have_posts() ) {
+		?>
+		<h2>Other workouts</h2>
+		<ul>
+		<?php
+		while ( $other_workouts->have_posts() ) {
+			$other_workouts->the_post();
+			?>
+			<li><?php published( 'basic' ); ?> <?php echo esc_html( get_the_title() ); ?></li>
+			<?php
+		}
+		?>
+		</ul>
+		<?php
+	}
+	wp_reset_postdata();
+}
+
+/**
  * Output posts from this week in previous years.
  *
  * @return void

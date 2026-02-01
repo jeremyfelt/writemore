@@ -5,6 +5,12 @@
  * @package writemore
  */
 
+// Load Composer autoloader for league/commonmark and other dependencies.
+if ( file_exists( __DIR__ . '/vendor/autoload.php' ) ) {
+	require_once __DIR__ . '/vendor/autoload.php';
+}
+
+require_once __DIR__ . '/inc/markdown.php';
 require_once __DIR__ . '/inc/template-functions.php';
 require_once __DIR__ . '/inc/content-aggregator-block.php';
 require_once __DIR__ . '/inc/class-writemore-comment-walker.php';

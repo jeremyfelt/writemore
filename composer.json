@@ -29,5 +29,8 @@
 		"platform": {
 			"php": "8.0"
 		}
+	},
+	"require": {
+		"league/commonmark": "^2.8"
 	}
 }
