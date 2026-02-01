@@ -16,6 +16,8 @@ if ( 'shortnote' === get_post_type() ) {
 	$writemore_description = 'A list of pages I\'ve found interesting.';
 } elseif ( 'post' === get_post_type() ) {
 	$writemore_description = 'For things with titles.';
+} elseif ( 'hwt_workout' === get_post_type() ) {
+	$writemore_description = 'A log of workouts.';
 }
 
 ?>

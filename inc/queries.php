@@ -28,4 +28,8 @@ function filter_queries( $query ) {
 	if ( $query->is_post_type_archive( 'like' ) ) {
 		$query->set( 'posts_per_page', 50 );
 	}
+
+	if ( $query->is_post_type_archive( 'hwt_workout' ) ) {
+		$query->set( 'posts_per_page', 25 );
+	}
 }
